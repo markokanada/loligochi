@@ -19,5 +19,12 @@ class Viewer(ABC):
         Load the different menus by the given argument, which is an ID of a static collection.
         Implementation is in progress.
         """
-        pass    
-
+        pass  
+      
+    @abstractmethod
+    def ImageLoader(self, image):
+        """
+        Load the different menus by the given argument, which is an image in a specified raw format.
+        Implementation is in progress.
+        """
+        pass
