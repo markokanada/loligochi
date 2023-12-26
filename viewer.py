@@ -28,12 +28,28 @@ class Viewer(ABC):
         Implementation is in progress.
         """
         pass
-    
+
     @abstractmethod
     def ChampionSelector(self, championID):
         """
         Its a special UILoader, because this function require a championID which is the selcted champion which we want to grow,
         and with this information this function will set the enviromental informations, and load the graphics.
+        Implementation is in progress.
+        """
+        pass
+
+    @abstractmethod
+    def refresh(self):
+        """
+        Refresh the contents of the view.
+        Implementation is in progress.
+        """
+        pass
+
+    @abstractmethod
+    def close(self):
+        """
+        Close the viewer.
         Implementation is in progress.
         """
         pass
