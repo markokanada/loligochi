@@ -1,50 +1,38 @@
 import datetime
+import random
+from time_manager import TimeManager
 
-# időkezelés
-class TimeManager:
-    def __init__(self):
-        self.start_time = datetime.datetime.now()
-        self.last_check = self.start_time
+class Pet:
+    def __init__(self, name):
+        self.name = name
+        self.thirst = 0
+        self.age = 0
+        self.mood = "Happy"
+        self.level = 1
+        self.hp = 100
+        self.isSick = False
+        self.status = "Alive"
 
-    def get_current_time(self):
-        return datetime.datetime.now()
+class Environment:
+    def __init__(self, pet):
+        self.pet = pet
+        self.time_manager = TimeManager()
 
-    # Visszaadja az eltelt időt a legutóbbi ellenőrzés óta.
-    def get_elapsed_time(self):
-        now = self.get_current_time()
-        elapsed = now - self.last_check
-        self.last_check = now
-        return elapsed
+    def update_pet_status(self):
+        elapsed_time = self.time_manager.get_elapsed_time().total_seconds()
 
-    # Visszaadja az összes eltelt időt a kezdet óta.
-    def get_total_elapsed_time(self):
-        return datetime.datetime.now() - self.start_time
+        # Frissítjük a kisállat tulajdonságait az eltelt idő alapján
+        self.pet.thirst += elapsed_time * 0.02
+        self.pet.age += elapsed_time / 86400 
+        self.pet.hp -= (5 if self.pet.isSick else 1) * (elapsed_time * 0.01)
 
+        # állapotok beállítása
+        self.pet.thirst = min(100, self.pet.thirst)
+        self.pet.hp = max(0, self.pet.hp)
+        self.pet.status = "Dead" if self.pet.hp == 0 else "Alive"
 
+        self.pet.mood = "Grumpy" if self.pet.thirst > 50 else "Happy"
 
-# AIO
-class VirtualPet:
-    def __init__(self, hunger=0, energy=100):
-        self.hunger = hunger
-        self.energy = energy
-        self.last_update = datetime.datetime.now()
-
-    def update(self):
-        # Frissíti a kisállat állapotát az utolsó frissítés óta eltelt idő alapján.
-        now = datetime.datetime.now()
-        elapsed_time = (now - self.last_update).total_seconds()
-
-        # Az eltelt idő alapján frissítjük a kisállat éhségét és energiáját
-        self.hunger += elapsed_time * 0.01  
-        self.energy -= elapsed_time * 0.01 
-
-        # Korlátok beállítása
-        self.hunger = min(100, max(0, self.hunger))
-        self.energy = min(100, max(0, self.energy))
-
-        self.last_update = now
-
-    def display_status(self):
-        # Kiírja a kisállat jelenlegi állapotát.
-        print(f"Hunger: {self.hunger:.2f}, Energy: {self.energy:.2f}")
-
+    def random_sickness_event(self):
+        # Véletlenszerűen betegség állapotának beállítása
+        self.pet.isSick = random.choice([True, False])
