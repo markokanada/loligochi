@@ -8,6 +8,11 @@ class Entity:
                  deadVoicePath, normalVoicePath,
                  sickVoicePath, hungryVoicePath,
                  thirstyVoicePath, angryVoicePath,
+                 currentStatus, name,
+                 level, age,
+                 hp, hungerLevel,
+                 thirstLevel, isTheEntitySick,
+                 entitySicknesLevel
                  ):
         self.DeadImg = Image.open(deadImgPath)
         self.NormalImg = Image.open(normalImgPath)
@@ -20,4 +25,13 @@ class Entity:
         self.HungryVoice = AudioSegment.from_file(hungryVoicePath)
         self.ThirstyVoice = AudioSegment.from_file(thirstyVoicePath)
         self.AngryVoice = AudioSegment.from_file(angryVoicePath)
+        self.CurrentStatus = currentStatus
+        self.Name = name
+        self.Level = level
+        self.Age = age
+        self.Hp = hp
+        self.HungerLevel = hungerLevel
+        self.thirstLevel = thirstLevel
+        self.IsTheEntitySick = isTheEntitySick
+        self.EntitySicknesLevel = entitySicknesLevel
         
