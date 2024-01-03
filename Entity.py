@@ -31,7 +31,7 @@ class Entity:
         self.Age = age
         self.Hp = hp
         self.HungerLevel = hungerLevel
-        self.thirstLevel = thirstLevel
+        self.ThirstLevel = thirstLevel
         self.IsTheEntitySick = isTheEntitySick
         self.EntitySicknesLevel = entitySicknesLevel
         @property
@@ -94,3 +94,39 @@ class Entity:
         @property
         def EntitySicknesLevel(self):
             return self.EntitySicknesLevel
+        
+        @CurrentStatus.setter
+        def CurrentStatus(self, value):
+            self.CurrentStatus = value
+        
+        @Name.setter
+        def Name(self, value):
+            self.Name = value
+            
+        @Level.setter
+        def Level(self, value):
+            self.Level = value
+        
+        @Age.setter
+        def Age(self, value):
+            self.Age = value
+        
+        @Hp.setter
+        def Hp(self, value):
+            self.Hp = value
+        
+        @HungerLevel.setter
+        def HungerLevel(self, value):
+            self.HungerLevel = value
+            
+        @ThirstLevel.setter
+        def ThirstLevel(self, value):
+            self.ThirstLevel = value
+            
+        @IsTheEntitySick.setter
+        def IsTheEntitySick(self, value):
+            self.IsTheEntitySick = value
+            
+        @EntitySicknesLevel.setter
+        def EntitySicknesLevel(self, value):
+            self.EntitySicknesLevel = value
