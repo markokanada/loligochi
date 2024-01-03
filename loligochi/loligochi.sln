@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loligochi-classlib", "loligochi-classlib\loligochi-classlib.csproj", "{7F1994D9-F3ED-4648-A90D-C60C67D77960}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loligochi-app", "loligochi-app\loligochi-app.csproj", "{0AFC566C-4A1F-41DC-9828-DD374FB98892}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7F1994D9-F3ED-4648-A90D-C60C67D77960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F1994D9-F3ED-4648-A90D-C60C67D77960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F1994D9-F3ED-4648-A90D-C60C67D77960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
