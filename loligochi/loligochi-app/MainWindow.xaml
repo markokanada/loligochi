@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:loligochi_app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Loligochi" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="39*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Image x:Name="Lux_Brand" Source="/normal.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Height="200" Margin="0,49,0,0"/>
 
+        <TextBlock x:Name="Welcome_Text" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Copperplate Gothic Bold" Margin="0,282,0,0" Width="700" FontSize="30" TextAlignment="Center" FontWeight="Bold">
+            Welcome to Summoner Rift's Loligochi!
+        </TextBlock>
+
+        <TextBlock x:Name="Press_E" TextAlignment="Center" FontSize="20" FontFamily="Copperplate Gothic Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,332,0,0">
+            Press E
+        </TextBlock>
     </Grid>
 </Window>

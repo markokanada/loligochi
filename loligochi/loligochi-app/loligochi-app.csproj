@@ -9,4 +9,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="normal.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="normal.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="src\images\lux\normal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
