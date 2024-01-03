@@ -22,6 +22,8 @@ namespace loligochi_app
             Welcome_Scene.Visibility = Visibility.Visible;
         }
 
+        
+
         public void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (Welcome_Scene.Visibility == Visibility.Visible && e.Key == Key.E)
@@ -52,5 +54,6 @@ namespace loligochi_app
         {
 
         }
+
     }
 }

@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         KeyDown="Window_KeyDown" Icon="/icon.png">
     <Grid>
-        <Grid x:Name="Welcome_Scene" Visibility="Visible">
+        <Grid x:Name="Welcome_Scene" Visibility="Hidden">
 
             <Image x:Name="Lux_Brand" Source="/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0"/>
 
@@ -31,12 +31,46 @@
                 <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large"/>
             </Grid.Background>
         </Grid>
-        <Grid x:Name="Main_Menu_Scene" Visibility="Hidden">
-            <Button Content="New game" HorizontalAlignment="Left" Margin="44,70,0,0" VerticalAlignment="Top" Height="40" Width="133" Click="New_Game_Button_Click"/>
-            <Button Content="Continue" HorizontalAlignment="Left" Margin="44,140,0,0" VerticalAlignment="Top" Height="40" Width="133" Click="Continue_Game_Button_Click"/>
-            <Button Content="Settings" HorizontalAlignment="Left" Margin="44,210,0,0" VerticalAlignment="Top" Height="40" Width="133" Click="Settings_Button_Click"/>
-            <Button Content="Credits" HorizontalAlignment="Left" Margin="44,280,0,0" VerticalAlignment="Top" Height="40" Width="133" Click="Credits_Button_Click"/>
-            <Button Content="Exit" HorizontalAlignment="Left" Margin="44,350,0,0" VerticalAlignment="Top" Height="40" Width="133" Click="Exit_Button_Click"/>
+        <Grid x:Name="Main_Menu_Scene" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large"/>
+            </Grid.Background>
+
+
+            <Button x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True">
+
+                <Button.Background >
+                    <ImageBrush  x:Name="New_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+
+            </Button>
+            <Button x:Name="Continue_Game_Button" Content="Continue" HorizontalAlignment="Left" Margin="20,205,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_Game_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow"  BorderBrush="{x:Null}">
+                <Button.Background >
+                    <ImageBrush x:Name="Continue_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Settings_Button" Content="Settings" HorizontalAlignment="Left" Margin="20,310,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Settings_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}">
+                <Button.Background >
+                    <ImageBrush x:Name="Settings_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Credits_Button" Content="Credits" HorizontalAlignment="Left" Margin="20,415,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Credits_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}">
+                <Button.Background >
+                    <ImageBrush x:Name="Credits_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+            <Button x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="20,520,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}">
+                <Button.Background >
+                    <ImageBrush x:Name="Exit_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+            <TextBlock x:Name="Loligochi_Title" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="430,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>Loligochi</TextBlock>
         </Grid>
     </Grid>
 </Window>

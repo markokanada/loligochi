@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:loligochi_app"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>
