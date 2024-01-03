@@ -34,4 +34,60 @@ class Entity:
         self.thirstLevel = thirstLevel
         self.IsTheEntitySick = isTheEntitySick
         self.EntitySicknesLevel = entitySicknesLevel
-        
+        @property
+        def DeadImg(self):
+            return self.DeadImg
+        @property
+        def NormalImg(self):
+            return self.NormalImg
+        @property
+        def HungryImg(self):
+            return self.HungryImg
+        @property
+        def ThirstImg(self):
+            return self.ThirstImg
+        @property
+        def AngryImg(self):
+            return self.AngryImg
+        @property
+        def DeadVoice(self):
+            return self.DeadVoice
+        @property
+        def NormalVoice(self):
+            return self.NormalVoice
+        @property
+        def SickVoice(self):
+            return self.SickVoice
+        @property
+        def HungryVoice(self):
+            return self.HungryVoice
+        @property
+        def ThirstyVoice(self):
+            return self.ThirstyVoice
+        @property
+        def AngryVoice(self):
+            return self.AngryVoice
+        @property
+        def CurrentStatus(self):
+            return self.CurrentStatus
+        @property
+        def Name(self):
+                return self.Name       
+        @property
+        def Level(self):
+            return self.Level
+        @property
+        def Age(self):
+            return self.Hp
+        @property
+        def HungerLevel(self):
+            return self.HungerLevel
+        @property
+        def ThirstLevel(self):
+            return self.ThirstLevel
+        @property
+        def IsTheEntitySick(self):
+            return self.IsTheEntitySick
+        @property
+        def EntitySicknesLevel(self):
+            return self.EntitySicknesLevel
