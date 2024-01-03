@@ -30,5 +30,27 @@ namespace loligochi_app
                 Main_Menu_Scene.Visibility = Visibility.Visible;
             }
         }
+
+        private void New_Game_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Continue_Game_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Settings_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Credits_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

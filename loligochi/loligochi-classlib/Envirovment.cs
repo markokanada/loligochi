@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace loligochi_classlib
 {
-    internal class environment
+    internal class Envirovment
     {
         //////////public class Pet
         //////////{
@@ -38,13 +38,13 @@ namespace loligochi_classlib
         public class Environment
         {
             private Entity Pet { get; set; }
-            private time_manager TimeManager { get; set; }
+            private TimeManager TimeManager { get; set; }
             private Random RandomGenerator { get; set; }
 
             public Environment(Entity pet)
             {
                 Pet = pet;
-                TimeManager = new time_manager();
+                TimeManager = new TimeManager();
                 RandomGenerator = new Random();
             }
 
@@ -93,7 +93,7 @@ namespace loligochi_classlib
                 string jsonString = File.ReadAllText(filePath);
                 var pet = JsonSerializer.Deserialize<Entity>(jsonString);
 
-                return pet;
+                return pet!;
             }
         }
 

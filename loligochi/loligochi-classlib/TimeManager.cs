@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace loligochi_classlib
 {
-    internal class time_manager
+    internal class TimeManager
     {
         private DateTime StartTime { get; set; }
         private DateTime LastCheck { get; set; }
 
-        public time_manager()
+        public TimeManager()
         {
             StartTime = DateTime.Now;
             LastCheck = StartTime;

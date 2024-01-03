@@ -10,16 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="icon.png" />
-    <None Remove="normal.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="icon.png" />
-    <Resource Include="normal.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="src\images\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
