@@ -19,6 +19,16 @@ namespace loligochi_app
         public MainWindow()
         {
             InitializeComponent();
+            Welcome_Scene.Visibility = Visibility.Visible;
+        }
+
+        public void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Welcome_Scene.Visibility == Visibility.Visible && e.Key == Key.E)
+            {
+                Welcome_Scene.Visibility = Visibility.Hidden;
+                Main_Menu_Scene.Visibility = Visibility.Visible;
+            }
         }
     }
 }
