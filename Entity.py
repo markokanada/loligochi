@@ -78,6 +78,9 @@ class Entity:
             return self.Level
         @property
         def Age(self):
+            return self.Age
+        @property
+        def Hp(self):
             return self.Hp
         @property
         def HungerLevel(self):
