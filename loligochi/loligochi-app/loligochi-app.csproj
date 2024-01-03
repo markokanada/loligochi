@@ -10,7 +10,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="src\images\icon.png">
+    <None Remove="background.jpg_large" />
+    <None Remove="background.webp" />
+    <None Remove="brand_lux.png" />
+    <None Remove="icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="background.jpg_large" />
+    <Resource Include="background.webp" />
+    <Resource Include="brand_lux.png" />
+    <Resource Include="icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="src\images\assets\background.jpg_large">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="src\images\assets\brand_lux.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="src\images\assets\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="src\images\lux\normal.png">
