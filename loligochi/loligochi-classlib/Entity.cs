@@ -26,13 +26,13 @@ namespace loligochi_classlib
 
         public string CurrentStatus { get; set; }
         public string Name { get; set; }
-        public int Level { get; set; }
-        public int Age { get; set; }
-        public int Hp { get; set; }
-        public int HungerLevel { get; set; }
-        public int ThirstLevel { get; set; }
+        public double Level { get; set; }
+        public double Age { get; set; }
+        public double Hp { get; set; }
+        public double HungerLevel { get; set; }
+        public double ThirstLevel { get; set; }
         public bool IsTheEntitySick { get; set; }
-        public int EntitySicknessLevel { get; set; }
+        public double EntitySicknessLevel { get; set; }
 
         public Entity(string deadImgPath, string normalImgPath, string hungryImgPath,
                       string thirstyImgPath, string angryImgPath, string deadVoicePath,
