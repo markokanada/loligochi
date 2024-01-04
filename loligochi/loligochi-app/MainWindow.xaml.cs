@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace loligochi_app
 {
@@ -16,13 +17,25 @@ namespace loligochi_app
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
+
             Welcome_Scene.Visibility = Visibility.Visible;
+
+            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
-        
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer.Stop();
+
+            welcome_sound.Play();
+        }
+
 
         public void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -30,8 +43,10 @@ namespace loligochi_app
             {
                 Welcome_Scene.Visibility = Visibility.Hidden;
                 Main_Menu_Scene.Visibility = Visibility.Visible;
+                
             }
         }
+
 
         private void New_Game_Button_Click(object sender, RoutedEventArgs e)
         {
