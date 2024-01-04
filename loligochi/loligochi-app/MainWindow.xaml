@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Loligochi" Height="720" Width="1280" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        KeyDown="Window_KeyDown" Icon="/icon.png">
+        KeyDown="Window_KeyDown" Icon="src/images/assets/icon.png">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -132,8 +132,8 @@
     </Window.Triggers>
     <Grid>
         <Grid x:Name="Welcome_Scene" Visibility="Visible">
-            <MediaElement x:Name="welcome_sound" Height="0" Width="0" Source="welcome-to-summoners-rift.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
-            <Image x:Name="Lux_Brand" Source="/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0">
+            <MediaElement x:Name="welcome_sound" Height="0" Width="0" Source="src/sounds/assets/welcome-to-summoners-rift.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
+            <Image x:Name="Lux_Brand" Source="src/images/assets/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0">
             </Image>
 
             <TextBlock x:Name="Welcome_Text" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Copperplate Gothic Bold" Margin="0,554,0,0" Width="1260" FontSize="46" TextAlignment="Center" FontWeight="Bold" Height="90" Foreground="White">
@@ -151,12 +151,12 @@
             </TextBlock>
 
             <Grid.Background>
-                <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large" Opacity="0"/>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large" Opacity="0"/>
             </Grid.Background>
         </Grid>
         <Grid x:Name="Main_Menu_Scene" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large"/>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
 
 
