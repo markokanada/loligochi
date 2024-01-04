@@ -8,10 +8,135 @@
         Title="Loligochi" Height="720" Width="1280" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         KeyDown="Window_KeyDown" Icon="/icon.png">
-    <Grid>
-        <Grid x:Name="Welcome_Scene" Visibility="Hidden">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <ImageBrush  x:Key="Button.MouseOver.Background"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="Transparent"/>
+        <ImageBrush  x:Key="Button.Pressed.Background"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="MainMenuButtons" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Key="FadeInBackground">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Opacity)"
+                                           Storyboard.TargetName="Welcome_Scene">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="AnimateImage">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                                           Storyboard.TargetName="Lux_Brand">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="450"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="450"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                           Storyboard.TargetName="Lux_Brand">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
 
-            <Image x:Name="Lux_Brand" Source="/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="AnimateText">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                                           Storyboard.TargetName="Welcome_Text">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="450"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="450"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                           Storyboard.TargetName="Welcome_Text">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                                           Storyboard.TargetName="Press_E">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="450"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="450"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                           Storyboard.TargetName="Press_E">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
+
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource AnimateImage}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource FadeInBackground}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource AnimateText}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid x:Name="Welcome_Scene" Visibility="Visible">
+
+            <Image x:Name="Lux_Brand" Source="/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0"/>
+                </Image.RenderTransform>
+            </Image>
 
             <TextBlock x:Name="Welcome_Text" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Copperplate Gothic Bold" Margin="0,554,0,0" Width="1260" FontSize="46" TextAlignment="Center" FontWeight="Bold" Height="90" Foreground="White">
                 <TextBlock.Effect>
@@ -28,16 +153,16 @@
             </TextBlock>
 
             <Grid.Background>
-                <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large"/>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large" Opacity="0"/>
             </Grid.Background>
         </Grid>
-        <Grid x:Name="Main_Menu_Scene" Visibility="Visible">
+        <Grid x:Name="Main_Menu_Scene" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="/background.jpg_large"/>
             </Grid.Background>
 
 
-            <Button x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True">
 
                 <Button.Background >
                     <ImageBrush  x:Name="New_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
