@@ -17,23 +17,37 @@ namespace loligochi_app
     /// </summary>
     public partial class MainWindow : Window
     {
-        DispatcherTimer timer = new DispatcherTimer();
+        DispatcherTimer welcome_sound_timer = new DispatcherTimer();
+        DispatcherTimer background_music_timer = new DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();
 
             Welcome_Scene.Visibility = Visibility.Visible;
 
-            timer.Interval = TimeSpan.FromSeconds(5);
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            welcome_sound_timer.Interval = TimeSpan.FromSeconds(5);
+            welcome_sound_timer.Tick += Welcome_Sound_Timer_Tick;
+            welcome_sound_timer.Start();
+
+
+            background_music_timer.Interval = TimeSpan.FromSeconds(9);
+            background_music_timer.Tick += Background_Music_Timer_Tick;
+            background_music_timer.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void Welcome_Sound_Timer_Tick(object sender, EventArgs e)
         {
-            timer.Stop();
+            welcome_sound_timer.Stop();
 
             welcome_sound.Play();
+        }
+
+        private void Background_Music_Timer_Tick(object sender, EventArgs e)
+        {
+            background_music_timer.Stop();
+
+            background_music.Play();
         }
 
 
