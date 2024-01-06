@@ -13,6 +13,7 @@
     "angryVoice": "src/sounds/Annie/angry.mp3",
     "currentStatus": "normal",
     "name": "Default Annie",
+    "basedOn": "Annie",
     "level": 1,
     "age": 1,
     "hp": 560,

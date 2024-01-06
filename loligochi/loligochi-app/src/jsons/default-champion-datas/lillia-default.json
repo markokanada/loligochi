@@ -13,6 +13,7 @@
     "angryVoice": "src/sounds/Lillia/angry.mp3",
     "currentStatus": "normal",
     "name": "Default Lillia",
+    "basedOn": "Lillia",
     "level": 1,
     "age": 1,
     "hp": 605,

@@ -13,6 +13,7 @@
     "angryVoice": "src/sounds/Zeri/angry.mp3",
     "currentStatus": "normal",
     "name": "Default Zeri",
+    "basedOn": "Zeri",
     "level": 1,
     "age": 1,
     "hp": 630,

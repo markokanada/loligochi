@@ -13,6 +13,7 @@
     "angryVoice": "src/sounds/Ashe/angry.mp3",
     "currentStatus": "normal",
     "name": "Default Ashe",
+    "basedOn": "Ashe",
     "level": 1,
     "age": 1,
     "hp": 640,

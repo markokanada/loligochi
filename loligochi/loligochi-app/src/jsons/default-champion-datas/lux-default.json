@@ -13,6 +13,7 @@
     "angryVoice": "src/sounds/Lux/angry.mp3",
     "currentStatus": "normal",
     "name": "Default Lux",
+    "basedOn": "Lux",
     "level": 1,
     "age": 1,
     "hp": 560,
