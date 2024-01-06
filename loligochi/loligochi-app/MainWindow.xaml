@@ -131,9 +131,9 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
+        <MediaElement x:Name="background_music" Height="0" Width="0" Volume="0.1" Source="src/sounds/assets/background_music.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
         <Grid x:Name="Welcome_Scene" Visibility="Visible">
             <MediaElement x:Name="welcome_sound" Height="0" Width="0" Source="src/sounds/assets/welcome-to-summoners-rift.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
-            <MediaElement x:Name="background_music" Height="0" Width="0" Volume="0.1" Source="src/sounds/assets/background_music.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
             <Image x:Name="Lux_Brand" Source="src/images/assets/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0">
             </Image>
 
@@ -159,9 +159,10 @@
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
+            <MediaElement x:Name="button_hover" Height="0" Width="0" Volume="0.6" Source="src/sounds/assets/button_hover.wav" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
 
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True" MouseEnter="Button_Hover_SoundEffect">
 
                 <Button.Background >
                     <ImageBrush  x:Name="New_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
@@ -169,23 +170,23 @@
 
 
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_Game_Button" Content="Continue" HorizontalAlignment="Left" Margin="20,205,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_Game_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow"  BorderBrush="{x:Null}">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_Game_Button" Content="Continue" HorizontalAlignment="Left" Margin="20,205,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_Game_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow"  BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Settings_Button" Content="Settings" HorizontalAlignment="Left" Margin="20,310,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Settings_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Settings_Button" Content="Settings" HorizontalAlignment="Left" Margin="20,310,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Settings_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Settings_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Credits_Button" Content="Credits" HorizontalAlignment="Left" Margin="20,415,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Credits_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Credits_Button" Content="Credits" HorizontalAlignment="Left" Margin="20,415,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Credits_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Credits_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
 
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="20,520,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="20,520,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Exit_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>

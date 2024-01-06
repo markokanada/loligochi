@@ -84,5 +84,11 @@ namespace loligochi_app
 
         }
 
+        private void Button_Hover_SoundEffect(object sender, MouseEventArgs e)
+        {
+            button_hover.Stop();
+            button_hover.Position = TimeSpan.Zero;
+            button_hover.Play();
+        }
     }
 }
