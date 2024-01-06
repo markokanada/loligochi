@@ -130,7 +130,7 @@
             <BeginStoryboard Storyboard="{StaticResource AnimateText}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid>
+    <Grid x:Name="Main_Grid">
         <MediaElement x:Name="background_music" Height="0" Width="0" Volume="0.1" Source="src/sounds/assets/background_music.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
         <MediaElement x:Name="button_hover" Height="0" Width="0" Volume="0.6" Source="src/sounds/assets/button_hover.wav" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
 
@@ -231,6 +231,59 @@
                 </Button.Background>
 
             </Button>
+        </Grid>
+        <Grid x:Name="New_Game_Menu" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
+            </Grid.Background>
+            <TextBlock x:Name="Start_A_New_Game_Outline" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="Black" Margin="-3,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+
+     Start a new game
+            </TextBlock>
+            <TextBlock x:Name="Start_A_New_Game" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+                Start a new game
+            </TextBlock>
+
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_New_Game" Content="Main Menu" HorizontalAlignment="Left" Margin="943,603,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Start_A_New_Game_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Back_To_The_Main_Menu_From_New_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+
+            <TextBox x:Name="Name_Of_The_Save" Margin="328,276,328,352" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="Write the name of the save here." IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="Save_Name_Start_Editing" LostFocus="Save_Name_Stop_Editing">
+                <TextBox.SelectionBrush>
+                    <ImageBrush x:Name="Name_Of_The_Save_Background_Hovered"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
+                </TextBox.SelectionBrush>
+                <TextBox.Background>
+                    <ImageBrush x:Name="Name_Of_The_Save_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill" AlignmentX="Left" >
+                        <ImageBrush.Transform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-10"/>
+                            </TransformGroup>
+                        </ImageBrush.Transform>
+                    </ImageBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Champ_Select_Button" Content="Continue" HorizontalAlignment="Left" Margin="475,391,0,0" VerticalAlignment="Top" Height="91" Width="327" MouseDown="Continue_To_Champ_Select" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Continue_To_Champ_Select_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+        </Grid>
+
+
+
+        <Grid x:Name="Champ_Select_Scene">
+
         </Grid>
     </Grid>
 </Window>

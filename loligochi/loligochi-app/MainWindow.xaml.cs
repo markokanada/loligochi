@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace loligochi_app
 {
@@ -58,7 +59,8 @@ namespace loligochi_app
         #region Main_Menu_Scene
         private void New_Game_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            New_Game_Menu.Visibility = Visibility.Visible;
+            Main_Menu_Scene.Visibility = Visibility.Hidden;
         }
         private void Continue_Game_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -95,6 +97,40 @@ namespace loligochi_app
 
         #endregion
 
+        #region Start_A_New_Game_Scene
+        private void Save_Name_Start_Editing(object sender, RoutedEventArgs e)
+        {
+            Name_Of_The_Save.Text = "";
+        }
+
+
+
+        private void Save_Name_Stop_Editing(object sender, RoutedEventArgs e)
+        {
+            if (Name_Of_The_Save.Text == "")
+            {
+                Name_Of_The_Save.Text = "Write the name of the save here.";
+            }
+        }
+
+        private void Continue_To_Champ_Select(object sender, MouseButtonEventArgs e)
+        {
+            if (Name_Of_The_Save.Text == "Write the name of the save here.")
+            {
+                //Then the Save name will the only the current dateTime
+            }
+            New_Game_Menu.Visibility = Visibility.Hidden;
+            Champ_Select_Scene.Visibility = Visibility.Visible;
+        }
+
+        private void Start_A_New_Game_Scene_Back_To_The_Main_Menu(object sender, RoutedEventArgs e)
+        {
+            Name_Of_The_Save.Text = "Write the name of the save here.";
+            New_Game_Menu.Visibility = Visibility.Hidden;
+            Main_Menu_Scene.Visibility = Visibility.Visible;
+        }
+
+        #endregion
         #region Other multiple asset scenes
 
         private void Background_Music_Timer_Tick(object sender, EventArgs e)
@@ -110,6 +146,8 @@ namespace loligochi_app
             button_hover.Position = TimeSpan.Zero;
             button_hover.Play();
         }
+
         #endregion
+
     }
 }
