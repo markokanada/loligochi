@@ -132,6 +132,8 @@
     </Window.Triggers>
     <Grid>
         <MediaElement x:Name="background_music" Height="0" Width="0" Volume="0.1" Source="src/sounds/assets/background_music.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
+        <MediaElement x:Name="button_hover" Height="0" Width="0" Volume="0.6" Source="src/sounds/assets/button_hover.wav" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
+
         <Grid x:Name="Welcome_Scene" Visibility="Visible">
             <MediaElement x:Name="welcome_sound" Height="0" Width="0" Source="src/sounds/assets/welcome-to-summoners-rift.mp3" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
             <Image x:Name="Lux_Brand" Source="src/images/assets/brand_lux.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="368" Height="404" Margin="0,71,0,0">
@@ -159,7 +161,6 @@
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
-            <MediaElement x:Name="button_hover" Height="0" Width="0" Volume="0.6" Source="src/sounds/assets/button_hover.wav" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
 
 
             <Button Style="{DynamicResource MainMenuButtons}" x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True" MouseEnter="Button_Hover_SoundEffect">
@@ -202,8 +203,34 @@
                 </TextBlock.Effect>
                 Loligochi
             </TextBlock>
-            
+
         </Grid>
-        
+        <Grid x:Name="Sure_To_Exit_Scene" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
+            </Grid.Background>
+            <TextBlock x:Name="Are_You_Sure_You_Want_To_Exit_Outline" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="Black" Margin="10,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72">
+
+     Are you sure you want to exit?
+            </TextBlock>
+            <TextBlock x:Name="Are_You_Sure_You_Want_To_Exit" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="10,98,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+                Are you sure you want to exit?
+            </TextBlock>
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Sure_To_Exit" Content="Yes" HorizontalAlignment="Left" Margin="205,389,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Sure_To_Exit" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Sure_To_Exit_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu" Content="No" HorizontalAlignment="Left" Margin="704,389,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Back_To_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Back_To_The_Main_Menu_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+        </Grid>
     </Grid>
 </Window>

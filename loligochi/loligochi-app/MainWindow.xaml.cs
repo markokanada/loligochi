@@ -35,21 +35,13 @@ namespace loligochi_app
             background_music_timer.Tick += Background_Music_Timer_Tick;
             background_music_timer.Start();
         }
-
+        #region Welcome_scene
         private void Welcome_Sound_Timer_Tick(object sender, EventArgs e)
         {
             welcome_sound_timer.Stop();
 
             welcome_sound.Play();
         }
-
-        private void Background_Music_Timer_Tick(object sender, EventArgs e)
-        {
-            background_music_timer.Stop();
-
-            background_music.Play();
-        }
-
 
         public void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -61,7 +53,9 @@ namespace loligochi_app
             }
         }
 
+        #endregion
 
+        #region Main_Menu_Scene
         private void New_Game_Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -81,7 +75,33 @@ namespace loligochi_app
         }
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
+            Sure_To_Exit_Scene.Visibility = Visibility.Visible;
+            Main_Menu_Scene.Visibility = Visibility.Hidden;
+        }
 
+        #endregion
+
+        #region Sure to exit Scene
+        private void Exit_Button_Back_To_Main_Menu(object sender, RoutedEventArgs e)
+        {
+            Sure_To_Exit_Scene.Visibility = Visibility.Hidden;
+            Main_Menu_Scene.Visibility = Visibility.Visible;
+        }
+
+        private void Exit_Button_Sure_To_Exit(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        #endregion
+
+        #region Other multiple asset scenes
+
+        private void Background_Music_Timer_Tick(object sender, EventArgs e)
+        {
+            background_music_timer.Stop();
+
+            background_music.Play();
         }
 
         private void Button_Hover_SoundEffect(object sender, MouseEventArgs e)
@@ -90,5 +110,6 @@ namespace loligochi_app
             button_hover.Position = TimeSpan.Zero;
             button_hover.Play();
         }
+        #endregion
     }
 }
