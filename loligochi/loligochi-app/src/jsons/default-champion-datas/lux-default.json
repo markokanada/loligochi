@@ -1,0 +1,23 @@
+{
+    "deadImage": "src/images/Lux/dead.png",
+    "normalImage": "src/images/Lux/normal.png",
+    "sickImage": "src/images/Lux/sick.png",
+    "hungryImage": "src/images/Lux/hungry.png",
+    "thirstyImage": "src/images/Lux/thirsty.png",
+    "angryImage": "src/images/Lux/angry.png",
+    "deadVoice": "src/sounds/Lux/dead.mp3",
+    "normalVoice": "src/sounds/Lux/normal.mp3",
+    "sickVoice": "src/sounds/Lux/sick.mp3",
+    "hungryVoice": "src/sounds/Lux/hungry.mp3",
+    "thirstyVoice": "src/sounds/Lux/thirsty.mp3",
+    "angryVoice": "src/sounds/Lux/angry.mp3",
+    "currentStatus": "normal",
+    "name": "Default Lux",
+    "level": 1,
+    "age": 1,
+    "hp": 560,
+    "hungerLevel": 0,
+    "thirstLevel": 0,
+    "isTheEntitySick": false,
+    "entitySicknessLevel": 0
+}

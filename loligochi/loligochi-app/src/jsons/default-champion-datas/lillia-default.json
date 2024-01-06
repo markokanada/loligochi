@@ -1,0 +1,23 @@
+{
+    "deadImage": "src/images/Lillia/dead.png",
+    "normalImage": "src/images/Lillia/normal.png",
+    "sickImage": "src/images/Lillia/sick.png",
+    "hungryImage": "src/images/Lillia/hungry.png",
+    "thirstyImage": "src/images/Lillia/thirsty.png",
+    "angryImage": "src/images/Lillia/angry.png",
+    "deadVoice": "src/sounds/Lillia/dead.mp3",
+    "normalVoice": "src/sounds/Lillia/normal.mp3",
+    "sickVoice": "src/sounds/Lillia/sick.mp3",
+    "hungryVoice": "src/sounds/Lillia/hungry.mp3",
+    "thirstyVoice": "src/sounds/Lillia/thirsty.mp3",
+    "angryVoice": "src/sounds/Lillia/angry.mp3",
+    "currentStatus": "normal",
+    "name": "Default Lillia",
+    "level": 1,
+    "age": 1,
+    "hp": 605,
+    "hungerLevel": 0,
+    "thirstLevel": 0,
+    "isTheEntitySick": false,
+    "entitySicknessLevel": 0
+}

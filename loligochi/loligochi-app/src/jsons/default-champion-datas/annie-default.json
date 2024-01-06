@@ -1,0 +1,23 @@
+{
+    "deadImage": "src/images/Annie/dead.png",
+    "normalImage": "src/images/Annie/normal.png",
+    "sickImage": "src/images/Annie/sick.png",
+    "hungryImage": "src/images/Annie/hungry.png",
+    "thirstyImage": "src/images/Annie/thirsty.png",
+    "angryImage": "src/images/Annie/angry.png",
+    "deadVoice": "src/sounds/Annie/dead.mp3",
+    "normalVoice": "src/sounds/Annie/normal.mp3",
+    "sickVoice": "src/sounds/Annie/sick.mp3",
+    "hungryVoice": "src/sounds/Annie/hungry.mp3",
+    "thirstyVoice": "src/sounds/Annie/thirsty.mp3",
+    "angryVoice": "src/sounds/Annie/angry.mp3",
+    "currentStatus": "normal",
+    "name": "Default Annie",
+    "level": 1,
+    "age": 1,
+    "hp": 560,
+    "hungerLevel": 0,
+    "thirstLevel": 0,
+    "isTheEntitySick": false,
+    "entitySicknessLevel": 0
+}

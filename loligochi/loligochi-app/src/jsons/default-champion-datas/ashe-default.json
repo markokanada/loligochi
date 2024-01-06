@@ -1,0 +1,23 @@
+{
+    "deadImage": "src/images/Ashe/dead.png",
+    "normalImage": "src/images/Ashe/normal.png",
+    "sickImage": "src/images/Ashe/sick.png",
+    "hungryImage": "src/images/Ashe/hungry.png",
+    "thirstyImage": "src/images/Ashe/thirsty.png",
+    "angryImage": "src/images/Ashe/angry.png",
+    "deadVoice": "src/sounds/Ashe/dead.mp3",
+    "normalVoice": "src/sounds/Ashe/normal.mp3",
+    "sickVoice": "src/sounds/Ashe/sick.mp3",
+    "hungryVoice": "src/sounds/Ashe/hungry.mp3",
+    "thirstyVoice": "src/sounds/Ashe/thirsty.mp3",
+    "angryVoice": "src/sounds/Ashe/angry.mp3",
+    "currentStatus": "normal",
+    "name": "Default Ashe",
+    "level": 1,
+    "age": 1,
+    "hp": 640,
+    "hungerLevel": 0,
+    "thirstLevel": 0,
+    "isTheEntitySick": false,
+    "entitySicknessLevel": 0
+}
