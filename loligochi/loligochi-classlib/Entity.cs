@@ -10,59 +10,62 @@ namespace loligochi_classlib
 {
     public class Entity
     {
-        public string DeadImgPath { get; private set; }
-        public string NormalImgPath { get; private set; }
-        public string HungryImgPath { get; private set; }
-        public string ThirstyImgPath { get; private set; }
-        public string AngryImgPath { get; private set; }
+        public string deadImage { get; private set; }
+        public string normalImage { get; private set; }
+        public string hungryImage { get; private set; }
+        public string thirstyImage { get; private set; }
+        public string angryImage { get; private set; }
+        public string sickImage { get; private set; }
 
         // Audio handling placeholders
-        public string DeadVoicePath { get; private set; }
-        public string NormalVoicePath { get; private set; }
-        public string SickVoicePath { get; private set; }
-        public string HungryVoicePath { get; private set; }
-        public string ThirstyVoicePath { get; private set; }
-        public string AngryVoicePath { get; private set; }
+        public string deadVoice { get; private set; }
+        public string normalVoice { get; private set; }
+        public string sickVoice { get; private set; }
+        public string hungryVoice { get; private set; }
+        public string thirstyVoice { get; private set; }
+        public string angryVoice { get; private set; }
 
-        public string CurrentStatus { get; set; }
-        public string Name { get; set; }
-        public double Level { get; set; }
-        public double Age { get; set; }
-        public double Hp { get; set; }
-        public double HungerLevel { get; set; }
-        public double ThirstLevel { get; set; }
-        public bool IsTheEntitySick { get; set; }
-        public double EntitySicknessLevel { get; set; }
+        public string currentStatus { get; set; }
+        public string name { get; set; }
+        public string basedOn { get; set; }
+        public double level { get; set; }
+        public double age { get; set; }
+        public double hp { get; set; }
+        public double hungerLevel { get; set; }
+        public double thirstLevel { get; set; }
+        public bool isTheEntitySick { get; set; }
+        public double entitySicknessLevel { get; set; }
 
         public Entity(string deadImgPath, string normalImgPath, string hungryImgPath,
-                      string thirstyImgPath, string angryImgPath, string deadVoicePath,
+                      string thirstyImgPath, string sickImagePath, string angryImgPath, string deadVoicePath,
                       string normalVoicePath, string sickVoicePath, string hungryVoicePath,
                       string thirstyVoicePath, string angryVoicePath, string currentStatus,
-                      string name, int level, int age, int hp, int hungerLevel,
+                      string name, string basedOn, int level, int age, int hp, int hungerLevel,
                       int thirstLevel, bool isTheEntitySick, int entitySicknessLevel)
         {
-            DeadImgPath = deadImgPath;
-            NormalImgPath = normalImgPath;
-            HungryImgPath = hungryImgPath;
-            ThirstyImgPath = thirstyImgPath;
-            AngryImgPath = angryImgPath;
+            deadImage = deadImgPath;
+            sickImage = sickImagePath;
+            normalImage = normalImgPath;
+            hungryImage = hungryImgPath;
+            thirstyImage = thirstyImgPath;
+            angryImage = angryImgPath;
 
-            DeadVoicePath = deadVoicePath;
-            NormalVoicePath = normalVoicePath;
-            SickVoicePath = sickVoicePath;
-            HungryVoicePath = hungryVoicePath;
-            ThirstyVoicePath = thirstyVoicePath;
-            AngryVoicePath = angryVoicePath;
-
-            CurrentStatus = currentStatus;
-            Name = name;
-            Level = level;
-            Age = age;
-            Hp = hp;
-            HungerLevel = hungerLevel;
-            ThirstLevel = thirstLevel;
-            IsTheEntitySick = isTheEntitySick;
-            EntitySicknessLevel = entitySicknessLevel;
+            deadVoice = deadVoicePath;
+            normalVoice = normalVoicePath;
+            sickVoice = sickVoicePath;
+            hungryVoice = hungryVoicePath;
+            thirstyVoice = thirstyVoicePath;
+            angryVoice = angryVoicePath;
+            this.basedOn = basedOn;
+            this.currentStatus = currentStatus;
+            this.name = name;
+            this.level = level;
+            this.age = age;
+            this.hp = hp;
+            this.hungerLevel = hungerLevel;
+            this.thirstLevel = thirstLevel;
+            this.isTheEntitySick = isTheEntitySick;
+            this.entitySicknessLevel = entitySicknessLevel;
         }
     }
 }
