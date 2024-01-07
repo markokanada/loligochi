@@ -20,7 +20,7 @@ namespace loligochi_app
     {
         DispatcherTimer welcome_sound_timer = new DispatcherTimer();
         DispatcherTimer background_music_timer = new DispatcherTimer();
-
+        string current_save_name = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -117,7 +117,11 @@ namespace loligochi_app
         {
             if (Name_Of_The_Save.Text == "Write the name of the save here.")
             {
-                //Then the Save name will the only the current dateTime
+                current_save_name = $"-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH:mm")}";
+            }
+            else
+            {
+                current_save_name = $"{Name_Of_The_Save.Text}-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH:mm")}";
             }
             New_Game_Menu.Visibility = Visibility.Hidden;
             Champ_Select_Scene.Visibility = Visibility.Visible;
