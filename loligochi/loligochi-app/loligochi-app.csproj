@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\images\assets\arrow.png" />
     <None Remove="src\images\assets\background.jpg_large" />
     <None Remove="src\images\assets\brand_lux.png" />
     <None Remove="src\images\assets\button.png" />
@@ -18,9 +19,21 @@
     <None Remove="src\images\assets\button_holder_main.png" />
     <None Remove="src\images\assets\button_hovered.png" />
     <None Remove="src\images\assets\icon.png" />
+    <None Remove="src\jsons\default-champion-datas\annie-default.json" />
+    <None Remove="src\jsons\default-champion-datas\ashe-default.json" />
+    <None Remove="src\jsons\default-champion-datas\lillia-default.json" />
+    <None Remove="src\jsons\default-champion-datas\lux-default.json" />
+    <None Remove="src\jsons\default-champion-datas\zeri-default.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\loligochi-classlib\loligochi-classlib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="src\images\assets\arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="src\images\assets\background.jpg_large">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -45,9 +58,27 @@
     <Resource Include="src\images\assets\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="src\jsons\default-champion-datas\annie-default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\jsons\default-champion-datas\ashe-default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\jsons\default-champion-datas\lillia-default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\jsons\default-champion-datas\lux-default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\jsons\default-champion-datas\zeri-default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="src\images\assets\arrow.webp">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Update="src\images\lux\normal.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

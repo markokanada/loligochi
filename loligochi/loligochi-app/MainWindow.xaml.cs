@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using loligochi_classlib;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace loligochi_app
@@ -21,6 +25,10 @@ namespace loligochi_app
         DispatcherTimer welcome_sound_timer = new DispatcherTimer();
         DispatcherTimer background_music_timer = new DispatcherTimer();
         string current_save_name = "";
+
+        private int champ_index { get; set; } = 2;
+        private static string[] allChampionJsonFiles = Directory.GetFiles("src/jsons/default-champion-datas/", "*.json").OrderBy(name => name).ToArray();
+        private Entity champ { get; set; } = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -51,6 +59,37 @@ namespace loligochi_app
                 Welcome_Scene.Visibility = Visibility.Hidden;
                 Main_Menu_Scene.Visibility = Visibility.Visible;
                 
+            }
+
+            if(Champ_Select_Scene.Visibility == Visibility.Visible && !Name_Of_The_Champ.IsFocused && (e.Key == Key.A || e.Key == Key.D))
+            {
+                if(e.Key == Key.A)
+                {
+                    if (champ_index == 0)
+                    {
+                        champ_index = 4;
+                    }
+                    else
+                    {
+                        champ_index--;
+                    }
+
+                    
+                }
+                else if(e.Key == Key.D)
+                {
+                    if (champ_index == 4)
+                    {
+                        champ_index = 0;
+                    }
+                    else
+                    {
+                        champ_index++;
+                    }
+
+                    
+                }
+                Load_Champ();
             }
         }
 
@@ -123,8 +162,11 @@ namespace loligochi_app
             {
                 current_save_name = $"{Name_Of_The_Save.Text}-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH:mm")}";
             }
+            Load_Champ();
             New_Game_Menu.Visibility = Visibility.Hidden;
             Champ_Select_Scene.Visibility = Visibility.Visible;
+
+
         }
 
         private void Start_A_New_Game_Scene_Back_To_The_Main_Menu(object sender, RoutedEventArgs e)
@@ -135,6 +177,76 @@ namespace loligochi_app
         }
 
         #endregion
+
+        #region Champ_Select_Scene
+
+
+        
+        private void Load_Champ()
+        {
+         string jsonFilePath = allChampionJsonFiles[champ_index];
+         string jsonString = File.ReadAllText(jsonFilePath);
+         champ = JsonSerializer.Deserialize<Entity>(jsonString);
+
+        }
+
+        private void Left_Arrow(object sender, MouseButtonEventArgs e)
+        {
+            if(champ_index == 0)
+            {
+                champ_index = 4;
+            }
+            else {
+                champ_index--;
+            }
+
+            Load_Champ();
+        }
+
+        private void Right_Arrow(object sender, MouseButtonEventArgs e)
+        {
+            if (champ_index == 4)
+            {
+                champ_index = 0;
+            }
+            else
+            {
+                champ_index++;
+            }
+
+            Load_Champ();
+        }
+
+        private void Champ_Name_Start_Editing(object sender, RoutedEventArgs e)
+        {
+            Name_Of_The_Champ.Text = "";
+        }
+
+
+
+        private void Champ_Name_Stop_Editing(object sender, RoutedEventArgs e)
+        {
+            if (Name_Of_The_Champ.Text == "")
+            {
+                Name_Of_The_Champ.Text = champ.name;
+            }
+        }
+
+        private void Continue_To_Game(object sender, MouseButtonEventArgs e)
+        {
+
+            Champ_Select_Scene.Visibility = Visibility.Hidden;
+            Game_Scene.Visibility = Visibility.Visible;
+        }
+
+        private void Champ_Select_Game_Scene_Back_To_The_Main_Menu(object sender, RoutedEventArgs e)
+        {
+            Champ_Select_Scene.Visibility = Visibility.Hidden;
+            Main_Menu_Scene.Visibility = Visibility.Visible;
+        }
+
+        #endregion
+
         #region Other multiple asset scenes
 
         private void Background_Music_Timer_Tick(object sender, EventArgs e)

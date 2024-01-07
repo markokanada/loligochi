@@ -282,8 +282,80 @@
 
 
 
-        <Grid x:Name="Champ_Select_Scene">
+        <Grid x:Name="Champ_Select_Scene" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
+            </Grid.Background>
 
+            <TextBlock x:Name="Champ_Select_Scene_Outline" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="Black" Margin="-3,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+
+     Select the champ
+            </TextBlock>
+            <TextBlock x:Name="Champ_Select_Scene_Title" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+                Select the champ
+            </TextBlock>
+
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Champ_Select" Content="Main Menu" HorizontalAlignment="Left" Margin="943,603,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Champ_Select_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Back_To_The_Main_Menu_From_Champ_Select_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+
+            <TextBox x:Name="Name_Of_The_Champ" Margin="328,481,328,147" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="My champion name is.." IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="Champ_Name_Start_Editing" LostFocus="Champ_Name_Stop_Editing">
+                <TextBox.SelectionBrush>
+                    <ImageBrush x:Name="Name_Of_The_Champ_Background_Hovered"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
+                </TextBox.SelectionBrush>
+                <TextBox.Background>
+                    <ImageBrush x:Name="Name_Of_The_Champ_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill" AlignmentX="Left" >
+                        <ImageBrush.Transform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-10"/>
+                            </TransformGroup>
+                        </ImageBrush.Transform>
+                    </ImageBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Game" Content="Select" HorizontalAlignment="Center" Margin="0,603,0,0" VerticalAlignment="Top" Height="91" Width="328" MouseDown="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Continue_To_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button x:Name="Left_Arrow" HorizontalAlignment="Left" Margin="232,481,0,0" VerticalAlignment="Top" Height="83" Width="96" MouseDown="Left_Arrow" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Left_Arrow_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button  x:Name="Right_Arrow" HorizontalAlignment="Left" Margin="932,481,0,0" VerticalAlignment="Top" Height="83" Width="96" MouseDown="Right_Arrow" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Right_Arrow_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                <RotateTransform Angle="180" CenterX="0.5" CenterY="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+
+            </Button>
+
+        </Grid>
+        <Grid x:Name="Game_Scene">
+            
         </Grid>
     </Grid>
 </Window>

@@ -53,26 +53,26 @@ namespace loligochi_classlib
                 var elapsedTime = TimeManager.GetElapsedTime().TotalSeconds;
 
                 // Update pet's attributes based on elapsed time
-                Pet.ThirstLevel += elapsedTime * 0.02;
-                Pet.Age += elapsedTime / 86400;
-                Pet.Hp -= (Pet.IsTheEntitySick ? 5 : 1) * (elapsedTime * 0.01);
+                Pet.thirstLevel += elapsedTime * 0.02;
+                Pet.age += elapsedTime / 86400;
+                Pet.hp -= (Pet.isTheEntitySick ? 5 : 1) * (elapsedTime * 0.01);
 
                 // Set conditions
-                Pet.ThirstLevel = Math.Min(100, Pet.ThirstLevel);
-                Pet.Hp = Math.Max(0, Pet.Hp);
-                Pet.CurrentStatus = Pet.IsTheEntitySick ? "Sick" : "Alive";
-                if (!Pet.IsTheEntitySick)
+                Pet.thirstLevel = Math.Min(100, Pet.thirstLevel);
+                Pet.hp = Math.Max(0, Pet.hp);
+                Pet.currentStatus = Pet.isTheEntitySick ? "Sick" : "Alive";
+                if (!Pet.isTheEntitySick)
                 {
-                    Pet.CurrentStatus = (Pet.ThirstLevel > 50) || (Pet.HungerLevel > 50)? "Grumpy" : "Happy";
+                    Pet.currentStatus = (Pet.thirstLevel > 50) || (Pet.hungerLevel > 50)? "Grumpy" : "Happy";
                 }
-                Pet.CurrentStatus = Pet.Hp == 0 ? "Dead" : "Alive";
+                Pet.currentStatus = Pet.hp == 0 ? "Dead" : "Alive";
 
             }
 
             public void RandomSicknessEvent()
             {
                 // Randomly set sickness status
-                Pet.IsTheEntitySick = RandomGenerator.Next(2) == 0;
+                Pet.isTheEntitySick = RandomGenerator.Next(2) == 0;
             }
 
 
