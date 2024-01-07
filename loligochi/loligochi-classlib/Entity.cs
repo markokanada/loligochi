@@ -8,13 +8,13 @@ using System.Windows.Media.Imaging;
 
 namespace loligochi_classlib
 {
-    internal class Entity
+    public class Entity
     {
-        public BitmapImage DeadImg { get; private set; }
-        public BitmapImage NormalImg { get; private set; }
-        public BitmapImage HungryImg { get; private set; }
-        public BitmapImage ThirstyImg { get; private set; }
-        public BitmapImage AngryImg { get; private set; }
+        public string DeadImgPath { get; private set; }
+        public string NormalImgPath { get; private set; }
+        public string HungryImgPath { get; private set; }
+        public string ThirstyImgPath { get; private set; }
+        public string AngryImgPath { get; private set; }
 
         // Audio handling placeholders
         public string DeadVoicePath { get; private set; }
@@ -41,11 +41,11 @@ namespace loligochi_classlib
                       string name, int level, int age, int hp, int hungerLevel,
                       int thirstLevel, bool isTheEntitySick, int entitySicknessLevel)
         {
-            DeadImg = LoadImage(deadImgPath);
-            NormalImg = LoadImage(normalImgPath);
-            HungryImg = LoadImage(hungryImgPath);
-            ThirstyImg = LoadImage(thirstyImgPath);
-            AngryImg = LoadImage(angryImgPath);
+            DeadImgPath = deadImgPath;
+            NormalImgPath = normalImgPath;
+            HungryImgPath = hungryImgPath;
+            ThirstyImgPath = thirstyImgPath;
+            AngryImgPath = angryImgPath;
 
             DeadVoicePath = deadVoicePath;
             NormalVoicePath = normalVoicePath;
@@ -63,11 +63,6 @@ namespace loligochi_classlib
             ThirstLevel = thirstLevel;
             IsTheEntitySick = isTheEntitySick;
             EntitySicknessLevel = entitySicknessLevel;
-        }
-
-        private BitmapImage LoadImage(string path)
-        {
-            return new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
         }
     }
 }
