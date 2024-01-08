@@ -311,10 +311,10 @@ namespace loligochi_app
             }
             else
             {
-                avaibleSaves = Directory.GetFiles("src/save").ToList();
+                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
             }
 
-            if(avaibleSaves.Count() < save_index+1) //Több az index, mint a save -> már csak az üres találatokat pörgeti
+            if (avaibleSaves.Count() < save_index+1) //Több az index, mint a save -> már csak az üres találatokat pörgeti
             {
                 if (Save_Select_Scene_Option_4.Text != "-Empty Save Slot-")
                 {
@@ -360,10 +360,10 @@ namespace loligochi_app
             }
             else
             {
-                avaibleSaves = Directory.GetFiles("src/save").ToList();
+                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
             }
 
-            if(save_index != 0) { 
+            if (save_index != 0) { 
             if (avaibleSaves.Count() < save_index + 1)
             {
                 if (Save_Select_Scene_Option_4.Text != "-Empty Save Slot-")
@@ -411,22 +411,34 @@ namespace loligochi_app
             }
             else
             {
-                avaibleSaves = Directory.GetFiles("src/save").ToList();
+                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
             }
+            Trace.WriteLine(avaibleSaves.ToString());
             if (avaibleSaves.Count >= 4)
             {
+                Trace.WriteLine("4");
+                Trace.WriteLine(avaibleSaves[3]);
                 Save_Select_Scene_Option_4.Text = avaibleSaves[3].Substring(avaibleSaves[3].IndexOf("save\\")+5);
             }
             if (avaibleSaves.Count >= 3)
             {
+                Trace.WriteLine("3");
+                Trace.WriteLine(avaibleSaves[2]);
+
                 Save_Select_Scene_Option_3.Text = avaibleSaves[2].Substring(avaibleSaves[2].IndexOf("save\\")+5);
             }
             if (avaibleSaves.Count >= 2)
             {
+                Trace.WriteLine("2");
+                Trace.WriteLine(avaibleSaves[1]);
+
                 Save_Select_Scene_Option_2.Text = avaibleSaves[1].Substring(avaibleSaves[1].IndexOf("save\\")+5);
             }
             if (avaibleSaves.Count >= 1)
             {
+                Trace.WriteLine("1");
+                Trace.WriteLine(avaibleSaves[0]);
+
                 Save_Select_Scene_Option_1.Text = avaibleSaves[0].Substring(avaibleSaves[0].IndexOf("save\\")+5);
             }
             save_index += 4;

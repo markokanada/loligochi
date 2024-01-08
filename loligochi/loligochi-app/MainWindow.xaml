@@ -768,7 +768,7 @@
                 </TextBlock.Effect>
     -Empty Save Slot-
             </TextBlock>
-            <TextBlock x:Name="Save_Select_Scene_Option_2" IsEnabled="false" MouseDown="Save_Select_Option_2_Clicked" FontSize="36" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,391,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+            <TextBlock x:Name="Save_Select_Scene_Option_4" IsEnabled="false" MouseDown="Save_Select_Option_4_Clicked" FontSize="36" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,391,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>
@@ -780,7 +780,7 @@
                 </TextBlock.Effect>
     -Empty Save Slot-
             </TextBlock>
-            <TextBlock x:Name="Save_Select_Scene_Option_4" IsEnabled="false" HorizontalAlignment="Center" MouseDown="Save_Select_Option_4_Clicked" FontSize="36" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,237,0,0" VerticalAlignment="Top"  LineHeight="72">
+            <TextBlock x:Name="Save_Select_Scene_Option_2" IsEnabled="false" HorizontalAlignment="Center" MouseDown="Save_Select_Option_2_Clicked" FontSize="36" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,237,0,0" VerticalAlignment="Top"  LineHeight="72">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>
