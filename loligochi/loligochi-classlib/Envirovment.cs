@@ -35,13 +35,13 @@ namespace loligochi_classlib
         //////////    }
         //////////}
 
-        public class Environment
+        public class Envirovment
         {
             private Entity Pet { get; set; }
             private TimeManager TimeManager { get; set; }
             private Random RandomGenerator { get; set; }
 
-            public Environment(Entity pet)
+            public Envirovment(Entity pet)
             {
                 Pet = pet;
                 TimeManager = new TimeManager();
