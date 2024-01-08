@@ -463,7 +463,7 @@
                 </TextBox.Background>
             </TextBox>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Champ_Select_Button" Content="Continue" HorizontalAlignment="Left" Margin="475,391,0,0" VerticalAlignment="Top" Height="91" Width="327" MouseDown="Continue_To_Champ_Select" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Champ_Select_Button" Content="Continue" HorizontalAlignment="Left" Margin="475,391,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_To_Champ_Select" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_To_Champ_Select_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -473,7 +473,7 @@
 
 
 
-        <Grid x:Name="Champ_Select_Scene" Visibility="Visible">
+        <Grid x:Name="Champ_Select_Scene" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
@@ -489,7 +489,7 @@
                 Select the champ
             </TextBlock>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Champ_Select" Content="Main Menu" HorizontalAlignment="Left" Margin="943,603,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Champ_Select_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Champ_Select" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Champ_Select_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_Champ_Select_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -514,7 +514,7 @@
                 </TextBox.Background>
             </TextBox>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Game_Scene" Content="Select" HorizontalAlignment="Center" Margin="0,603,0,0" VerticalAlignment="Top" Height="91" Width="328" MouseDown="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Game_Scene" Content="Select" HorizontalAlignment="Left" Margin="474,579,0,0" VerticalAlignment="Top" Height="91" Width="328" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_To_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>

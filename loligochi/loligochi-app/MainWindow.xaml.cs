@@ -156,16 +156,17 @@ namespace loligochi_app
             }
         }
 
-        private void Continue_To_Champ_Select(object sender, MouseButtonEventArgs e)
+        private void Continue_To_Champ_Select(object sender, RoutedEventArgs e)
         {
             if (Name_Of_The_Save.Text == "Write the name of the save here.")
             {
-                current_save_name = $"-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH:mm")}";
+                current_save_name = $"-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH-mm")}";
             }
             else
             {
-                current_save_name = $"{Name_Of_The_Save.Text}-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH:mm")}";
+                current_save_name = $"{Name_Of_The_Save.Text}-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH-mm")}";
             }
+            Name_Of_The_Save.Text = "Write the name of the save here.";
             Load_Champ_In_Champ_Select_Preview();
             New_Game_Menu.Visibility = Visibility.Hidden;
             Champ_Select_Scene.Visibility = Visibility.Visible;
@@ -232,8 +233,10 @@ namespace loligochi_app
 
         }
 
-        private void Continue_To_Game(object sender, MouseButtonEventArgs e)
+        private void Continue_To_Game(object sender, RoutedEventArgs e)
         {
+            champ.name = Name_Of_The_Champ.Text;
+            Envirovment.SerializeEntity(champ, current_save_name);
 
             Champ_Select_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
@@ -253,6 +256,8 @@ namespace loligochi_app
         {
             champ = Envirovment.DeserializeEntity(allChampionJsonFiles[champ_index]);
             var champ_image = converter.ConvertFromString(champ.normalImage);
+            
+
             if (champ_image == null) throw new FileMissingException();
             Champ_Image_On_Champ_Select.Source = (ImageSource)champ_image;
             Name_Of_The_Champ.Text = champ.basedOn;

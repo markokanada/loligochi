@@ -76,14 +76,24 @@ namespace loligochi_classlib
         }
 
 
-        public static string SerializeEntity(Entity entity, string fileName)
+        public static bool SerializeEntity(Entity entity, string fileName)
         {
             string filePath = Path.Combine("src/save", fileName);
 
             string jsonString = JsonSerializer.Serialize(entity, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(filePath, jsonString);
-
-            return filePath;
+            if (!Directory.Exists("src"))
+            {
+                throw new FileMissingException();
+            }
+            else if (!Directory.Exists("src/save"))
+            {
+                Directory.SetCurrentDirectory("src");
+                Directory.CreateDirectory("save");
+                Directory.SetCurrentDirectory("../");
+                
+            }
+            File.WriteAllText($"{filePath}.json", jsonString);
+            return true;
         }
 
         public static Entity? DeserializeEntity(string filePath)
@@ -95,7 +105,6 @@ namespace loligochi_classlib
             }
 
             string jsonString = File.ReadAllText(filePath);
-            Trace.WriteLine(jsonString);
             try
             {
                 var entity = JsonSerializer.Deserialize<Entity>(jsonString);
