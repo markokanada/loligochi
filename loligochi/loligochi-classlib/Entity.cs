@@ -67,5 +67,10 @@ namespace loligochi_classlib
             this.isTheEntitySick = isTheEntitySick;
             this.entitySicknessLevel = entitySicknessLevel;
         }
+
+        public void aging()
+        {
+            this.age++;
+        }
     }
 }
