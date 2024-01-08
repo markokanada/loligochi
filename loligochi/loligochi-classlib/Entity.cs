@@ -71,6 +71,7 @@ namespace loligochi_classlib
         public void aging()
         {
             this.age++;
+            this.level++;
         }
     }
 }
