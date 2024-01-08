@@ -14,11 +14,11 @@
     "currentStatus": "normal",
     "name": "Default Lux",
     "basedOn": "Lux",
-    "level": 1,
-    "age": 1,
-    "hp": 560,
-    "hungerLevel": 0,
-    "thirstLevel": 0,
+    "level": 1.0,
+    "age": 1.0,
+    "hp": 560.0,
+    "hungerLevel": 0.0,
+    "thirstLevel": 0.0,
     "isTheEntitySick": false,
-    "entitySicknessLevel": 0
+    "entitySicknessLevel": 0.0
 }
