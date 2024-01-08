@@ -318,14 +318,19 @@ namespace loligochi_app
             {
                 if (Save_Select_Scene_Option_4.Text != "-Empty Save Slot-")
                 {
+                    Save_Select_Scene_Option_3.Text = Save_Select_Scene_Option_4.Text;
                     Save_Select_Scene_Option_4.Text = "-Empty Save Slot-";
                 }
                 else if (Save_Select_Scene_Option_3.Text != "-Empty Save Slot-")
                 {
+                    Save_Select_Scene_Option_2.Text = Save_Select_Scene_Option_3.Text;
+
                     Save_Select_Scene_Option_3.Text = "-Empty Save Slot-";
                 }
                 else if (Save_Select_Scene_Option_2.Text != "-Empty Save Slot-")
                 {
+                    Save_Select_Scene_Option_1.Text = Save_Select_Scene_Option_2.Text;
+
                     Save_Select_Scene_Option_2.Text = "-Empty Save Slot-";
                 }
                 else if (Save_Select_Scene_Option_1.Text != "-Empty Save Slot-")
