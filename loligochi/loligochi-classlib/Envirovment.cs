@@ -76,24 +76,23 @@ namespace loligochi_classlib
             }
 
 
-            private static string SerializePet(Entity pet)
+            private static string SerializeEntity(Entity entity, string fileName)
             {
-                string fileName = $"{DateTime.Now:yyyy-MM-dd_HH-mm-ss}_pet.json";
                 string filePath = Path.Combine("src/save", fileName);
 
-                string jsonString = JsonSerializer.Serialize(pet, new JsonSerializerOptions { WriteIndented = true });
+                string jsonString = JsonSerializer.Serialize(entity, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(filePath, jsonString);
 
-                Console.WriteLine($"Az állat adatai kiírva a következő fájlba: {fileName}");
+                //Console.WriteLine($"Az állat adatai kiírva a következő fájlba: {fileName}");
                 return filePath;
             }
 
-            private static Entity DeserializePet(string filePath)
+            private static Entity DeserializeEntity(string filePath)
             {
                 string jsonString = File.ReadAllText(filePath);
-                var pet = JsonSerializer.Deserialize<Entity>(jsonString);
+                var entity = JsonSerializer.Deserialize<Entity>(jsonString);
 
-                return pet!;
+                return entity!;
             }
         }
 
