@@ -9,8 +9,7 @@ using System.Xml;
 
 namespace loligochi_classlib
 {
-    internal class Envirovment
-    {
+
         //////////public class Pet
         //////////{
         //////////    public string Name { get; set; }
@@ -76,7 +75,7 @@ namespace loligochi_classlib
             }
 
 
-            private static string SerializeEntity(Entity entity, string fileName)
+        public static string SerializeEntity(Entity entity, string fileName)
             {
                 string filePath = Path.Combine("src/save", fileName);
 
@@ -87,7 +86,7 @@ namespace loligochi_classlib
                 return filePath;
             }
 
-            private static Entity DeserializeEntity(string filePath)
+        public static Entity DeserializeEntity(string filePath)
             {
                 string jsonString = File.ReadAllText(filePath);
                 var entity = JsonSerializer.Deserialize<Entity>(jsonString);
@@ -98,4 +97,4 @@ namespace loligochi_classlib
 
 
     }
-}
+

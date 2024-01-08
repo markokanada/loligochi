@@ -182,13 +182,7 @@ namespace loligochi_app
 
 
         
-        private void Load_Champ()
-        {
-         string jsonFilePath = allChampionJsonFiles[champ_index];
-         string jsonString = File.ReadAllText(jsonFilePath);
-         champ = JsonSerializer.Deserialize<Entity>(jsonString);
 
-        }
 
         private void Left_Arrow(object sender, MouseButtonEventArgs e)
         {
@@ -248,6 +242,16 @@ namespace loligochi_app
         #endregion
 
         #region Other multiple asset scenes
+
+        private void Load_Champ()
+        {
+            champ = Envirovment.DeserializeEntity(allChampionJsonFiles[champ_index]);
+        }
+
+        private void Save_Champ()
+        {
+            Envirovment.SerializeEntity(champ, current_save_name); //After continue TODO load the current_Save_name
+        }
 
         private void Background_Music_Timer_Tick(object sender, EventArgs e)
         {
