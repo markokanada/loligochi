@@ -28,7 +28,7 @@ namespace loligochi_app
 
         private int champ_index { get; set; } = 2;
         private static string[] allChampionJsonFiles = Directory.GetFiles("src/jsons/default-champion-datas/", "*.json").OrderBy(name => name).ToArray();
-        private Entity champ { get; set; } = null;
+        private Entity? champ { get; set; } = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,12 +36,12 @@ namespace loligochi_app
             Welcome_Scene.Visibility = Visibility.Visible;
 
             welcome_sound_timer.Interval = TimeSpan.FromSeconds(5);
-            welcome_sound_timer.Tick += Welcome_Sound_Timer_Tick;
+            welcome_sound_timer.Tick += Welcome_Sound_Timer_Tick!;
             welcome_sound_timer.Start();
 
 
             background_music_timer.Interval = TimeSpan.FromSeconds(9);
-            background_music_timer.Tick += Background_Music_Timer_Tick;
+            background_music_timer.Tick += Background_Music_Timer_Tick!;
             background_music_timer.Start();
         }
         #region Welcome_scene
@@ -220,10 +220,13 @@ namespace loligochi_app
 
         private void Champ_Name_Stop_Editing(object sender, RoutedEventArgs e)
         {
-            if (Name_Of_The_Champ.Text == "")
+            if (Name_Of_The_Champ.Text == "" && champ != null)
             {
                 Name_Of_The_Champ.Text = champ.name;
             }
+            else if(champ == null) throw new ChampIsNullException();
+
+
         }
 
         private void Continue_To_Game(object sender, MouseButtonEventArgs e)
@@ -250,6 +253,7 @@ namespace loligochi_app
 
         private void Save_Champ()
         {
+            if (champ == null) throw new ChampIsNullException();
             Envirovment.SerializeEntity(champ, current_save_name); //After continue TODO load the current_Save_name
         }
 
