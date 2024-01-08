@@ -83,7 +83,6 @@ namespace loligochi_classlib
             string jsonString = JsonSerializer.Serialize(entity, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(filePath, jsonString);
 
-            //Console.WriteLine($"Az állat adatai kiírva a következő fájlba: {fileName}");
             return filePath;
         }
 
@@ -92,7 +91,7 @@ namespace loligochi_classlib
             if (!File.Exists(filePath))
             {
                 throw new FileMissingException();
-                return null;
+
             }
 
             string jsonString = File.ReadAllText(filePath);
@@ -104,13 +103,14 @@ namespace loligochi_classlib
             }
             catch (JsonException e)
             {
-                //Trace.WriteLine(e);
-                return null;
+                Trace.WriteLine(e);
+                throw new SerializationErrorException();
             }
             catch (Exception e)
             {
-                //Trace.WriteLine(e);
-                return null;
+                Trace.WriteLine(e);
+                throw new SerializationErrorException();
+
             }
         }
     }
