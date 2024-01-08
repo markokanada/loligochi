@@ -308,6 +308,191 @@
             </Setter>
         </Style>
 
+
+        <ImageBrush x:Key="Button.Static.Background3" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Static.Border3" Color="Transparent"/>
+        <ImageBrush x:Key="Button.MouseOver.Background3" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.MouseOver.Border3" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Pressed.Background3" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Pressed.Border3" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Background3" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Disabled.Border3" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Foreground3" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <Style x:Key="DownArrowStyling" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background3}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border3}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border3}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border3}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border3}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground3}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="Button.Static.Background4" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Static.Border4" Color="Transparent"/>
+        <ImageBrush x:Key="Button.MouseOver.Background4" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.MouseOver.Border4" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Pressed.Background4" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Pressed.Border4" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Background4" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Disabled.Border4" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Foreground4" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <Style x:Key="UpArrowStyling" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background4}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border4}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background4}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border4}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background4}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border4}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background4}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border4}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground4}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
     <Window.Triggers>
@@ -470,9 +655,6 @@
 
             </Button>
         </Grid>
-
-
-
         <Grid x:Name="Champ_Select_Scene" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
@@ -557,6 +739,86 @@
 
             </Image>
         </Grid>
+        <Grid x:Name="Load_Game_Scene" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large" Opacity="1"/>
+            </Grid.Background>
+
+            <TextBlock x:Name="Save_Select_Scene_Outline" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="Black" Margin="-3,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+
+                Select the game to continue
+            </TextBlock>
+            <TextBlock x:Name="Save_Select_Scene_Title" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+                Select the game to continue
+            </TextBlock>
+
+            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Load_Game_Scene_Button" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Back_To_The_Main_Menu_From_Load_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Back_To_The_Main_Menu_From_Load_Game_Scene_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+
+            <TextBlock x:Name="Save_Select_Scene_Option_1" IsEnabled="false" MouseDown="Save_Select_Option_1_Clicked" FontSize="48" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="408,160,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    -Empty Save Slot-
+            </TextBlock>
+            <TextBlock x:Name="Save_Select_Scene_Option_2" IsEnabled="false" MouseDown="Save_Select_Option_2_Clicked" FontSize="48" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="408,391,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    -Empty Save Slot-
+            </TextBlock>
+            <TextBlock x:Name="Save_Select_Scene_Option_3" IsEnabled="false" MouseDown="Save_Select_Option_3_Clicked" FontSize="48" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="408,314,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    -Empty Save Slot-
+            </TextBlock>
+            <TextBlock x:Name="Save_Select_Scene_Option_4" IsEnabled="false"  MouseDown="Save_Select_Option_4_Clicked" FontSize="48" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="408,237,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    -Empty Save Slot-
+            </TextBlock>
+
+            <Button Style="{DynamicResource DownArrowStyling}"  x:Name="Down_Arrow_Save_Select" HorizontalAlignment="Left" Margin="564,463,0,0" VerticalAlignment="Top" Height="67" Width="76" Click="Rotate_The_Save_Slots_By_Arrow_Down" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Down_Arrow_Save_Select_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+
+            </Button>
+            <Button Style="{DynamicResource UpArrowStyling}"  x:Name="Up_Arrow_Save_Select" HorizontalAlignment="Left" Margin="638,463,0,0" VerticalAlignment="Top" Height="67" Width="76" Click="Rotate_The_Save_Slots_By_Arrow_Up" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Up_Arrow_Save_Select_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+
+            </Button>
+        </Grid>
+
         <Grid x:Name="Game_Scene">
 
         </Grid>
