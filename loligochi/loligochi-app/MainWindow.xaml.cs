@@ -339,7 +339,7 @@ namespace loligochi_app
                 Save_Select_Scene_Option_1.Text = Save_Select_Scene_Option_2.Text;
                 Save_Select_Scene_Option_2.Text = Save_Select_Scene_Option_3.Text;
                 Save_Select_Scene_Option_3.Text = Save_Select_Scene_Option_4.Text;
-                Save_Select_Scene_Option_4.Text = avaibleSaves[save_index];
+                Save_Select_Scene_Option_4.Text = avaibleSaves[save_index].Substring(avaibleSaves[save_index].IndexOf("save\\")+5);
 
                 save_index++;
             }
@@ -389,7 +389,7 @@ namespace loligochi_app
                 Save_Select_Scene_Option_4.Text = Save_Select_Scene_Option_1.Text;
                 Save_Select_Scene_Option_3.Text = Save_Select_Scene_Option_2.Text;
                 Save_Select_Scene_Option_2.Text = Save_Select_Scene_Option_1.Text;
-                Save_Select_Scene_Option_1.Text = avaibleSaves[save_index];
+                Save_Select_Scene_Option_1.Text = avaibleSaves[save_index].Substring(avaibleSaves[save_index].IndexOf("save\\")+5);
 
                 save_index--;
             }
@@ -415,19 +415,19 @@ namespace loligochi_app
             }
             if (avaibleSaves.Count >= 4)
             {
-                Save_Select_Scene_Option_4.Text = avaibleSaves[3];
+                Save_Select_Scene_Option_4.Text = avaibleSaves[3].Substring(avaibleSaves[3].IndexOf("save\\")+5);
             }
             if (avaibleSaves.Count >= 3)
             {
-                Save_Select_Scene_Option_3.Text = avaibleSaves[2];
+                Save_Select_Scene_Option_3.Text = avaibleSaves[2].Substring(avaibleSaves[2].IndexOf("save\\")+5);
             }
             if (avaibleSaves.Count >= 2)
             {
-                Save_Select_Scene_Option_2.Text = avaibleSaves[1];
+                Save_Select_Scene_Option_2.Text = avaibleSaves[1].Substring(avaibleSaves[1].IndexOf("save\\")+5);
             }
             if (avaibleSaves.Count >= 1)
             {
-                Save_Select_Scene_Option_1.Text = avaibleSaves[0];
+                Save_Select_Scene_Option_1.Text = avaibleSaves[0].Substring(avaibleSaves[0].IndexOf("save\\")+5);
             }
             save_index += 4;
         }
