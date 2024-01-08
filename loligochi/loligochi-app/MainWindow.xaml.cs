@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using loligochi_classlib;
+using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace loligochi_app
@@ -20,11 +21,14 @@ namespace loligochi_app
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
         DispatcherTimer welcome_sound_timer = new DispatcherTimer();
         DispatcherTimer background_music_timer = new DispatcherTimer();
         string current_save_name = "";
+        ImageSourceConverter converter = new ImageSourceConverter();
 
         private int champ_index { get; set; } = 2;
         private static string[] allChampionJsonFiles = Directory.GetFiles("src/jsons/default-champion-datas/", "*.json").OrderBy(name => name).ToArray();
@@ -32,7 +36,6 @@ namespace loligochi_app
         public MainWindow()
         {
             InitializeComponent();
-
             Welcome_Scene.Visibility = Visibility.Visible;
 
             welcome_sound_timer.Interval = TimeSpan.FromSeconds(5);
@@ -43,6 +46,7 @@ namespace loligochi_app
             background_music_timer.Interval = TimeSpan.FromSeconds(9);
             background_music_timer.Tick += Background_Music_Timer_Tick!;
             background_music_timer.Start();
+
         }
         #region Welcome_scene
         private void Welcome_Sound_Timer_Tick(object sender, EventArgs e)
@@ -89,7 +93,7 @@ namespace loligochi_app
 
                     
                 }
-                Load_Champ();
+                Load_Champ_In_Champ_Select_Preview();
             }
         }
 
@@ -162,7 +166,7 @@ namespace loligochi_app
             {
                 current_save_name = $"{Name_Of_The_Save.Text}-.d-.{DateTime.Now.ToString("yyyy-MM-dd-HH:mm")}";
             }
-            Load_Champ();
+            Load_Champ_In_Champ_Select_Preview();
             New_Game_Menu.Visibility = Visibility.Hidden;
             Champ_Select_Scene.Visibility = Visibility.Visible;
 
@@ -184,7 +188,7 @@ namespace loligochi_app
         
 
 
-        private void Left_Arrow(object sender, MouseButtonEventArgs e)
+        private void Left_Arrow(object sender, RoutedEventArgs e)
         {
             if(champ_index == 0)
             {
@@ -194,10 +198,10 @@ namespace loligochi_app
                 champ_index--;
             }
 
-            Load_Champ();
+            Load_Champ_In_Champ_Select_Preview();
         }
 
-        private void Right_Arrow(object sender, MouseButtonEventArgs e)
+        private void Right_Arrow(object sender, RoutedEventArgs e)
         {
             if (champ_index == 4)
             {
@@ -207,8 +211,7 @@ namespace loligochi_app
             {
                 champ_index++;
             }
-
-            Load_Champ();
+            Load_Champ_In_Champ_Select_Preview();
         }
 
         private void Champ_Name_Start_Editing(object sender, RoutedEventArgs e)
@@ -236,7 +239,7 @@ namespace loligochi_app
             Game_Scene.Visibility = Visibility.Visible;
         }
 
-        private void Champ_Select_Game_Scene_Back_To_The_Main_Menu(object sender, RoutedEventArgs e)
+        private void Champ_Select_Scene_Back_To_The_Main_Menu(object sender, RoutedEventArgs e)
         {
             Champ_Select_Scene.Visibility = Visibility.Hidden;
             Main_Menu_Scene.Visibility = Visibility.Visible;
@@ -244,11 +247,15 @@ namespace loligochi_app
 
         #endregion
 
-        #region Other multiple asset scenes
+        #region Other function & event handlers which used at more places.
 
-        private void Load_Champ()
+        private void Load_Champ_In_Champ_Select_Preview()
         {
             champ = Envirovment.DeserializeEntity(allChampionJsonFiles[champ_index]);
+            var champ_image = converter.ConvertFromString(champ.normalImage);
+            if (champ_image == null) throw new FileMissingException();
+            Champ_Image_On_Champ_Select.Source = (ImageSource)champ_image;
+            Name_Of_The_Champ.Text = champ.basedOn;
         }
 
         private void Save_Champ()

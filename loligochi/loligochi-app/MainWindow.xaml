@@ -116,6 +116,197 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:7" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="InputFieldStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ImageBrush x:Key="Button.Static.Background1" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="Transparent"/>
+        <ImageBrush x:Key="Button.MouseOver.Background1" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Pressed.Background1" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Background1" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Foreground1" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+        <Style x:Key="LeftArrowStyling" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="Button.Static.Background2" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="180" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Static.Border2" Color="Transparent"/>
+        <ImageBrush x:Key="Button.MouseOver.Background2" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="180" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.MouseOver.Border2" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Pressed.Background2" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="180" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Pressed.Border2" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Background2" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="180" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.Disabled.Border2" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Disabled.Foreground2" ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="180" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <Style x:Key="RightArrowStyling" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background2}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border2}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background2}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border2}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background2}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border2}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background2}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border2}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground2}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Window.Resources>
 
@@ -254,7 +445,7 @@
 
             </Button>
 
-            <TextBox x:Name="Name_Of_The_Save" Margin="328,276,328,352" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="Write the name of the save here." IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="Save_Name_Start_Editing" LostFocus="Save_Name_Stop_Editing">
+            <TextBox Style="{DynamicResource InputFieldStyle}" x:Name="Name_Of_The_Save" Margin="328,276,328,352" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="Write the name of the save here." IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="Save_Name_Start_Editing" LostFocus="Save_Name_Stop_Editing">
                 <TextBox.SelectionBrush>
                     <ImageBrush x:Name="Name_Of_The_Save_Background_Hovered"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
                 </TextBox.SelectionBrush>
@@ -305,7 +496,7 @@
 
             </Button>
 
-            <TextBox x:Name="Name_Of_The_Champ" Margin="328,481,328,147" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="My champion name is.." IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="Champ_Name_Start_Editing" LostFocus="Champ_Name_Stop_Editing">
+            <TextBox Style="{DynamicResource InputFieldStyle}" x:Name="Name_Of_The_Champ" Margin="328,481,328,147" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="Lillia" IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="Champ_Name_Start_Editing" LostFocus="Champ_Name_Stop_Editing">
                 <TextBox.SelectionBrush>
                     <ImageBrush x:Name="Name_Of_The_Champ_Background_Hovered"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
                 </TextBox.SelectionBrush>
@@ -323,23 +514,31 @@
                 </TextBox.Background>
             </TextBox>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Game" Content="Select" HorizontalAlignment="Center" Margin="0,603,0,0" VerticalAlignment="Top" Height="91" Width="328" MouseDown="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Game_Scene" Content="Select" HorizontalAlignment="Center" Margin="0,603,0,0" VerticalAlignment="Top" Height="91" Width="328" MouseDown="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_To_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button x:Name="Left_Arrow" HorizontalAlignment="Left" Margin="232,481,0,0" VerticalAlignment="Top" Height="83" Width="96" MouseDown="Left_Arrow" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource LeftArrowStyling}" x:Name="Left_Arrow_Champ_Select" HorizontalAlignment="Left" Margin="246,473,0,0" VerticalAlignment="Top" Height="67" Width="76" Click="Left_Arrow" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect" RenderTransformOrigin="0.532,0.091">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.542"/>
+                        <TranslateTransform X="0.285" Y="0.028"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
                 <Button.Background >
-                    <ImageBrush x:Name="Left_Arrow_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
+                    <ImageBrush x:Name="Left_Arrow_Champ_Select_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform"/>
                 </Button.Background>
 
             </Button>
 
-            <Button  x:Name="Right_Arrow" HorizontalAlignment="Left" Margin="932,481,0,0" VerticalAlignment="Top" Height="83" Width="96" MouseDown="Right_Arrow" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource RightArrowStyling}"  x:Name="Right_Arrow_Champ_Select" HorizontalAlignment="Left" Margin="929,473,0,0" VerticalAlignment="Top" Height="67" Width="76" Click="Right_Arrow" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
-                    <ImageBrush x:Name="Right_Arrow_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
+                    <ImageBrush x:Name="Right_Arrow_Champ_Select_Background"  ImageSource="/src/images/assets/arrow.png" TileMode="None" Stretch="Uniform">
                         <ImageBrush.RelativeTransform>
                             <TransformGroup>
                                 <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -353,9 +552,13 @@
 
             </Button>
 
+            <Image x:Name="Champ_Image_On_Champ_Select" Source="src/images/Lillia/normal.png" MaxWidth="256" MaxHeight="256" Margin="446,174,445,260" Stretch="UniformToFill" SnapsToDevicePixels="True"
+       UseLayoutRounding="True">
+
+            </Image>
         </Grid>
         <Grid x:Name="Game_Scene">
-            
+
         </Grid>
     </Grid>
 </Window>
