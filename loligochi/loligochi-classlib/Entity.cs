@@ -65,7 +65,13 @@ namespace loligochi_classlib
         public double entitySicknessLevel { get; set; }
 
         //TODO egy gotHappy function, ami ha angry akkor normalra teszi
-
+        public void gotHappy()
+        {
+            if (this.currentStatus == "angry") 
+            {
+                currentStatus == "normal";
+            }
+        }
         public void aging()
         {
             this.age++;
