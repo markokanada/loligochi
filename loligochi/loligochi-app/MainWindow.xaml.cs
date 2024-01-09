@@ -261,12 +261,14 @@ namespace loligochi_app
 
         private void Save_And_Exit_From_The_In_Game_Scene(object sender, RoutedEventArgs e)
         {
-
+            Envirovment.SerializeEntity(champ, current_save_name);
+            Game_Scene.Visibility = Visibility.Hidden;
+            Main_Menu_Scene.Visibility = Visibility.Visible;
         }
 
         private void Save_The_Game_From_In_Game(object sender, RoutedEventArgs e)
         {
-
+            Envirovment.SerializeEntity(champ, current_save_name);
         }
 
         private void Feed_The_Champ(object sender, RoutedEventArgs e)
