@@ -289,6 +289,17 @@ namespace loligochi_app
 
         }
 
+        private void LoadTheStatus()
+        {
+            Loaded_Champ_Name.Text = champ.name;
+            Status_Status.Text = champ.currentStatus;
+            Level_Status.Text = $"{Math.Round(champ.level,1)}";
+            Age_Status.Text = $"{Math.Round(champ.age, 1)}";
+            Thirst_Status.Text = $"{Math.Round(champ.thirstLevel, 1)}";
+            Hunger_Status.Text = $"{Math.Round(champ.hungerLevel, 1)}";
+            HP_Status.Text = $"{Math.Round(champ.hp, 1)}";
+        }
+
         #endregion
 
         #region Load_Saved_Game
