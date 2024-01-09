@@ -66,7 +66,18 @@ namespace loligochi_classlib
         } //TODO csak az alábbiak egyike lehet: angry | sick | thirsty | hungry | dead | normal
         public string name { get; set; }
         public string basedOn { get; set; }
-        public double level { get; set; } //TODO 1-18 közötti érték
+        public double level 
+        {
+            get;
+            set
+            {
+                if (value >= 1 && value <= 18)
+                {
+                    level = value;
+                }
+                else throw new WrongChampPropertyException();
+            } 
+        } //TODO 1-18 közötti érték
         public double age { get; set; }
         public double hp { get; set; } //TODO 0 vagy annál nagyobb érték maximum
         public double hungerLevel { get; set; } //TODO 0-100 közötti érték maximum
