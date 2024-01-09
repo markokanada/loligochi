@@ -64,7 +64,7 @@ namespace loligochi_classlib
         public bool isTheEntitySick { get; set; }
         public double entitySicknessLevel { get; set; }
 
-
+        //TODO egy gotHappy function, ami ha angry akkor normalra teszi
 
         public void aging()
         {

@@ -273,7 +273,7 @@ namespace loligochi_app
 
         private void Feed_The_Champ(object sender, RoutedEventArgs e)
         {
-
+            champ.hungerLevel -= 10;
         }
 
         private void Heal_The_Champ(object sender, RoutedEventArgs e)
