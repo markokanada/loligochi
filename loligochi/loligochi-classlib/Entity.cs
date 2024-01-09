@@ -61,6 +61,7 @@ namespace loligochi_classlib
                 {
                     currentStatus = value;
                 }
+                else throw new WrongChampPropertyException();
             } 
         } //TODO csak az alábbiak egyike lehet: angry | sick | thirsty | hungry | dead | normal
         public string name { get; set; }
