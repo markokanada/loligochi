@@ -27,7 +27,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style x:Key="MainMenuButtons" TargetType="{x:Type Button}">
+        <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -64,6 +64,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!-- TODO buttons fix & style hierarchy fix & LoadSave not working correctly.-->
         <Storyboard x:Key="FadeInBackground">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Opacity)"
                                            Storyboard.TargetName="Welcome_Scene">
@@ -539,7 +540,7 @@
             </Grid.Background>
 
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="New_Game_Button" Panel.ZIndex="1" Content="New Game" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="New_Game_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" AutomationProperties.IsRowHeader="True" MouseEnter="Button_Hover_SoundEffect">
 
                 <Button.Background >
                     <ImageBrush  x:Name="New_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
@@ -547,23 +548,23 @@
 
 
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_Game_Button" Content="Continue" HorizontalAlignment="Left" Margin="20,205,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_Game_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow"  BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Continue_Game_Button" Content="Continue" HorizontalAlignment="Left" Margin="20,205,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_Game_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow"  BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_Game_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Settings_Button" Content="Settings" HorizontalAlignment="Left" Margin="20,310,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Settings_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Settings_Button" Content="Settings" HorizontalAlignment="Left" Margin="20,310,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Settings_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Settings_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Credits_Button" Content="Credits" HorizontalAlignment="Left" Margin="20,415,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Credits_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Credits_Button" Content="Credits" HorizontalAlignment="Left" Margin="20,415,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Credits_Button_Click" FontSize="24" FontFamily="Copperplate Gothic Bold" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Credits_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
 
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="20,520,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="20,520,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Click" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Exit_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -595,13 +596,13 @@
                 </TextBlock.Effect>
                 Are you sure you want to exit?
             </TextBlock>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Sure_To_Exit" Content="Yes" HorizontalAlignment="Left" Margin="205,389,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Sure_To_Exit" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Sure_To_Exit" Content="Yes" HorizontalAlignment="Left" Margin="205,389,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Sure_To_Exit" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Sure_To_Exit_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
 
             </Button>
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu" Content="No" HorizontalAlignment="Left" Margin="704,389,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Back_To_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu" Content="No" HorizontalAlignment="Left" Margin="704,389,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Exit_Button_Back_To_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -623,7 +624,7 @@
                 Start a new game
             </TextBlock>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_New_Game" Content="Main Menu" HorizontalAlignment="Left" Margin="943,603,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Start_A_New_Game_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_New_Game" Content="Main Menu" HorizontalAlignment="Left" Margin="943,603,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Start_A_New_Game_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_New_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -648,7 +649,7 @@
                 </TextBox.Background>
             </TextBox>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Champ_Select_Button" Content="Continue" HorizontalAlignment="Left" Margin="475,391,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_To_Champ_Select" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Continue_To_Champ_Select_Button" Content="Continue" HorizontalAlignment="Left" Margin="475,391,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Continue_To_Champ_Select" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_To_Champ_Select_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -671,7 +672,7 @@
                 Select the champ
             </TextBlock>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Champ_Select" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Champ_Select_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Champ_Select" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Champ_Select_Scene_Back_To_The_Main_Menu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_Champ_Select_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -696,7 +697,7 @@
                 </TextBox.Background>
             </TextBox>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Continue_To_Game_Scene" Content="Select" HorizontalAlignment="Left" Margin="474,579,0,0" VerticalAlignment="Top" Height="91" Width="328" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Continue_To_Game_Scene" Content="Select" HorizontalAlignment="Left" Margin="474,579,0,0" VerticalAlignment="Top" Height="91" Width="328" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Continue_To_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -755,7 +756,7 @@
                 Select the game to continue
             </TextBlock>
 
-            <Button Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Load_Game_Scene_Button" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Back_To_The_Main_Menu_From_Load_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Load_Game_Scene_Button" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="Back_To_The_Main_Menu_From_Load_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_Load_Game_Scene_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -807,41 +808,41 @@
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_And_Exit_From_The_In_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_And_Exit_From_The_In_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Save_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_The_Game_From_In_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_The_Game_From_In_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Feed_The_Champion_Button" Content="Feed" HorizontalAlignment="Left" Margin="798,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Feed_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Feed_The_Champion_Button" Content="Feed" HorizontalAlignment="Left" Margin="798,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Feed_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Feed_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Heal_The_Champion_Button" Content="Heal" HorizontalAlignment="Left" Margin="598,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Heal_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Heal_The_Champion_Button" Content="Heal" HorizontalAlignment="Left" Margin="598,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Heal_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Heal_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Drink_The_Champion_Button" Content="Drink" HorizontalAlignment="Left" Margin="398,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Drink_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Drink_The_Champion_Button" Content="Drink" HorizontalAlignment="Left" Margin="398,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Drink_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Drink_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Pet_The_Champion_Button" Content="Pet" HorizontalAlignment="Left" Margin="198,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Pet_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Pet_The_Champion_Button" Content="Pet" HorizontalAlignment="Left" Margin="198,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Pet_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Pet_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
