@@ -69,7 +69,7 @@ namespace loligochi_classlib
         {
             if (this.currentStatus == "angry") 
             {
-                currentStatus == "normal";
+                currentStatus = "normal";
             }
         }
         public void aging()
