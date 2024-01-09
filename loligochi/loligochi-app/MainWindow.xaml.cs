@@ -278,16 +278,19 @@ namespace loligochi_app
 
         private void Heal_The_Champ(object sender, RoutedEventArgs e)
         {
+            champ.hp += 10;
 
         }
 
         private void Drink_The_Champ(object sender, RoutedEventArgs e)
         {
+            champ.thirstLevel -= 10;
 
         }
 
         private void Pet_The_Champ(object sender, RoutedEventArgs e)
         {
+            champ.gotHappy();
 
         }
 
