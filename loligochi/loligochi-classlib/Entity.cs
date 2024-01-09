@@ -79,7 +79,18 @@ namespace loligochi_classlib
             } 
         } //TODO 1-18 közötti érték
         public double age { get; set; }
-        public double hp { get; set; } //TODO 0 vagy annál nagyobb érték maximum
+        public double hp 
+        { 
+            get;
+            set
+            {
+                if (value >= 0)
+                {
+                    hp = value;
+                }
+                else throw new WrongChampPropertyException();
+            } 
+        } //TODO 0 vagy annál nagyobb érték maximum
         public double hungerLevel { get; set; } //TODO 0-100 közötti érték maximum
         public double thirstLevel { get; set; } //TODO 0-100 közötti érték maximum
         public bool isTheEntitySick { get; set; }
