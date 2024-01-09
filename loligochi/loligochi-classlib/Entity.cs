@@ -53,14 +53,14 @@ namespace loligochi_classlib
         public string thirstyVoice { get;  set; }
         public string angryVoice { get;  set; }
 
-        public string currentStatus { get; set; }
+        public string currentStatus { get; set; } //TODO csak az alábbiak egyike lehet: angry | sick | thirsty | hungry | dead | normal
         public string name { get; set; }
         public string basedOn { get; set; }
-        public double level { get; set; }
+        public double level { get; set; } //TODO 1-18 közötti érték
         public double age { get; set; }
-        public double hp { get; set; }
-        public double hungerLevel { get; set; }
-        public double thirstLevel { get; set; }
+        public double hp { get; set; } //TODO 0 vagy annál nagyobb érték maximum
+        public double hungerLevel { get; set; } //TODO 0-100 közötti érték maximum
+        public double thirstLevel { get; set; } //TODO 0-100 közötti érték maximum
         public bool isTheEntitySick { get; set; }
         public double entitySicknessLevel { get; set; }
 
