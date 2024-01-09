@@ -10,31 +10,6 @@ using System.Xml;
 
 namespace loligochi_classlib
 {
-
-    //////////public class Pet
-    //////////{
-    //////////    public string Name { get; set; }
-    //////////    public double Thirst { get; set; }
-    //////////    public double Age { get; set; }
-    //////////    public string Mood { get; set; }
-    //////////    public int Level { get; set; }
-    //////////    public double Hp { get; set; }
-    //////////    public bool IsSick { get; set; }
-    //////////    public string Status { get; set; }
-
-    //////////    public Pet(string name)
-    //////////    {
-    //////////        Name = name;
-    //////////        Thirst = 0;
-    //////////        Age = 0;
-    //////////        Mood = "Happy";
-    //////////        Level = 1;
-    //////////        Hp = 100;
-    //////////        IsSick = false;
-    //////////        Status = "Alive";
-    //////////    }
-    //////////}
-
     public class Envirovment
     {
         private Entity Pet { get; set; }

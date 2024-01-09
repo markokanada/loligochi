@@ -279,7 +279,6 @@ namespace loligochi_app
 
         private void Rotate_The_Save_Slots_By_Arrow_Down(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine(save_index);
 
             List<String> avaibleSaves = new List<String>();
 
@@ -322,7 +321,6 @@ namespace loligochi_app
 
         private void Rotate_The_Save_Slots_By_Arrow_Up(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine(save_index);
 
             List<String> avaibleSaves = new List<String>();
 
@@ -380,12 +378,9 @@ namespace loligochi_app
             {
                 avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
             }
-            Trace.WriteLine(avaibleSaves.ToString());
             
             if (avaibleSaves.Count >= 1)
             {
-                Trace.WriteLine("1");
-                Trace.WriteLine(avaibleSaves[0]);
 
                 Save_Select_Scene_Option_1.Text = avaibleSaves[0].Substring(avaibleSaves[0].IndexOf("save\\")+5);
             }

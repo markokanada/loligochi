@@ -739,7 +739,7 @@
 
             </Image>
         </Grid>
-        <Grid x:Name="Load_Game_Scene" Visibility="Visible">
+        <Grid x:Name="Load_Game_Scene" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large" Opacity="1"/>
             </Grid.Background>
