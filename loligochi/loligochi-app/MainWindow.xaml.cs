@@ -258,6 +258,37 @@ namespace loligochi_app
 
         #region In_Game_Scene
 
+
+        private void Save_And_Exit_From_The_In_Game_Scene(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Save_The_Game_From_In_Game(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Feed_The_Champ(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Heal_The_Champ(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Drink_The_Champ(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Pet_The_Champ(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region Load_Saved_Game
