@@ -53,7 +53,16 @@ namespace loligochi_classlib
         public string thirstyVoice { get;  set; }
         public string angryVoice { get;  set; }
 
-        public string currentStatus { get; set; } //TODO csak az alábbiak egyike lehet: angry | sick | thirsty | hungry | dead | normal
+        public string currentStatus 
+        {   get; 
+            set 
+            {
+                if (value == "angry" || value == "sick" || value == "thirsty" || value == "hungry" || value == "dead" || value == "normal")
+                {
+                    currentStatus = value;
+                }
+            } 
+        } //TODO csak az alábbiak egyike lehet: angry | sick | thirsty | hungry | dead | normal
         public string name { get; set; }
         public string basedOn { get; set; }
         public double level { get; set; } //TODO 1-18 közötti érték
@@ -69,7 +78,7 @@ namespace loligochi_classlib
         {
             if (this.currentStatus == "angry") 
             {
-                currentStatus == "normal";
+                currentStatus = "normal";
             }
         }
         public void aging()
