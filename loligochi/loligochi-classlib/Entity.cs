@@ -103,8 +103,19 @@ namespace loligochi_classlib
                 else throw new WrongChampPropertyException() ;
             }
         } //TODO 0-100 közötti érték maximum
-        public double thirstLevel { get; set; } //TODO 0-100 közötti érték maximum
-        public bool isTheEntitySick { get; set; }
+        public double thirstLevel
+        {
+            get;
+            set
+            {
+                if (value >= 0 && value <= 100)
+                {
+                    hungerLevel = value;
+                }
+                else throw new WrongChampPropertyException();
+            } //TODO 0-100 közötti érték maximum
+        }
+		public bool isTheEntitySick { get; set; }
         public double entitySicknessLevel { get; set; }
 
         public void gotHappy()
