@@ -189,10 +189,6 @@ namespace loligochi_app
 
         #region Champ_Select_Scene
 
-
-        
-
-
         private void Left_Arrow(object sender, RoutedEventArgs e)
         {
             if(champ_index == 0)
@@ -241,6 +237,12 @@ namespace loligochi_app
         {
             champ.name = Name_Of_The_Champ.Text;
             Envirovment.SerializeEntity(champ, current_save_name);
+
+            var champ_image = converter.ConvertFromString(champ.normalImage);
+
+            if (champ_image == null) throw new FileMissingException();
+            Loaded_Champ_Image.Source = (ImageSource)champ_image;
+            Loaded_Champ_Name.Text = champ.name;
 
             Champ_Select_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
@@ -395,8 +397,17 @@ namespace loligochi_app
         
         private void Load_Save_From_Save_Select(string saveName)
         {
+            current_save_name = "save\\" + saveName;
+            champ = Envirovment.DeserializeEntity(current_save_name);
+            var champ_image = converter.ConvertFromString(champ.normalImage);
 
+
+            if (champ_image == null) throw new FileMissingException();
+            Loaded_Champ_Image.Source = (ImageSource)champ_image;
+            Loaded_Champ_Name.Text = champ.name;
         }
+
+       
         private void Load_Champ_In_Champ_Select_Preview()
         {
             champ = Envirovment.DeserializeEntity(allChampionJsonFiles[champ_index]);

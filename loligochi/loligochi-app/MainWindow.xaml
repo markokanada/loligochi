@@ -802,8 +802,63 @@
             </Button>
         </Grid>
 
-        <Grid x:Name="Game_Scene">
+        <Grid x:Name="Game_Scene" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
+            </Grid.Background>
 
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Save_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
+                </Button.Background>
+
+            </Button>
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Feed_The_Champion_Button" Content="Feed" HorizontalAlignment="Left" Margin="798,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Feed_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Heal_The_Champion_Button" Content="Heal" HorizontalAlignment="Left" Margin="598,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Heal_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Drink_The_Champion_Button" Content="Drink" HorizontalAlignment="Left" Margin="398,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Drink_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button Cursor="Hand" Style="{DynamicResource MainMenuButtons}" x:Name="Pet_The_Champion_Button" Content="Pet" HorizontalAlignment="Left" Margin="198,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Continue_To_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Pet_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Image x:Name="Loaded_Champ_Image" Source="src/images/Lillia/normal.png" MaxWidth="256" MaxHeight="256" Margin="446,174,445,260" Stretch="UniformToFill" SnapsToDevicePixels="True"
+UseLayoutRounding="True">
+
+            </Image>
+
+            <TextBlock x:Name="Loaded_Champ_Name" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Champion
+            </TextBlock>
         </Grid>
     </Grid>
 </Window>
