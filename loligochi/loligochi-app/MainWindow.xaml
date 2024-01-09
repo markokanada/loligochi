@@ -853,6 +853,57 @@ UseLayoutRounding="True">
 
             </Image>
 
+            <Grid x:Name="Status_Wall" Margin="52,40,920,337" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.662"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.Background>
+                    <ImageBrush ImageSource="src/images/assets/button.png"/>
+                </Grid.Background>
+            </Grid>
+            <TextBlock x:Name="HP_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,89,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="207">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    HP: 0
+            </TextBlock>
+            <TextBlock x:Name="Hunger_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,125,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="215">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Hunger: 0
+            </TextBlock>
+            <TextBlock x:Name="Thirst_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,166,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="215">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Thirst: 0
+            </TextBlock>
+            <TextBlock x:Name="Age_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,206,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="215">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Age: 0
+            </TextBlock>
+            <TextBlock x:Name="Level_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,246,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="215">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Level: 0
+            </TextBlock>
+            <TextBlock x:Name="Status_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,283,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="215">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Status: 0
+            </TextBlock>
+
+
             <TextBlock x:Name="Loaded_Champ_Name" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
