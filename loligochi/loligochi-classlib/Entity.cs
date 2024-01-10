@@ -54,7 +54,11 @@ namespace loligochi_classlib
         public string angryVoice { get;  set; }
 
         public string currentStatus 
-        {   get; 
+        {
+            get
+            {
+                return currentStatus;
+            } 
             set 
             {
                 if (value == "angry" || value == "sick" || value == "thirsty" || value == "hungry" || value == "dead" || value == "normal")
