@@ -87,8 +87,11 @@ namespace loligochi_classlib
         } //TODO 1-18 közötti érték
         public double age { get; set; }
         public double hp 
-        { 
-            get;
+        {
+            get
+            {
+                return hp;
+            }
             set
             {
                 if (value >= 0)
