@@ -72,7 +72,10 @@ namespace loligochi_classlib
         public string basedOn { get; set; }
         public double level 
         {
-            get;
+            get
+            {
+                return level;
+            }
             set
             {
                 if (value >= 1 && value <= 18)
