@@ -90,21 +90,23 @@ namespace loligochi_classlib
             } 
         } 
         public double age { get; set; }
+
+        private double _hp;
         public double hp 
         {
             get
             {
-                return hp;
+                return _hp;
             }
             set
             {
                 if (value >= 0)
                 {
-                    hp = value;
+                    _hp = value;
                 }
-                else throw new WrongChampPropertyException();
+                
             } 
-        } //TODO 0 vagy annál nagyobb érték maximum
+        } 
         public double hungerLevel 
         {
             get
