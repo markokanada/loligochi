@@ -124,21 +124,22 @@ namespace loligochi_classlib
                 }
                 else throw new WrongChampPropertyException() ;
             }
-        } 
+        }
+        private double _thirstLevel;
         public double thirstLevel
         {
             get
             {
-                return thirstLevel;
+                return _thirstLevel;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    hungerLevel = value;
+                    _thirstLevel = value;
                 }
                 else throw new WrongChampPropertyException();
-            } //TODO 0-100 közötti érték maximum
+            } 
         }
 		public bool isTheEntitySick { get; set; }
         public double entitySicknessLevel { get; set; }
