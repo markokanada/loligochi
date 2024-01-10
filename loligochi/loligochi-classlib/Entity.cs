@@ -73,21 +73,22 @@ namespace loligochi_classlib
         }
         public string name { get; set; }
         public string basedOn { get; set; }
+        private double _level;
         public double level 
         {
             get
             {
-                return level;
+                return _level;
             }
             set
             {
                 if (value >= 1 && value <= 18)
                 {
-                    level = value;
+                    _level = value;
                 }
-                else throw new WrongChampPropertyException();
+                
             } 
-        } //TODO 1-18 közötti érték
+        } 
         public double age { get; set; }
         public double hp 
         {
