@@ -8,7 +8,7 @@ namespace loligochi_classlib
 {
 	public class WrongChampPropertyException: Exception
 	{
-        public WrongChampPropertyException():base("Wrong value given to specific property")
+        public WrongChampPropertyException():base("Error code 4: Wrong value given to specific property")
         {
             
         }
