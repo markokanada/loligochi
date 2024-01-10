@@ -99,8 +99,11 @@ namespace loligochi_classlib
             } 
         } //TODO 0 vagy annál nagyobb érték maximum
         public double hungerLevel 
-        { 
-            get;
+        {
+            get
+            {
+                return hungerLevel;
+            }
             set
             {
                 if (value >= 0 && value <= 100)
