@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System;
 using System.Windows.Media.Imaging;
 using System.Text.Json.Serialization;
+using System.Diagnostics;
 
 namespace loligochi_classlib
 {
@@ -52,22 +53,24 @@ namespace loligochi_classlib
         public string hungryVoice { get;  set; }
         public string thirstyVoice { get;  set; }
         public string angryVoice { get;  set; }
+        private string _currentStatus;
 
         public string currentStatus 
         {
             get
             {
-                return currentStatus;
+                return _currentStatus;
             } 
             set 
             {
+                Trace.WriteLine(value);
                 if (value == "angry" || value == "sick" || value == "thirsty" || value == "hungry" || value == "dead" || value == "normal")
                 {
-                    currentStatus = value;
+                    _currentStatus = value;
                 }
                 else throw new WrongChampPropertyException();
             } 
-        } //TODO csak az alábbiak egyike lehet: angry | sick | thirsty | hungry | dead | normal
+        }
         public string name { get; set; }
         public string basedOn { get; set; }
         public double level 
