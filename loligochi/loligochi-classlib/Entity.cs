@@ -106,22 +106,25 @@ namespace loligochi_classlib
                 }
                 
             } 
-        } 
+        }
+
+        private double _hungerLevel;
+
         public double hungerLevel 
         {
             get
             {
-                return hungerLevel;
+                return _hungerLevel;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    hungerLevel = value;
+                    _hungerLevel = value;
                 }
                 else throw new WrongChampPropertyException() ;
             }
-        } //TODO 0-100 közötti érték maximum
+        } 
         public double thirstLevel
         {
             get
