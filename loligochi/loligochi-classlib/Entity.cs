@@ -118,7 +118,10 @@ namespace loligochi_classlib
         } //TODO 0-100 közötti érték maximum
         public double thirstLevel
         {
-            get;
+            get
+            {
+                return thirstLevel;
+            }
             set
             {
                 if (value >= 0 && value <= 100)
