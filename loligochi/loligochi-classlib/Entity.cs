@@ -63,7 +63,6 @@ namespace loligochi_classlib
             } 
             set 
             {
-                Trace.WriteLine(value);
                 if (value == "angry" || value == "sick" || value == "thirsty" || value == "hungry" || value == "dead" || value == "normal")
                 {
                     _currentStatus = value;

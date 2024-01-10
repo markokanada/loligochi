@@ -493,6 +493,61 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="FocusVisual2">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background5" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border5" Color="#FF707070"/>
+        <ImageBrush x:Key="Button.MouseOver.Background5" ImageSource="/src/images/assets/button_hovered.png" Stretch="Fill" TileMode="None"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border5" Color="Transparent"/>
+        <ImageBrush x:Key="Button.Pressed.Background5" ImageSource="/src/images/assets/button_hovered.png" Stretch="Fill" TileMode="None"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border5" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background5" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border5" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground5" Color="#FF838383"/>
+        <Style x:Key="ResizedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual2}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background5}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border5}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background5}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border5}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background5}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border5}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background5}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border5}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground5}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Window.Resources>
 
@@ -808,41 +863,41 @@
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
 
-            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_And_Exit_From_The_In_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_And_Exit_From_The_In_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Save_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
-            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_The_Game_From_In_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_The_Game_From_In_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Feed_The_Champion_Button" Content="Feed" HorizontalAlignment="Left" Margin="798,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Feed_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Feed_The_Champion_Button" Content="Feed" HorizontalAlignment="Left" Margin="798,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Feed_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Feed_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Heal_The_Champion_Button" Content="Heal" HorizontalAlignment="Left" Margin="598,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Heal_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Heal_The_Champion_Button" Content="Heal" HorizontalAlignment="Left" Margin="598,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Heal_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Heal_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Drink_The_Champion_Button" Content="Drink" HorizontalAlignment="Left" Margin="398,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Drink_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Drink_The_Champion_Button" Content="Drink" HorizontalAlignment="Left" Margin="398,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Drink_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Drink_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
 
-            <Button Cursor="Hand" Style="{DynamicResource DefaultButtonStyle}" x:Name="Pet_The_Champion_Button" Content="Pet" HorizontalAlignment="Left" Margin="198,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Pet_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Pet_The_Champion_Button" Content="Pet" HorizontalAlignment="Left" Margin="198,595,0,0" VerticalAlignment="Top" Height="91" Width="189" Click="Pet_The_Champ" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Pet_The_Champion_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
