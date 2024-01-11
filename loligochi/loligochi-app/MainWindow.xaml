@@ -8,18 +8,6 @@
         Title="Loligochi" Height="720" Width="1280" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         KeyDown="Window_KeyDown" Icon="src/images/assets/icon.png">
-    <Window.Resources>
-
-        
-
-
-        
-
-        
-        
-        
-
-    </Window.Resources>
 
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">

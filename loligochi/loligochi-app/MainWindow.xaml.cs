@@ -235,6 +235,7 @@ namespace loligochi_app
 
         private void Continue_To_Game(object sender, RoutedEventArgs e)
         {
+            if(champ==null)throw new ChampIsNullException();
             champ.name = Name_Of_The_Champ.Text;
             Envirovment.SerializeEntity(champ, current_save_name);
 
@@ -261,6 +262,7 @@ namespace loligochi_app
 
         private void Save_And_Exit_From_The_In_Game_Scene(object sender, RoutedEventArgs e)
         {
+            if (champ == null) throw new ChampIsNullException();
             Envirovment.SerializeEntity(champ, current_save_name);
             Game_Scene.Visibility = Visibility.Hidden;
             Main_Menu_Scene.Visibility = Visibility.Visible;
@@ -268,34 +270,40 @@ namespace loligochi_app
 
         private void Save_The_Game_From_In_Game(object sender, RoutedEventArgs e)
         {
+            if (champ == null) throw new ChampIsNullException();
             Envirovment.SerializeEntity(champ, current_save_name);
         }
 
         private void Feed_The_Champ(object sender, RoutedEventArgs e)
         {
+            if (champ == null) throw new ChampIsNullException();
             champ.hungerLevel -= 10;
         }
 
         private void Heal_The_Champ(object sender, RoutedEventArgs e)
         {
+            if (champ == null) throw new ChampIsNullException();
             champ.hp += 10;
 
         }
 
         private void Drink_The_Champ(object sender, RoutedEventArgs e)
         {
+            if (champ == null) throw new ChampIsNullException();
             champ.thirstLevel -= 10;
 
         }
 
         private void Pet_The_Champ(object sender, RoutedEventArgs e)
         {
+            if (champ == null) throw new ChampIsNullException();
             champ.gotHappy();
 
         }
 
         private void LoadTheStatus()
         {
+            if (champ == null) throw new ChampIsNullException();
             Loaded_Champ_Name.Text = champ.name;
             Status_Status.Text = champ.currentStatus;
             Level_Status.Text = $"{Math.Round(champ.level,1)}";
@@ -448,6 +456,8 @@ namespace loligochi_app
         {
             current_save_name = "src\\save\\" + saveName;
             champ = Envirovment.DeserializeEntity(current_save_name);
+
+            if (champ == null) throw new ChampIsNullException();
             var champ_image = converter.ConvertFromString(champ.normalImage);
 
 
@@ -460,6 +470,7 @@ namespace loligochi_app
         private void Load_Champ_In_Champ_Select_Preview()
         {
             champ = Envirovment.DeserializeEntity(allChampionJsonFiles[champ_index]);
+            if (champ == null) throw new ChampIsNullException();
             var champ_image = converter.ConvertFromString(champ.normalImage);
             
 
