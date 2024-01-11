@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Storyboard x:Key="FadeInBackground">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Opacity)"
+                                   Storyboard.TargetName="Welcome_Scene">
+            <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+</ResourceDictionary>

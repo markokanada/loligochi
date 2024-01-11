@@ -11,13 +11,7 @@
     <Window.Resources>
         
         <!-- TODO buttons fix & style hierarchy fix & LoadSave not working correctly.-->
-        <Storyboard x:Key="FadeInBackground">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Opacity)"
-                                           Storyboard.TargetName="Welcome_Scene">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        
         <Storyboard x:Key="AnimateImage">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
                                            Storyboard.TargetName="Lux_Brand">

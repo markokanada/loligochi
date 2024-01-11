@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:loligochi_app"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="src/styles/DefaultButtonStyle.xaml"/>
+                <ResourceDictionary Source="src/styles/FadeInBackground.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
