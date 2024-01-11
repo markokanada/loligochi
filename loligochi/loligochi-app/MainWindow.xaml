@@ -14,35 +14,7 @@
         
         
 
-        <Storyboard x:Key="AnimateText">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
-                                           Storyboard.TargetName="Welcome_Text">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
-                                           Storyboard.TargetName="Welcome_Text">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
-
-                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
-                                           Storyboard.TargetName="Press_E">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
-                                           Storyboard.TargetName="Press_E">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
-
-                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>

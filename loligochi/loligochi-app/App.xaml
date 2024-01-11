@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="src/styles/DefaultButtonStyle.xaml"/>
                 <ResourceDictionary Source="src/styles/FadeInBackground.xaml"/>
                 <ResourceDictionary Source="src/styles/AnimateImage.xaml"/>
+                <ResourceDictionary Source="src/styles/AnimateText.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
