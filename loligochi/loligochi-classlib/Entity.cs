@@ -15,145 +15,143 @@ namespace loligochi_classlib
         [JsonConstructor]
         public Entity(string deadImage, string normalImage, string hungryImage, string thirstyImage, string angryImage, string sickImage, string deadVoice, string normalVoice, string sickVoice, string hungryVoice, string thirstyVoice, string angryVoice, string currentStatus, string name, string basedOn, double level, double age, double hp, double hungerLevel, double thirstLevel, bool isTheEntitySick, double entitySicknessLevel)
         {
-            this.deadImage = deadImage ?? throw new ArgumentNullException(nameof(deadImage));
-            this.normalImage = normalImage ?? throw new ArgumentNullException(nameof(normalImage));
-            this.hungryImage = hungryImage ?? throw new ArgumentNullException(nameof(hungryImage));
-            this.thirstyImage = thirstyImage ?? throw new ArgumentNullException(nameof(thirstyImage));
-            this.angryImage = angryImage ?? throw new ArgumentNullException(nameof(angryImage));
-            this.sickImage = sickImage ?? throw new ArgumentNullException(nameof(sickImage));
-            this.deadVoice = deadVoice ?? throw new ArgumentNullException(nameof(deadVoice));
-            this.normalVoice = normalVoice ?? throw new ArgumentNullException(nameof(normalVoice));
-            this.sickVoice = sickVoice ?? throw new ArgumentNullException(nameof(sickVoice));
-            this.hungryVoice = hungryVoice ?? throw new ArgumentNullException(nameof(hungryVoice));
-            this.thirstyVoice = thirstyVoice ?? throw new ArgumentNullException(nameof(thirstyVoice));
-            this.angryVoice = angryVoice ?? throw new ArgumentNullException(nameof(angryVoice));
-            this.currentStatus = currentStatus ?? throw new ArgumentNullException(nameof(currentStatus));
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.basedOn = basedOn ?? throw new ArgumentNullException(nameof(basedOn));
-            this.level = level;
-            this.age = age;
-            this.hp = hp;
-            this.hungerLevel = hungerLevel;
-            this.thirstLevel = thirstLevel;
-            this.isTheEntitySick = isTheEntitySick;
-            this.entitySicknessLevel = entitySicknessLevel;
+            this.DeadImage = deadImage ?? throw new ArgumentNullException(nameof(deadImage));
+            this.NormalImage = normalImage ?? throw new ArgumentNullException(nameof(normalImage));
+            this.HungryImage = hungryImage ?? throw new ArgumentNullException(nameof(hungryImage));
+            this.ThirstyImage = thirstyImage ?? throw new ArgumentNullException(nameof(thirstyImage));
+            this.AngryImage = angryImage ?? throw new ArgumentNullException(nameof(angryImage));
+            this.SickImage = sickImage ?? throw new ArgumentNullException(nameof(sickImage));
+            this.DeadVoice = deadVoice ?? throw new ArgumentNullException(nameof(deadVoice));
+            this.NormalVoice = normalVoice ?? throw new ArgumentNullException(nameof(normalVoice));
+            this.SickVoice = sickVoice ?? throw new ArgumentNullException(nameof(sickVoice));
+            this.SungryVoice = hungryVoice ?? throw new ArgumentNullException(nameof(hungryVoice));
+            this.ThirstyVoice = thirstyVoice ?? throw new ArgumentNullException(nameof(thirstyVoice));
+            this.AngryVoice = angryVoice ?? throw new ArgumentNullException(nameof(angryVoice));
+            this._CurrentStatus = currentStatus ?? throw new ArgumentNullException(nameof(currentStatus));
+            this.Name = name ?? throw new ArgumentNullException(nameof(name));
+            this.BasedOn = basedOn ?? throw new ArgumentNullException(nameof(basedOn));
+            this.Level = level;
+            this.Age = age;
+            this.HP = hp;
+            this.HungerLevel = hungerLevel;
+            this.ThirstLevel = thirstLevel;
+            this.IsTheEntitySick = isTheEntitySick;
+            this.EntitySicknessLevel = entitySicknessLevel;
         }
 
-        public string deadImage { get;  set; }
-        public string normalImage { get;  set; }
-        public string hungryImage { get;  set; }
-        public string thirstyImage { get;  set; }
-        public string angryImage { get;  set; }
-        public string sickImage { get;  set; }
+        public string DeadImage { get;  set; }
+        public string NormalImage { get;  set; }
+        public string HungryImage { get;  set; }
+        public string ThirstyImage { get;  set; }
+        public string AngryImage { get;  set; }
+        public string SickImage { get;  set; }
+        public string DeadVoice { get;  set; }
+        public string NormalVoice { get;  set; }
+        public string SickVoice { get;  set; }
+        public string SungryVoice { get;  set; }
+        public string ThirstyVoice { get;  set; }
+        public string AngryVoice { get;  set; }
+        private string _CurrentStatus;
 
-        // Audio handling placeholders
-        public string deadVoice { get;  set; }
-        public string normalVoice { get;  set; }
-        public string sickVoice { get;  set; }
-        public string hungryVoice { get;  set; }
-        public string thirstyVoice { get;  set; }
-        public string angryVoice { get;  set; }
-        private string _currentStatus;
-
-        public string currentStatus 
+        public string CurrentStatus 
         {
             get
             {
-                return _currentStatus;
+                return _CurrentStatus;
             } 
             set 
             {
-                if (value == "angry" || value == "sick" || value == "thirsty" || value == "hungry" || value == "dead" || value == "normal")
+                if (value == "Angry" || value == "Sick" || value == "Thirsty" || value == "Hungry" || value == "Dead" || value == "Normal")
                 {
-                    _currentStatus = value;
+                    _CurrentStatus = value;
                 }
                 else throw new WrongChampPropertyException();
             } 
         }
-        public string name { get; set; }
-        public string basedOn { get; set; }
-        private double _level;
-        public double level 
+        public string Name { get; set; }
+        public string BasedOn { get; set; }
+        private double _Level;
+        public double Level 
         {
             get
             {
-                return _level;
+                return _Level;
             }
             set
             {
                 if (value >= 1 && value <= 18)
                 {
-                    _level = value;
+                    _Level = value;
                 }
                 
             } 
         } 
-        public double age { get; set; }
+        public double Age { get; set; }
 
-        private double _hp;
-        public double hp 
+        private double _HP;
+        public double HP 
         {
             get
             {
-                return _hp;
+                return _HP;
             }
             set
             {
                 if (value >= 0)
                 {
-                    _hp = value;
+                    _HP = value;
                 }
                 
             } 
         }
 
-        private double _hungerLevel;
+        private double _HungerLevel;
 
-        public double hungerLevel 
+        public double HungerLevel 
         {
             get
             {
-                return _hungerLevel;
+                return _HungerLevel;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    _hungerLevel = value;
+                    _HungerLevel = value;
                 }
                 else throw new WrongChampPropertyException() ;
             }
         }
-        private double _thirstLevel;
-        public double thirstLevel
+        private double _ThirstLevel;
+        public double ThirstLevel
         {
             get
             {
-                return _thirstLevel;
+                return _ThirstLevel;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    _thirstLevel = value;
+                    _ThirstLevel = value;
                 }
                 else throw new WrongChampPropertyException();
             } 
         }
-		public bool isTheEntitySick { get; set; }
-        public double entitySicknessLevel { get; set; }
+		public bool IsTheEntitySick { get; set; }
+        public double EntitySicknessLevel { get; set; }
 
-        public void gotHappy()
+        public void GotHappy()
         {
-            if (this.currentStatus == "angry") 
+            if (this.CurrentStatus == "ANgry") 
             {
-                currentStatus = "normal";
+                CurrentStatus = "Normal";
             }
         }
-        public void aging()
+        public void GotOlder()
         {
-            this.age++;
-            this.level++;
+            this.Age++;
+            this.Level++;
         }
     }
 }

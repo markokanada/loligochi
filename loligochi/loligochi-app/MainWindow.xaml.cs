@@ -211,7 +211,7 @@ namespace loligochi_app
         {
             if (Name_Of_The_Champ.Text == "" && Champion != null)
             {
-                Name_Of_The_Champ.Text = Champion.name;
+                Name_Of_The_Champ.Text = Champion.Name;
             }
             else if (Champion == null) throw new ChampIsNullException();
         }
@@ -219,12 +219,12 @@ namespace loligochi_app
         private void ContinueToGame(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
-            Champion.name = Name_Of_The_Champ.Text;
+            Champion.Name = Name_Of_The_Champ.Text;
             Envirovment.SerializeEntity(Champion, CurrentSaveName);
-            var champ_image = Converter.ConvertFromString(Champion.normalImage);
+            var champ_image = Converter.ConvertFromString(Champion.NormalImage);
             if (champ_image == null) throw new FileMissingException();
             Loaded_Champ_Image.Source = (ImageSource)champ_image;
-            Loaded_Champ_Name.Text = Champion.name;
+            Loaded_Champ_Name.Text = Champion.Name;
             Champ_Select_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
         }
@@ -257,37 +257,37 @@ namespace loligochi_app
         private void FeedTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
-            Champion.hungerLevel -= 10;
+            Champion.HungerLevel -= 10;
         }
 
         private void HealTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
-            Champion.hp += 10;
+            Champion.HP += 10;
         }
 
         private void DrinkTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
-            Champion.thirstLevel -= 10;
+            Champion.ThirstLevel -= 10;
         }
 
         private void PetTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
-            Champion.gotHappy();
+            Champion.GotHappy();
         }
 
         private void LoadTheStatus()
         {
             if (Champion == null) throw new ChampIsNullException();
-            Loaded_Champ_Name.Text = Champion.name;
-            Status_Status.Text = Champion.currentStatus;
-            Level_Status.Text = $"{Math.Round(Champion.level, 1)}";
-            Age_Status.Text = $"{Math.Round(Champion.age, 1)}";
-            Thirst_Status.Text = $"{Math.Round(Champion.thirstLevel, 1)}";
-            Hunger_Status.Text = $"{Math.Round(Champion.hungerLevel, 1)}";
-            HP_Status.Text = $"{Math.Round(Champion.hp, 1)}";
+            Loaded_Champ_Name.Text = Champion.Name;
+            Status_Status.Text = Champion.CurrentStatus;
+            Level_Status.Text = $"{Math.Round(Champion.Level, 1)}";
+            Age_Status.Text = $"{Math.Round(Champion.Age, 1)}";
+            Thirst_Status.Text = $"{Math.Round(Champion.ThirstLevel, 1)}";
+            Hunger_Status.Text = $"{Math.Round(Champion.HungerLevel, 1)}";
+            HP_Status.Text = $"{Math.Round(Champion.HP, 1)}";
         }
 
         #endregion
@@ -399,10 +399,10 @@ namespace loligochi_app
             CurrentSaveName = "src\\save\\" + saveName;
             Champion = Envirovment.DeserializeEntity(CurrentSaveName);
             if (Champion == null) throw new ChampIsNullException();
-            var champ_image = Converter.ConvertFromString(Champion.normalImage);
+            var champ_image = Converter.ConvertFromString(Champion.NormalImage);
             if (champ_image == null) throw new FileMissingException();
             Loaded_Champ_Image.Source = (ImageSource)champ_image;
-            Loaded_Champ_Name.Text = Champion.name;
+            Loaded_Champ_Name.Text = Champion.Name;
         }
 
 
@@ -410,10 +410,10 @@ namespace loligochi_app
         {
             Champion = Envirovment.DeserializeEntity(AllChampionJsonFiles[ChampIndex]);
             if (Champion == null) throw new ChampIsNullException();
-            var champ_image = Converter.ConvertFromString(Champion.normalImage);
+            var champ_image = Converter.ConvertFromString(Champion.NormalImage);
             if (champ_image == null) throw new FileMissingException();
             Champ_Image_On_Champ_Select.Source = (ImageSource)champ_image;
-            Name_Of_The_Champ.Text = Champion.basedOn;
+            Name_Of_The_Champ.Text = Champion.BasedOn;
         }
 
         private void SaveChamp()
