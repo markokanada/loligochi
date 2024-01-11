@@ -8,6 +8,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="src/styles/DefaultButtonStyle.xaml"/>
                 <ResourceDictionary Source="src/styles/FadeInBackground.xaml"/>
+                <ResourceDictionary Source="src/styles/AnimateImage.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

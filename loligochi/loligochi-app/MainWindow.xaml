@@ -12,21 +12,7 @@
         
         <!-- TODO buttons fix & style hierarchy fix & LoadSave not working correctly.-->
         
-        <Storyboard x:Key="AnimateImage">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
-                                           Storyboard.TargetName="Lux_Brand">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
-                                           Storyboard.TargetName="Lux_Brand">
-                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
-
-                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        
 
         <Storyboard x:Key="AnimateText">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
