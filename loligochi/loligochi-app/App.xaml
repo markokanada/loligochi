@@ -16,7 +16,7 @@
                 <ResourceDictionary Source="src/styles/DownArrowStyle.xaml"/>
                 <ResourceDictionary Source="src/styles/UpArrowStyle.xaml"/>
                 <ResourceDictionary Source="src/styles/ResizedButtonStyle.xaml"/>
-
+                <ResourceDictionary Source="src/styles/TransparrentButtonStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
