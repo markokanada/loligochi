@@ -7,9 +7,10 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="src/styles/DefaultButtonStyle.xaml"/>
-                <ResourceDictionary Source="src/styles/FadeInBackground.xaml"/>
-                <ResourceDictionary Source="src/styles/AnimateImage.xaml"/>
-                <ResourceDictionary Source="src/styles/AnimateText.xaml"/>
+                <ResourceDictionary Source="src/styles/FadeInBackgroundStyle.xaml"/>
+                <ResourceDictionary Source="src/styles/AnimateImageStyle.xaml"/>
+                <ResourceDictionary Source="src/styles/AnimateTextStyle.xaml"/>
+                <ResourceDictionary Source="src/styles/InputFieldStyle.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
