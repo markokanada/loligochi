@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="src/styles/AnimateTextStyle.xaml"/>
                 <ResourceDictionary Source="src/styles/InputFieldStyle.xaml"/>
                 <ResourceDictionary Source="src/styles/LeftArrowStyle.xaml"/>
+                <ResourceDictionary Source="src/styles/RightArrowStyle.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
