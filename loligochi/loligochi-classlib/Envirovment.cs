@@ -53,7 +53,7 @@ namespace loligochi_classlib
 
         public static bool SerializeEntity(Entity entity, string fileName)
         {
-            string filePath = Path.Combine("src/save", fileName);
+            //string filePath = Path.Combine("src/save", fileName);
 
             string jsonString = JsonSerializer.Serialize(entity, new JsonSerializerOptions { WriteIndented = true });
             if (!Directory.Exists("src"))
@@ -67,7 +67,7 @@ namespace loligochi_classlib
                 Directory.SetCurrentDirectory("../");
                 
             }
-            File.WriteAllText($"{filePath}.json", jsonString);
+            File.WriteAllText($"{fileName}.json", jsonString);
             return true;
         }
 

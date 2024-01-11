@@ -548,6 +548,61 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="FocusVisual3">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Static.Border6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border6" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground6" Color="Transparent"/>
+        <Style x:Key="TransparentButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual3}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background6}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border6}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border6}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border6}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border6}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground6}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Window.Resources>
 
@@ -817,13 +872,14 @@
                 </Button.Background>
 
             </Button>
-
-            <TextBlock x:Name="Save_Select_Scene_Option_1" IsEnabled="false" MouseDown="Save_Select_Option_1_Clicked" FontSize="36" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,258,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72" TextAlignment="Center">
-                <TextBlock.Effect>
-                    <DropShadowEffect/>
-                </TextBlock.Effect>
+            <Button Style="{DynamicResource TransparentButtonStyle}" Click="Save_Select_Option_1_Clicked" BorderThickness="0" Background="Transparent" Margin="100,235,100,396">
+                <TextBlock x:Name="Save_Select_Scene_Option_1" IsEnabled="false"  FontSize="36" FontFamily="Copperplate Gothic Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" LineHeight="72" TextAlignment="Center" Height="38" Width="1036">
+                    <TextBlock.Effect>
+                        <DropShadowEffect/>
+                    </TextBlock.Effect>
     -Empty Save Slot-
-            </TextBlock>
+                </TextBlock>
+            </Button>
 
 
             <Button Style="{DynamicResource DownArrowStyling}"  x:Name="Down_Arrow_Save_Select" HorizontalAlignment="Left" Margin="562,308,0,0" VerticalAlignment="Top" Height="67" Width="76" Click="Rotate_The_Save_Slots_By_Arrow_Down" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
@@ -858,18 +914,18 @@
             </Button>
         </Grid>
 
-        <Grid x:Name="Game_Scene" Visibility="Visible">
+        <Grid x:Name="Game_Scene" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
             </Grid.Background>
 
-            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_And_Exit_From_The_In_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="1117,595,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_The_Game_From_In_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Save_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>
 
             </Button>
-            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_The_Game_From_In_Game" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
+            <Button Cursor="Hand" Style="{DynamicResource ResizedButtonStyle}" x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button" Content="Menu" HorizontalAlignment="Left" Margin="1117,488,0,0" VerticalAlignment="Top" Height="91" Width="144" Click="Save_And_Exit_From_The_In_Game_Scene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}" MouseEnter="Button_Hover_SoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_Game_Scene_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="Fill"/>
                 </Button.Background>

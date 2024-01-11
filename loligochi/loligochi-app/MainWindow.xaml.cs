@@ -319,10 +319,12 @@ namespace loligochi_app
 
         private void Save_Select_Option_1_Clicked (object sender, RoutedEventArgs e)
         {
-            if (Save_Select_Scene_Option_1.IsEnabled)
-            {
+            Trace.WriteLine("2");
                 Load_Save_From_Save_Select(Save_Select_Scene_Option_1.Text);
-            }
+            Load_Game_Scene.Visibility = Visibility.Hidden;
+            Game_Scene.Visibility = Visibility.Visible;
+
+
         }
 
 
@@ -444,7 +446,7 @@ namespace loligochi_app
         
         private void Load_Save_From_Save_Select(string saveName)
         {
-            current_save_name = "save\\" + saveName;
+            current_save_name = "src\\save\\" + saveName;
             champ = Envirovment.DeserializeEntity(current_save_name);
             var champ_image = converter.ConvertFromString(champ.normalImage);
 
