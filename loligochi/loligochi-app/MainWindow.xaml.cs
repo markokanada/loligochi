@@ -406,7 +406,7 @@ namespace loligochi_app
         }
         #endregion
 
-        #region Credits_Scene
+        #region Credits Scene Logic
         private void BackToTheMainMenuFromCreditsScene(object sender, RoutedEventArgs e)
         {
             Credits_Scene.Visibility = Visibility.Hidden;
