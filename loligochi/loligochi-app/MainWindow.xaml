@@ -254,7 +254,7 @@
 
             </Image>
         </Grid>
-        
+
         <Grid x:Name="Load_Game_Scene" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large" Opacity="1"/>
@@ -427,6 +427,32 @@ UseLayoutRounding="True">
                 </TextBlock.Effect>
     Champion
             </TextBlock>
+        </Grid>
+
+        <Grid x:Name="Settings_Scene" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
+            </Grid.Background>
+            <TextBlock x:Name="Settings_Title" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+    Settings
+            </TextBlock>
+
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="BackToTheMainMenuFromSettingsScene_Button" Content="Main Menu" HorizontalAlignment="Center" Margin="0,427,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="BackToTheMainMenuFromSettingsScene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="BackToTheMainMenuFromSettingsScene_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Reset_Saves_Button" Content="Remove all saves" HorizontalAlignment="Center" Margin="0,299,0,0" VerticalAlignment="Top" Height="91" Width="328" Click="RemoveAllTheSaves" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="Reset_Saves_Button_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
         </Grid>
     </Grid>
 </Window>

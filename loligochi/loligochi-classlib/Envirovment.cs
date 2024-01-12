@@ -53,8 +53,14 @@ namespace loligochi_classlib
 
         public static bool SerializeEntity(Entity entity, string fileName)
         {
-            //string filePath = Path.Combine("src/save", fileName);
-
+            if (!fileName.Contains("src/save") && !fileName.Contains("src\\save"))
+            {
+                fileName = Path.Combine("src/save", fileName);
+            }
+            if (!fileName.EndsWith(".json"))
+            {
+                fileName += ".json";
+            }
             string jsonString = JsonSerializer.Serialize(entity, new JsonSerializerOptions { WriteIndented = true });
             if (!Directory.Exists("src"))
             {
@@ -67,12 +73,14 @@ namespace loligochi_classlib
                 Directory.SetCurrentDirectory("../");
                 
             }
-            File.WriteAllText($"{fileName}.json", jsonString);
+            File.WriteAllText($"{fileName}", jsonString);
             return true;
         }
 
         public static List<String> GetAvaibleSaves()
         {
+            Trace.WriteLine(Directory.GetCurrentDirectory());
+
             List<String> avaibleSaves = new List<String>();
 
             if (!Directory.Exists("src"))

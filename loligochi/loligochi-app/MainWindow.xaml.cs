@@ -99,7 +99,8 @@ namespace loligochi_app
         }
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            Settings_Scene.Visibility = Visibility.Visible;
+            Main_Menu_Scene.Visibility = Visibility.Hidden;
         }
 
         private void CreditsButtonClick(object sender, RoutedEventArgs e)
@@ -293,6 +294,42 @@ namespace loligochi_app
 
         #endregion
 
+        #region Settings Scene Logic
+
+        private void BackToTheMainMenuFromSettingsScene(object sender, RoutedEventArgs e)
+        {
+            Settings_Scene.Visibility = Visibility.Hidden;
+            Main_Menu_Scene.Visibility = Visibility.Visible;
+        }
+
+        private void RemoveAllTheSaves(object sender, RoutedEventArgs e)
+        {
+            string directoryPath = "src/saves";
+
+            if (Directory.Exists(directoryPath))
+            {
+                string[] files = Directory.GetFiles(directoryPath);
+
+                foreach (string file in files)
+                {
+                    try
+                    {
+                        File.Delete(file);
+                        Console.WriteLine($"Deleted file: {file}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error deleting file {file}: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"The directory {directoryPath} does not exist.");
+            }
+        }
+        #endregion
+
         #region Load Saved Game logic
 
 
@@ -305,8 +342,8 @@ namespace loligochi_app
 
         private void SaveSelectOption1Clicked(object sender, RoutedEventArgs e)
         {
-            LoadTheStatus();
             LoadSaveFromSaveSelect(Save_Select_Scene_Option_1.Text);
+            LoadTheStatus();
             Load_Game_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
         }
@@ -315,7 +352,7 @@ namespace loligochi_app
         private void RotateTheSaveSlotsByArrowDown(object sender, RoutedEventArgs e)
         {
             List<String> avaibleSaves = Envirovment.GetAvaibleSaves();
-            if (SaveIndex != 0 && avaibleSaves.Count != SaveIndex + 1)
+            if (avaibleSaves.Count != SaveIndex+1 && avaibleSaves.Count != 0)
             {
                 SaveIndex++;
                 Save_Select_Scene_Option_1.Text = avaibleSaves[SaveIndex].Substring(avaibleSaves[SaveIndex].IndexOf("save\\") + 5);
@@ -334,7 +371,7 @@ namespace loligochi_app
         {
             List<String> avaibleSaves = Envirovment.GetAvaibleSaves();
 
-            if (SaveIndex != 0)
+            if (SaveIndex != 0 && avaibleSaves.Count != 0)
             {
                 SaveIndex--;
                 Save_Select_Scene_Option_1.Text = avaibleSaves[SaveIndex].Substring(avaibleSaves[SaveIndex].IndexOf("save\\") + 5);
@@ -356,7 +393,7 @@ namespace loligochi_app
             {
                 Save_Select_Scene_Option_1.Text = avaibleSaves[0].Substring(avaibleSaves[0].IndexOf("save\\") + 5);
             }
-            SaveIndex += 1;
+            
         }
         #endregion
         #region Other function & event handlers which used at more places.
