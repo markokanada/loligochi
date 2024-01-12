@@ -105,7 +105,8 @@ namespace loligochi_app
 
         private void CreditsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            Credits_Scene.Visibility = Visibility.Visible;
+            Main_Menu_Scene.Visibility = Visibility.Hidden;
         }
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
@@ -402,6 +403,14 @@ namespace loligochi_app
                 Save_Select_Scene_Option_1.Text = "-Empty Save Slot-";
             }
             
+        }
+        #endregion
+
+        #region Credits_Scene
+        private void BackToTheMainMenuFromCreditsScene(object sender, RoutedEventArgs e)
+        {
+            Credits_Scene.Visibility = Visibility.Hidden;
+            Main_Menu_Scene.Visibility = Visibility.Visible;
         }
         #endregion
         #region Other function & event handlers which used at more places.

@@ -463,10 +463,36 @@ UseLayoutRounding="True">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>
-Settings
+Credits
             </TextBlock>
 
-            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="BackToTheMainMenuFromCreditsScene_Button" Content="Main Menu" HorizontalAlignment="Center" Margin="0,427,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="BackToTheMainMenuFromSettingsScene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
+            <TextBlock x:Name="Main_Slogen_1" FontSize="44" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,160,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72" Width="1186" TextAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+A Legendary Game by the creators of the
+            </TextBlock>
+            <TextBlock x:Name="Main_Slogen_2" FontSize="40" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,217,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72" Width="1186" TextAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+ well known game called Fight For The Knowledge
+            </TextBlock>
+            <TextBlock x:Name="Main_Slogen_3" FontSize="40" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="34,371,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Width="1186" TextAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+ ©An Original Game by The One of The Lot™
+            </TextBlock>
+
+            <TextBlock x:Name="Main_Slogen_4" FontSize="40" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="34,419,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Width="1186" TextAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+ WWW.ONEOFTHELOT.HU
+            </TextBlock>
+
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="BackToTheMainMenuFromCreditsScene_Button" Content="Main Menu" HorizontalAlignment="Center" Margin="0,562,0,0" VerticalAlignment="Top" Height="91" Width="328" Click="BackToTheMainMenuFromCreditsScene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="BackToTheMainMenuFromCreditssScene_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
