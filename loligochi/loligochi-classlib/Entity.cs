@@ -24,10 +24,10 @@ namespace loligochi_classlib
             this.DeadVoice = deadVoice ?? throw new ArgumentNullException(nameof(deadVoice));
             this.NormalVoice = normalVoice ?? throw new ArgumentNullException(nameof(normalVoice));
             this.SickVoice = sickVoice ?? throw new ArgumentNullException(nameof(sickVoice));
-            this.SungryVoice = hungryVoice ?? throw new ArgumentNullException(nameof(hungryVoice));
+            this.HungryVoice = hungryVoice ?? throw new ArgumentNullException(nameof(hungryVoice));
             this.ThirstyVoice = thirstyVoice ?? throw new ArgumentNullException(nameof(thirstyVoice));
             this.AngryVoice = angryVoice ?? throw new ArgumentNullException(nameof(angryVoice));
-            this._CurrentStatus = currentStatus ?? throw new ArgumentNullException(nameof(currentStatus));
+            this.CurrentStatus = currentStatus ?? throw new ArgumentNullException(nameof(currentStatus));
             this.Name = name ?? throw new ArgumentNullException(nameof(name));
             this.BasedOn = basedOn ?? throw new ArgumentNullException(nameof(basedOn));
             this.Level = level;
@@ -48,7 +48,7 @@ namespace loligochi_classlib
         public string DeadVoice { get;  set; }
         public string NormalVoice { get;  set; }
         public string SickVoice { get;  set; }
-        public string SungryVoice { get;  set; }
+        public string HungryVoice { get;  set; }
         public string ThirstyVoice { get;  set; }
         public string AngryVoice { get;  set; }
         private string _CurrentStatus;
