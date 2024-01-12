@@ -454,5 +454,26 @@ UseLayoutRounding="True">
 
             </Button>
         </Grid>
+
+        <Grid x:Name="Credits_Scene" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="src/images/assets/background.jpg_large"/>
+            </Grid.Background>
+            <TextBlock x:Name="Credits_Title" FontSize="72" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" LineHeight="72">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+Settings
+            </TextBlock>
+
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="BackToTheMainMenuFromCreditsScene_Button" Content="Main Menu" HorizontalAlignment="Center" Margin="0,427,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="BackToTheMainMenuFromSettingsScene" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
+                <Button.Background >
+                    <ImageBrush x:Name="BackToTheMainMenuFromCreditssScene_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+
+            </Button>
+
+
+        </Grid>
     </Grid>
 </Window>

@@ -49,7 +49,7 @@ namespace loligochi_app
 
         public void WindowKeyDown(object sender, KeyEventArgs e)
         {
-            if (Welcome_Scene.Visibility == Visibility.Visible && e.Key == Key.E)
+            if (Welcome_Scene.Visibility == Visibility.Visible && e.Key == Key.E && Press_E.Opacity == 1)
             {
                 Welcome_Scene.Visibility = Visibility.Hidden;
                 Main_Menu_Scene.Visibility = Visibility.Visible;
@@ -304,10 +304,12 @@ namespace loligochi_app
 
         private void RemoveAllTheSaves(object sender, RoutedEventArgs e)
         {
-            string directoryPath = "src/saves";
-
+            string directoryPath = "src\\save";
+            Trace.WriteLine("What");
+            Trace.WriteLine(Directory.GetCurrentDirectory());
             if (Directory.Exists(directoryPath))
             {
+                Trace.WriteLine("Directory exists");
                 string[] files = Directory.GetFiles(directoryPath);
 
                 foreach (string file in files)
@@ -342,10 +344,12 @@ namespace loligochi_app
 
         private void SaveSelectOption1Clicked(object sender, RoutedEventArgs e)
         {
+            if(Save_Select_Scene_Option_1.Text != "-Empty Save Slot-") { 
             LoadSaveFromSaveSelect(Save_Select_Scene_Option_1.Text);
             LoadTheStatus();
             Load_Game_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
+            }
         }
 
 
@@ -392,6 +396,10 @@ namespace loligochi_app
             if (avaibleSaves.Count >= 1)
             {
                 Save_Select_Scene_Option_1.Text = avaibleSaves[0].Substring(avaibleSaves[0].IndexOf("save\\") + 5);
+            }
+            else
+            {
+                Save_Select_Scene_Option_1.Text = "-Empty Save Slot-";
             }
             
         }
