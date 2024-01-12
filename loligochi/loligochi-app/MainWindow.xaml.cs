@@ -30,7 +30,7 @@ namespace loligochi_app
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); ;
             Welcome_Scene.Visibility = Visibility.Visible;
             WelcomeSoundTimer.Interval = TimeSpan.FromSeconds(5);
             WelcomeSoundTimer.Tick += WelcomeSoundTimerTick!;

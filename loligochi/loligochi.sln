@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loligochi-classlib", "loligochi-classlib\loligochi-classlib.csproj", "{7F1994D9-F3ED-4648-A90D-C60C67D77960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loligochi-classlib", "loligochi-classlib\loligochi-classlib.csproj", "{7F1994D9-F3ED-4648-A90D-C60C67D77960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loligochi-app", "loligochi-app\loligochi-app.csproj", "{0AFC566C-4A1F-41DC-9828-DD374FB98892}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loligochi-app", "loligochi-app\loligochi-app.csproj", "{0AFC566C-4A1F-41DC-9828-DD374FB98892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loligochi-testlib", "loligochi-testlib\loligochi-testlib.csproj", "{C3318EA7-22F9-478C-A436-B2B3EED634AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AFC566C-4A1F-41DC-9828-DD374FB98892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3318EA7-22F9-478C-A436-B2B3EED634AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3318EA7-22F9-478C-A436-B2B3EED634AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3318EA7-22F9-478C-A436-B2B3EED634AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3318EA7-22F9-478C-A436-B2B3EED634AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
