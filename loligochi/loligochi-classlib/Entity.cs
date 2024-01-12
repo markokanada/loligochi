@@ -13,7 +13,7 @@ namespace loligochi_classlib
     public class Entity
     {
         [JsonConstructor]
-        public Entity(string deadImage, string normalImage, string hungryImage, string thirstyImage, string angryImage, string sickImage, string deadVoice, string normalVoice, string sickVoice, string hungryVoice, string thirstyVoice, string angryVoice, string currentStatus, string name, string basedOn, double level, double age, double hp, double hungerLevel, double thirstLevel, bool isTheEntitySick, double entitySicknessLevel)
+        public Entity(string deadImage, string normalImage, string hungryImage, string thirstyImage, string angryImage, string sickImage, string deadVoice, string normalVoice, string sickVoice, string hungryVoice, string thirstyVoice, string angryVoice, string currentStatus, string name, string basedOn, double level, double age, double hp, double hungerLevel, double thirstLevel, bool isTheEntitySick, double entitySicknessLevel, int maximumHP, int baseHP)
         {
             this.DeadImage = deadImage ?? throw new ArgumentNullException(nameof(deadImage));
             this.NormalImage = normalImage ?? throw new ArgumentNullException(nameof(normalImage));
@@ -37,8 +37,11 @@ namespace loligochi_classlib
             this.ThirstLevel = thirstLevel;
             this.IsTheEntitySick = isTheEntitySick;
             this.EntitySicknessLevel = entitySicknessLevel;
+            this.MaximumHP = maximumHP;
+            this.BaseHP = baseHP;
         }
-
+        public int BaseHP { get; set; }
+        public int MaximumHP { get; set; }
         public string DeadImage { get;  set; }
         public string NormalImage { get;  set; }
         public string HungryImage { get;  set; }
@@ -97,7 +100,7 @@ namespace loligochi_classlib
             }
             set
             {
-                if (value >= 0)
+                if (value >= 0 && value <= MaximumHP)
                 {
                     _HP = value;
                 }

@@ -26,6 +26,7 @@ namespace loligochi_app
         private int ChampIndex { get; set; } = 2;
         private static string[] AllChampionJsonFiles = Directory.GetFiles("src/jsons/default-champion-datas/", "*.json").OrderBy(name => name).ToArray();
         private Entity? Champion { get; set; } = null;
+        private Envirovment Envirovment { get; set; } = null;
         private int SaveIndex { get; set; } = 0;
 
         public MainWindow()
@@ -228,6 +229,8 @@ namespace loligochi_app
             Loaded_Champ_Image.Source = (ImageSource)champ_image;
             Loaded_Champ_Name.Text = Champion.Name;
             LoadTheStatus();
+            Envirovment = new Envirovment();
+            ChampionStatisticsUpdater();
             Champ_Select_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
         }
@@ -348,7 +351,10 @@ namespace loligochi_app
             if(Save_Select_Scene_Option_1.Text != "-Empty Save Slot-") { 
             LoadSaveFromSaveSelect(Save_Select_Scene_Option_1.Text);
             LoadTheStatus();
-            Load_Game_Scene.Visibility = Visibility.Hidden;
+            if (Champion == null) throw new ChampIsNullException();
+                Envirovment = new Envirovment();
+                ChampionStatisticsUpdater();
+                Load_Game_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
             }
         }
@@ -453,6 +459,26 @@ namespace loligochi_app
             button_hover.Stop();
             button_hover.Position = TimeSpan.Zero;
             button_hover.Play();
+        }
+
+        private void ChampionStatisticsUpdater()
+        {
+            Trace.WriteLine("function");
+            Task.Delay(6000).ContinueWith((t) =>
+            {
+                Trace.WriteLine("Asyn");
+                if (Champion == null) throw new ChampIsNullException();
+                Champion = Envirovment.UpdatePetStatus(Champion);
+                if (Champion == null) throw new ChampIsNullException();
+                Trace.WriteLine($"{Champion.Name}");
+                Trace.WriteLine($"Status: {Champion.CurrentStatus}");
+                Trace.WriteLine($"Level: {Math.Round(Champion.Level, 1)}");
+                Trace.WriteLine($"Age: {Math.Round(Champion.Age, 1)}");
+                Trace.WriteLine($"Thirst: {Math.Round(Champion.ThirstLevel, 1)}");
+                Trace.WriteLine($"Hunger: {Math.Round(Champion.HungerLevel, 1)}");
+                Trace.WriteLine($"HP: {Math.Round(Champion.HP, 1)}");
+                ChampionStatisticsUpdater();
+            });
         }
 
         #endregion
