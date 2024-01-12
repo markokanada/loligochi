@@ -225,6 +225,7 @@ namespace loligochi_app
             if (champ_image == null) throw new FileMissingException();
             Loaded_Champ_Image.Source = (ImageSource)champ_image;
             Loaded_Champ_Name.Text = Champion.Name;
+            LoadTheStatus();
             Champ_Select_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
         }
@@ -281,13 +282,13 @@ namespace loligochi_app
         private void LoadTheStatus()
         {
             if (Champion == null) throw new ChampIsNullException();
-            Loaded_Champ_Name.Text = Champion.Name;
-            Status_Status.Text = Champion.CurrentStatus;
-            Level_Status.Text = $"{Math.Round(Champion.Level, 1)}";
-            Age_Status.Text = $"{Math.Round(Champion.Age, 1)}";
-            Thirst_Status.Text = $"{Math.Round(Champion.ThirstLevel, 1)}";
-            Hunger_Status.Text = $"{Math.Round(Champion.HungerLevel, 1)}";
-            HP_Status.Text = $"{Math.Round(Champion.HP, 1)}";
+            Loaded_Champ_Name.Text = $"{Champion.Name}";
+            Status_Status.Text = $"Status: {Champion.CurrentStatus}";
+            Level_Status.Text = $"Level: {Math.Round(Champion.Level, 1)}";
+            Age_Status.Text = $"Age: {Math.Round(Champion.Age, 1)}";
+            Thirst_Status.Text = $"Thirst: {Math.Round(Champion.ThirstLevel, 1)}";
+            Hunger_Status.Text = $"Hunger: {Math.Round(Champion.HungerLevel, 1)}";
+            HP_Status.Text = $"HP: {Math.Round(Champion.HP, 1)}";
         }
 
         #endregion
@@ -304,7 +305,7 @@ namespace loligochi_app
 
         private void SaveSelectOption1Clicked(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine("2");
+            LoadTheStatus();
             LoadSaveFromSaveSelect(Save_Select_Scene_Option_1.Text);
             Load_Game_Scene.Visibility = Visibility.Hidden;
             Game_Scene.Visibility = Visibility.Visible;
@@ -313,20 +314,7 @@ namespace loligochi_app
 
         private void RotateTheSaveSlotsByArrowDown(object sender, RoutedEventArgs e)
         {
-            List<String> avaibleSaves = new List<String>();
-
-            if (!Directory.Exists("src"))
-            {
-                throw new FileMissingException();
-            }
-            else if (!Directory.Exists("src/save"))
-            {
-                avaibleSaves = [];
-            }
-            else
-            {
-                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
-            }
+            List<String> avaibleSaves = Envirovment.GetAvaibleSaves();
             if (SaveIndex != 0 && avaibleSaves.Count != SaveIndex + 1)
             {
                 SaveIndex++;
@@ -344,19 +332,8 @@ namespace loligochi_app
 
         private void RotateTheSaveSlotsByArrowUp(object sender, RoutedEventArgs e)
         {
-            List<String> avaibleSaves = new List<String>();
-            if (!Directory.Exists("src"))
-            {
-                throw new FileMissingException();
-            }
-            else if (!Directory.Exists("src/save"))
-            {
-                avaibleSaves = [];
-            }
-            else
-            {
-                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
-            }
+            List<String> avaibleSaves = Envirovment.GetAvaibleSaves();
+
             if (SaveIndex != 0)
             {
                 SaveIndex--;
@@ -373,19 +350,8 @@ namespace loligochi_app
         }
         private void InitSaveSlots()
         {
-            List<String> avaibleSaves = new List<String>();
-            if (!Directory.Exists("src"))
-            {
-                throw new FileMissingException();
-            }
-            else if (!Directory.Exists("src/save"))
-            {
-                avaibleSaves = [];
-            }
-            else
-            {
-                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
-            }
+            List<String> avaibleSaves = Envirovment.GetAvaibleSaves();
+
             if (avaibleSaves.Count >= 1)
             {
                 Save_Select_Scene_Option_1.Text = avaibleSaves[0].Substring(avaibleSaves[0].IndexOf("save\\") + 5);

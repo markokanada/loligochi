@@ -71,6 +71,26 @@ namespace loligochi_classlib
             return true;
         }
 
+        public static List<String> GetAvaibleSaves()
+        {
+            List<String> avaibleSaves = new List<String>();
+
+            if (!Directory.Exists("src"))
+            {
+                throw new FileMissingException();
+            }
+            else if (!Directory.Exists("src/save"))
+            {
+                avaibleSaves = [];
+            }
+            else
+            {
+                avaibleSaves = Directory.GetFiles("src/save").Order().ToList();
+            }
+
+            return avaibleSaves;
+        }
+
         public static Entity? DeserializeEntity(string filePath)
         {
             if (!File.Exists(filePath))

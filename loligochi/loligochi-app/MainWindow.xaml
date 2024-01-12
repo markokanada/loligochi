@@ -370,7 +370,7 @@ UseLayoutRounding="True">
 
             </Image>
 
-            <Grid x:Name="Status_Wall" Margin="52,40,920,337" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="Status_Wall" Margin="76,16,896,313" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -413,11 +413,11 @@ UseLayoutRounding="True">
                 </TextBlock.Effect>
     Level: 0
             </TextBlock>
-            <TextBlock x:Name="Status_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,283,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="215">
+            <TextBlock x:Name="Status_Status" FontSize="28" FontFamily="Copperplate Gothic Bold" Foreground="White" Margin="110,283,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" LineHeight="72" Height="38" Width="266">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>
-    Status: 0
+    Status: Normal
             </TextBlock>
 
 

@@ -11,7 +11,7 @@
     "HungryVoice": "src/sounds/Zeri/hungry.mp3",
     "ThirstyVoice": "src/sounds/Zeri/thirsty.mp3",
     "AngryVoice": "src/sounds/Zeri/angry.mp3",
-    "CurrentStatus": "normal",
+    "CurrentStatus": "Normal",
     "Name": "Default Zeri",
     "BasedOn": "Zeri",
     "Level": 1.0,
