@@ -22,16 +22,6 @@ namespace loligochi_classlib
             return DateTime.Now;
         }
 
-        // Returns the elapsed time since the last check.
-        //TODO rewrite for time counting till last opened
-        public TimeSpan GetElapsedTime()
-        {
-            DateTime now = GetCurrentTime();
-            TimeSpan elapsed = now - LastCheck;
-            LastCheck = now;
-            return elapsed;
-        }
-
         public TimeSpan GetTheTimeThatElapsedTillWeStartedTheGame()
         {
             DateTime now = GetCurrentTime();

@@ -26,7 +26,7 @@ namespace loligochi_app
         private int ChampIndex { get; set; } = 2;
         private static string[] AllChampionJsonFiles = Directory.GetFiles("src/jsons/default-champion-datas/", "*.json").OrderBy(name => name).ToArray();
         private Entity? Champion { get; set; } = null;
-        private Envirovment Envirovment { get; set; } = null;
+        private Envirovment? Envirovment { get; set; } = null;
         private int SaveIndex { get; set; } = 0;
 
         public MainWindow()
@@ -223,6 +223,7 @@ namespace loligochi_app
         {
             if (Champion == null) throw new ChampIsNullException();
             Champion.Name = Name_Of_The_Champ.Text;
+            Champion.LastSaw = DateTime.Now;
             Envirovment.SerializeEntity(Champion, CurrentSaveName);
             var champ_image = Converter.ConvertFromString(Champion.NormalImage);
             if (champ_image == null) throw new FileMissingException();
@@ -249,6 +250,7 @@ namespace loligochi_app
         private void SaveAndExitFromTheInGameScene(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
+            Champion.LastSaw = DateTime.Now;
             Envirovment.SerializeEntity(Champion, CurrentSaveName);
             Game_Scene.Visibility = Visibility.Hidden;
             Main_Menu_Scene.Visibility = Visibility.Visible;
@@ -257,6 +259,7 @@ namespace loligochi_app
         private void SaveTheGameFromInGame(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
+            Champion.LastSaw = DateTime.Now;
             Envirovment.SerializeEntity(Champion, CurrentSaveName);
         }
 
@@ -350,12 +353,15 @@ namespace loligochi_app
         {
             if(Save_Select_Scene_Option_1.Text != "-Empty Save Slot-") { 
             LoadSaveFromSaveSelect(Save_Select_Scene_Option_1.Text);
-            LoadTheStatus();
+            
             if (Champion == null) throw new ChampIsNullException();
                 Envirovment = new Envirovment();
+                Trace.WriteLine(Champion.HP);
+                Champion = Envirovment.UpdatePetStatusByElapsedTime(Champion);
                 ChampionStatisticsUpdater();
                 Load_Game_Scene.Visibility = Visibility.Hidden;
-            Game_Scene.Visibility = Visibility.Visible;
+                LoadTheStatus();
+                Game_Scene.Visibility = Visibility.Visible;
             }
         }
 
@@ -429,6 +435,7 @@ namespace loligochi_app
             if (champ_image == null) throw new FileMissingException();
             Loaded_Champ_Image.Source = (ImageSource)champ_image;
             Loaded_Champ_Name.Text = Champion.Name;
+            Trace.WriteLine($"LoadedHP{Champion.HP}");
         }
 
 
@@ -440,12 +447,6 @@ namespace loligochi_app
             if (champ_image == null) throw new FileMissingException();
             Champ_Image_On_Champ_Select.Source = (ImageSource)champ_image;
             Name_Of_The_Champ.Text = Champion.BasedOn;
-        }
-
-        private void SaveChamp()
-        {
-            if (Champion == null) throw new ChampIsNullException();
-            Envirovment.SerializeEntity(Champion, CurrentSaveName); //After continue TODO load the current_Save_name
         }
 
         private void BackgroundMusicTimerTick(object sender, EventArgs e)
@@ -464,10 +465,11 @@ namespace loligochi_app
         private void ChampionStatisticsUpdater()
         {
             Trace.WriteLine("function");
-            Task.Delay(6000).ContinueWith((t) =>
+            Task.Delay(60000).ContinueWith((t) =>
             {
-                Trace.WriteLine("Asyn");
+                Trace.WriteLine("Async");
                 if (Champion == null) throw new ChampIsNullException();
+                if (Envirovment == null) throw new EnvirovmentIsNullException();
                 Champion = Envirovment.UpdatePetStatus(Champion);
                 if (Champion == null) throw new ChampIsNullException();
                 Trace.WriteLine($"{Champion.Name}");
@@ -477,6 +479,7 @@ namespace loligochi_app
                 Trace.WriteLine($"Thirst: {Math.Round(Champion.ThirstLevel, 1)}");
                 Trace.WriteLine($"Hunger: {Math.Round(Champion.HungerLevel, 1)}");
                 Trace.WriteLine($"HP: {Math.Round(Champion.HP, 1)}");
+                //TODO make the UI to show the results
                 ChampionStatisticsUpdater();
             });
         }

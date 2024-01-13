@@ -22,5 +22,6 @@
   "HungerLevel": 0.0,
   "ThirstLevel": 0.0,
   "IsTheEntitySick": false,
-  "EntitySicknessLevel": 0.0
+  "EntitySicknessLevel": 0.0,
+  "LastSaw": null
 }

@@ -13,7 +13,7 @@ namespace loligochi_classlib
     public class Entity
     {
         [JsonConstructor]
-        public Entity(string deadImage, string normalImage, string hungryImage, string thirstyImage, string angryImage, string sickImage, string deadVoice, string normalVoice, string sickVoice, string hungryVoice, string thirstyVoice, string angryVoice, string currentStatus, string name, string basedOn, double level, double age, double hp, double hungerLevel, double thirstLevel, bool isTheEntitySick, double entitySicknessLevel, int maximumHP, int baseHP)
+        public Entity(string deadImage, string normalImage, string hungryImage, string thirstyImage, string angryImage, string sickImage, string deadVoice, string normalVoice, string sickVoice, string hungryVoice, string thirstyVoice, string angryVoice, string currentStatus, string name, string basedOn, double level, double age, double hp, double hungerLevel, double thirstLevel, bool isTheEntitySick, double entitySicknessLevel, int maximumHP, int baseHP, DateTime? lastSaw)
         {
             this.DeadImage = deadImage ?? throw new ArgumentNullException(nameof(deadImage));
             this.NormalImage = normalImage ?? throw new ArgumentNullException(nameof(normalImage));
@@ -32,13 +32,16 @@ namespace loligochi_classlib
             this.BasedOn = basedOn ?? throw new ArgumentNullException(nameof(basedOn));
             this.Level = level;
             this.Age = age;
-            this.HP = hp;
             this.HungerLevel = hungerLevel;
             this.ThirstLevel = thirstLevel;
             this.IsTheEntitySick = isTheEntitySick;
             this.EntitySicknessLevel = entitySicknessLevel;
-            this.MaximumHP = maximumHP;
+            this.MaximumHP = maximumHP; this.HP = hp;
             this.BaseHP = baseHP;
+            LastSaw = lastSaw;
+
+
+
         }
         public int BaseHP { get; set; }
         public int MaximumHP { get; set; }
@@ -55,6 +58,8 @@ namespace loligochi_classlib
         public string ThirstyVoice { get;  set; }
         public string AngryVoice { get;  set; }
         private string _CurrentStatus;
+
+        public DateTime? LastSaw { get; set; }
 
         public string CurrentStatus 
         {
@@ -102,6 +107,7 @@ namespace loligochi_classlib
             {
                 if (value >= 0 && value <= MaximumHP)
                 {
+                    Trace.WriteLine(value);
                     _HP = value;
                 }
                 

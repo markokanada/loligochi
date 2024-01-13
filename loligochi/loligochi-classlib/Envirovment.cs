@@ -41,14 +41,18 @@ namespace loligochi_classlib
             if(elapsedTimeInMinutes > 240)
             {
                 Champion.Age += elapsedTimeInMinutes / 240;
-                Champion.HP = ((Champion.Level + (elapsedTimeInMinutes / 240)) - Champion.Level) * 150;
+                Champion.HP += ((Champion.Level + (elapsedTimeInMinutes / 240)) - Champion.Level) * 150;
                 Champion.Level += elapsedTimeInMinutes / 240;
                 Champion.MaximumHP = int.Parse(Champion.Level.ToString()) * 150 + Champion.BaseHP;
             }
             double HPLoss = elapsedTimeInMinutes / (double)(1 * (200 / (double)(Champion.HungerLevel == 0 || Champion.ThirstLevel == 0 ? 1 : (Champion.HungerLevel + Champion.ThirstLevel)))) / (double)Champion.EntitySicknessLevel == 0 ? 1 : Champion.EntitySicknessLevel;
             Champion.HP -= HPLoss;
+            if (Champion.HP == 0)
+            {
+                Champion.CurrentStatus = "Dead";
 
-            if (Champion.EntitySicknessLevel > 10)
+            }
+            else if (Champion.EntitySicknessLevel > 10)
             {
                 Champion.CurrentStatus = "Sick";
             }
@@ -64,39 +68,53 @@ namespace loligochi_classlib
             {
                 Champion.CurrentStatus = "Normal";
             }
+
+            Champion.LastSaw = DateTime.Now;
             
             return Champion;
         }
 
         public Entity UpdatePetStatusByElapsedTime(Entity Champion)
         {
-            double elapsedTimeInMinutes = TimeManager.GetElapsedTime().TotalSeconds/60;
+
+            if (Champion.LastSaw == null)
+            {
+                Champion.LastSaw = DateTime.Now;
+            }
+            double elapsedTimeInMinutes = (DateTime.Now - Champion.LastSaw).Value.TotalSeconds / 60;
             Champion.HungerLevel += elapsedTimeInMinutes / (double) 5;
             Champion.ThirstLevel += elapsedTimeInMinutes / (double)15;
             Champion.Age += elapsedTimeInMinutes / 240;
-            Champion.HP = ((Champion.Level + (elapsedTimeInMinutes / 240)) - Champion.Level) * 150;
+            Champion.HP += ((Champion.Level + (elapsedTimeInMinutes / 240)) - Champion.Level) * 150;
             Champion.Level += elapsedTimeInMinutes / 240;
-            Champion.MaximumHP = int.Parse(Champion.Level.ToString()) * 150 + Champion.BaseHP;
+            Champion.MaximumHP = int.Parse(Math.Round(Champion.Level).ToString()) * 150 + Champion.BaseHP;
 
             if (Champion.HungerLevel> 30 && Champion.ThirstLevel > 30)
             {
                 Champion.EntitySicknessLevel += elapsedTimeInMinutes / (double)10;
             }
-            double HPLoss = elapsedTimeInMinutes / (double)(1 * (200 / (double)(Champion.HungerLevel == 0 || Champion.ThirstLevel == 0 ? 1 :(Champion.HungerLevel + Champion.ThirstLevel)))) / (double)Champion.EntitySicknessLevel == 0 ? 1 : Champion.EntitySicknessLevel;
-            Champion.HP -= HPLoss;
-            if(Champion.EntitySicknessLevel > 10)
+
+            double healthLossMultiplier = (Champion.HungerLevel == 0 || Champion.ThirstLevel == 0) ? 1 : (Champion.HungerLevel + Champion.ThirstLevel);
+            double sicknessMultiplier = (Champion.EntitySicknessLevel == 0) ? 1 : Champion.EntitySicknessLevel;
+            double HPLoss = elapsedTimeInMinutes / (double)(1 * (200 / healthLossMultiplier)) / sicknessMultiplier; Champion.HP -= HPLoss/(double)100;
+            if(Math.Round(Champion.HP) == 0)
+            {
+                Champion.CurrentStatus = "Dead";
+
+            }
+            else if (Math.Round(Champion.EntitySicknessLevel) > 10)
             {
                 Champion.CurrentStatus = "Sick";
             }
-            else if(Champion.ThirstLevel > 30)
+            else if(Math.Round(Champion.ThirstLevel) > 30)
             {
                 Champion.CurrentStatus = "Thirsty";
             }
-            else if (Champion.HungerLevel > 30)
+            else if (Math.Round(Champion.HungerLevel) > 30)
             {
                 Champion.CurrentStatus = "Hungry";
             }
-            else if (elapsedTimeInMinutes > 300)
+            else if (Math.Round(elapsedTimeInMinutes) > 300)
             {
                 Champion.CurrentStatus = "Angry";
             }
@@ -138,8 +156,6 @@ namespace loligochi_classlib
 
         public static List<String> GetAvaibleSaves()
         {
-            Trace.WriteLine(Directory.GetCurrentDirectory());
-
             List<String> avaibleSaves = new List<String>();
 
             if (!Directory.Exists("src"))
