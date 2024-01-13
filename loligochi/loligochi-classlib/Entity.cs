@@ -13,7 +13,9 @@ namespace loligochi_classlib
     public class Entity
     {
         [JsonConstructor]
+        #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Entity(string deadImage, string normalImage, string hungryImage, string thirstyImage, string angryImage, string sickImage, string deadVoice, string normalVoice, string sickVoice, string hungryVoice, string thirstyVoice, string angryVoice, string currentStatus, string name, string basedOn, double level, double age, double hp, double hungerLevel, double thirstLevel, bool isTheEntitySick, double entitySicknessLevel, int maximumHP, int baseHP, DateTime? lastSaw)
+        #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             this.DeadImage = deadImage ?? throw new ArgumentNullException(nameof(deadImage));
             this.NormalImage = normalImage ?? throw new ArgumentNullException(nameof(normalImage));

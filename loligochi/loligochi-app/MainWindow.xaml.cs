@@ -298,13 +298,18 @@ namespace loligochi_app
 
         private void LoadTheStatus()
         {
+            if (Champion == null) throw new ChampIsNullException();
             Champion.SetCurrentStatus();
             Dispatcher.Invoke(() =>
             {
                 if (Champion == null) throw new ChampIsNullException();
-                Trace.WriteLine((string)Champion.GetType().GetProperty(Champion.CurrentStatus + "Image")?.GetValue(Champion));
-                Loaded_Champ_Image.Source = (ImageSource)Converter.ConvertFromString(Champion.GetType().GetProperty(Champion.CurrentStatus + "Image")?.GetValue(Champion).ToString());
-                Trace.WriteLine(Loaded_Champ_Image.Source);
+                #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+                #pragma warning disable CS8602 // Dereference of a possibly null reference.
+                #pragma warning disable CS8604 // Possible null reference argument.
+                Loaded_Champ_Image.Source = (ImageSource)Converter.ConvertFromString(Champion.GetType().GetProperty(Champion.CurrentStatus + "Image")?.GetValue(Champion).ToString()) ?? throw new WrongChampPropertyException() ;
+                #pragma warning restore CS8604 // Possible null reference argument.
+                #pragma warning restore CS8602 // Dereference of a possibly null reference.
+                #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 Loaded_Champ_Name.Text = $"{Champion.Name}";
                 Status_Status.Text = $"Status: {Champion.CurrentStatus}";
                 Level_Status.Text = $"Level: {Math.Round(Champion.Level)}";
