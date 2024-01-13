@@ -267,36 +267,52 @@ namespace loligochi_app
         {
             if (Champion == null) throw new ChampIsNullException();
             Champion.HungerLevel -= 10;
+            LoadTheStatus();
         }
 
         private void HealTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
             Champion.HP += 10;
+            Champion.EntitySicknessLevel -= 20;
+
+            LoadTheStatus();
+
         }
 
         private void DrinkTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
             Champion.ThirstLevel -= 10;
+            LoadTheStatus();
+
         }
 
         private void PetTheChamp(object sender, RoutedEventArgs e)
         {
             if (Champion == null) throw new ChampIsNullException();
             Champion.GotHappy();
+            LoadTheStatus();
+
         }
 
         private void LoadTheStatus()
         {
-            if (Champion == null) throw new ChampIsNullException();
-            Loaded_Champ_Name.Text = $"{Champion.Name}";
-            Status_Status.Text = $"Status: {Champion.CurrentStatus}";
-            Level_Status.Text = $"Level: {Math.Round(Champion.Level, 1)}";
-            Age_Status.Text = $"Age: {Math.Round(Champion.Age, 1)}";
-            Thirst_Status.Text = $"Thirst: {Math.Round(Champion.ThirstLevel, 1)}";
-            Hunger_Status.Text = $"Hunger: {Math.Round(Champion.HungerLevel, 1)}";
-            HP_Status.Text = $"HP: {Math.Round(Champion.HP, 1)}";
+            Champion.SetCurrentStatus();
+            Dispatcher.Invoke(() =>
+            {
+                if (Champion == null) throw new ChampIsNullException();
+                Trace.WriteLine((string)Champion.GetType().GetProperty(Champion.CurrentStatus + "Image")?.GetValue(Champion));
+                Loaded_Champ_Image.Source = (ImageSource)Converter.ConvertFromString(Champion.GetType().GetProperty(Champion.CurrentStatus + "Image")?.GetValue(Champion).ToString());
+                Trace.WriteLine(Loaded_Champ_Image.Source);
+                Loaded_Champ_Name.Text = $"{Champion.Name}";
+                Status_Status.Text = $"Status: {Champion.CurrentStatus}";
+                Level_Status.Text = $"Level: {Math.Round(Champion.Level)}";
+                Age_Status.Text = $"Age: {Math.Round(Champion.Age)}";
+                Thirst_Status.Text = $"Thirst: {Math.Round(Champion.ThirstLevel)}";
+                Hunger_Status.Text = $"Hunger: {Math.Round(Champion.HungerLevel)}";
+                HP_Status.Text = $"HP: {Math.Round(Champion.HP)}";
+            });
         }
 
         #endregion
@@ -312,11 +328,8 @@ namespace loligochi_app
         private void RemoveAllTheSaves(object sender, RoutedEventArgs e)
         {
             string directoryPath = "src\\save";
-            Trace.WriteLine("What");
-            Trace.WriteLine(Directory.GetCurrentDirectory());
             if (Directory.Exists(directoryPath))
             {
-                Trace.WriteLine("Directory exists");
                 string[] files = Directory.GetFiles(directoryPath);
 
                 foreach (string file in files)
@@ -356,7 +369,6 @@ namespace loligochi_app
             
             if (Champion == null) throw new ChampIsNullException();
                 Envirovment = new Envirovment();
-                Trace.WriteLine(Champion.HP);
                 Champion = Envirovment.UpdatePetStatusByElapsedTime(Champion);
                 ChampionStatisticsUpdater();
                 Load_Game_Scene.Visibility = Visibility.Hidden;
@@ -435,7 +447,6 @@ namespace loligochi_app
             if (champ_image == null) throw new FileMissingException();
             Loaded_Champ_Image.Source = (ImageSource)champ_image;
             Loaded_Champ_Name.Text = Champion.Name;
-            Trace.WriteLine($"LoadedHP{Champion.HP}");
         }
 
 
@@ -464,22 +475,13 @@ namespace loligochi_app
 
         private void ChampionStatisticsUpdater()
         {
-            Trace.WriteLine("function");
             Task.Delay(60000).ContinueWith((t) =>
             {
-                Trace.WriteLine("Async");
                 if (Champion == null) throw new ChampIsNullException();
                 if (Envirovment == null) throw new EnvirovmentIsNullException();
                 Champion = Envirovment.UpdatePetStatus(Champion);
                 if (Champion == null) throw new ChampIsNullException();
-                Trace.WriteLine($"{Champion.Name}");
-                Trace.WriteLine($"Status: {Champion.CurrentStatus}");
-                Trace.WriteLine($"Level: {Math.Round(Champion.Level, 1)}");
-                Trace.WriteLine($"Age: {Math.Round(Champion.Age, 1)}");
-                Trace.WriteLine($"Thirst: {Math.Round(Champion.ThirstLevel, 1)}");
-                Trace.WriteLine($"Hunger: {Math.Round(Champion.HungerLevel, 1)}");
-                Trace.WriteLine($"HP: {Math.Round(Champion.HP, 1)}");
-                //TODO make the UI to show the results
+                LoadTheStatus();
                 ChampionStatisticsUpdater();
             });
         }
