@@ -107,8 +107,11 @@ namespace loligochi_classlib
             {
                 if (value >= 0 && value <= MaximumHP)
                 {
-                    Trace.WriteLine(value);
                     _HP = value;
+                }
+                else if(value >= 0)
+                {
+                    _HP = MaximumHP;
                 }
                 
             } 
@@ -128,6 +131,14 @@ namespace loligochi_classlib
                 {
                     _HungerLevel = value;
                 }
+                else if(value >= 0)
+                {
+                    _HungerLevel = 100;
+                }
+                else if(value < 0)
+                {
+                    _HungerLevel = 0;
+                }
                 else throw new WrongChampPropertyException() ;
             }
         }
@@ -144,15 +155,75 @@ namespace loligochi_classlib
                 {
                     _ThirstLevel = value;
                 }
+                else if (value >= 0)
+                {
+                    _ThirstLevel = 100;
+                }
+                else if (value < 0)
+                {
+                    _ThirstLevel = 0;
+                }
                 else throw new WrongChampPropertyException();
             } 
         }
 		public bool IsTheEntitySick { get; set; }
-        public double EntitySicknessLevel { get; set; }
+
+        private double _EntitySicknessLevel;
+
+        public double EntitySicknessLevel
+        {
+            get
+            {
+                return _EntitySicknessLevel;
+            }
+            set
+            {
+                if (value >= 0 && value <= 100)
+                {
+                    _EntitySicknessLevel = value;
+                }
+                else if (value >= 0)
+                {
+                    _EntitySicknessLevel = 100;
+                }
+                else if (value < 0)
+                {
+                    _EntitySicknessLevel = 0;
+                }
+                else throw new WrongChampPropertyException();
+            }
+        }
+
+        
 
         public void GotHappy()
         {
             if (this.CurrentStatus == "ANgry") 
+            {
+                CurrentStatus = "Normal";
+            }
+        }
+
+        public void SetCurrentStatus()
+        {
+            if (HP == 0)
+            {
+                CurrentStatus = "Dead";
+
+            }
+            else if (EntitySicknessLevel > 10)
+            {
+                CurrentStatus = "Sick";
+            }
+            else if (ThirstLevel > 30)
+            {
+                CurrentStatus = "Thirsty";
+            }
+            else if (HungerLevel > 30)
+            {
+               CurrentStatus = "Hungry";
+            }
+            else
             {
                 CurrentStatus = "Normal";
             }
