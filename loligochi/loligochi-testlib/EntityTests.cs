@@ -301,5 +301,16 @@ namespace loligochi_testlib
             Assert.AreEqual(image, entity.NormalImage);
         }
 
+        [TestMethod]
+        public void DeadImage_CanBeSetAndRetrieved()
+        {
+            Entity entity = CreateTestEntity();
+            string image = "newDeadImage.png";
+
+            entity.DeadImage = image;
+
+            Assert.AreEqual(image, entity.DeadImage);
+        }
+
     }
 }
