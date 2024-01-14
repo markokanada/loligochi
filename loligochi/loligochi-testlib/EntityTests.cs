@@ -43,5 +43,17 @@ namespace loligochi_testlib
 
             Assert.AreEqual(0, entity.EntitySicknessLevel);
         }
+
+        [TestMethod]
+        public void HP_CannotExceedMaximumHP()
+        {
+            Entity entity = CreateTestEntity();
+            entity.MaximumHP = 100;
+            double overMaxHP = 150;
+
+            entity.HP = overMaxHP;
+
+            Assert.AreEqual(entity.MaximumHP, entity.HP);
+        }
     }
 }
