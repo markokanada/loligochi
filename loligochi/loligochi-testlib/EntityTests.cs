@@ -410,5 +410,14 @@ namespace loligochi_testlib
 
             Assert.AreEqual(validLevel, entity.Level);
         }
+
+        [TestMethod]
+        public void Level_SettingToUpperBoundaryThrowsNoException()
+        {
+            Entity entity = CreateTestEntity();
+            double upperBoundaryLevel = 18;
+
+            entity.Level = upperBoundaryLevel;
+        }
     }
 }
