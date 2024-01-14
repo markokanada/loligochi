@@ -348,5 +348,16 @@ namespace loligochi_testlib
             Assert.AreEqual(40, entity.EntitySicknessLevel);
         }
 
+        [TestMethod]
+        public void Name_CanBeChanged()
+        {
+            Entity entity = CreateTestEntity();
+            string newName = "TestNameChange";
+
+            entity.Name = newName;
+
+            Assert.AreEqual(newName, entity.Name);
+        }
+
     }
 }
