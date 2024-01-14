@@ -12,7 +12,6 @@ namespace loligochi_tests
         [TestMethod]
         public void SerializeEntity_CreatesFileWithProperContent()
         {
-            // Arrange
             var entity = new Entity("deadImage", "normalImage", "hungryImage",
                 "thirstyImage", "angryImage", "sickImage",
                 "deadVoice", "normalVoice", "sickVoice",
@@ -34,6 +33,20 @@ namespace loligochi_tests
             var deserializedEntity = JsonSerializer.Deserialize<Entity>(jsonString);
             Assert.IsNotNull(deserializedEntity);
             Assert.AreEqual("TestEntity", deserializedEntity.Name);
+
+            File.Delete(filePath);
+        }
+
+        [TestMethod]
+        public void GetAvaibleSaves_ReturnsListOfSaveFiles()
+        {
+            Directory.CreateDirectory("src/save");
+            var filePath = Path.Combine("src/save", "TestSave.json");
+            File.WriteAllText(filePath, "{}"); 
+
+            var saves = Envirovment.GetAvaibleSaves();
+
+            Assert.IsTrue(saves.Contains(filePath));
 
             File.Delete(filePath);
         }
