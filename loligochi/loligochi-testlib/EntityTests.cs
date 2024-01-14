@@ -260,5 +260,23 @@ namespace loligochi_testlib
 
             Assert.AreEqual(newLastSaw, entity.LastSaw);
         }
+
+        [TestMethod]
+        public void CurrentStatus_SettingIllegalValueKeepsPrevious()
+        {
+            Entity entity = CreateTestEntity();
+            entity.CurrentStatus = "Normal";
+            string initialStatus = entity.CurrentStatus;
+
+            try
+            {
+                entity.CurrentStatus = "IllegalValue";
+            }
+            catch (WrongChampPropertyException)
+            {
+            }
+
+            Assert.AreEqual(initialStatus, entity.CurrentStatus);
+        }
     }
 }
