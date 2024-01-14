@@ -312,5 +312,17 @@ namespace loligochi_testlib
             Assert.AreEqual(image, entity.DeadImage);
         }
 
+        [TestMethod]
+        public void HungerLevel_DecrementsCorrectly()
+        {
+            Entity entity = CreateTestEntity();
+            entity.HungerLevel = 50;
+            double decrement = 10;
+
+            entity.HungerLevel -= decrement;
+
+            Assert.AreEqual(40, entity.HungerLevel);
+        }
+
     }
 }
