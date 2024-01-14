@@ -278,5 +278,17 @@ namespace loligochi_testlib
 
             Assert.AreEqual(initialStatus, entity.CurrentStatus);
         }
+
+        [TestMethod]
+        public void IsTheEntitySick_CanBeChanged()
+        {
+            Entity entity = CreateTestEntity();
+            bool sickness = true;
+
+            entity.IsTheEntitySick = sickness;
+
+            Assert.AreEqual(sickness, entity.IsTheEntitySick);
+        }
+
     }
 }
