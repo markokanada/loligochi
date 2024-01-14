@@ -133,14 +133,13 @@ namespace loligochi_testlib
         }
 
         [TestMethod]
+        [ExpectedException(typeof(WrongChampPropertyException))]
         public void Level_CannotBeLessThanMinimum()
         {
             Entity entity = CreateTestEntity();
             double invalidLevel = 0;
 
             entity.Level = invalidLevel;
-
-            Assert.AreEqual(1, entity.Level);
         }
 
         [TestMethod]
@@ -231,7 +230,7 @@ namespace loligochi_testlib
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof(WrongChampPropertyException))]
         public void Age_SettingNegativeValueThrowsException()
         {
             Entity entity = CreateTestEntity();

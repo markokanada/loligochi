@@ -93,10 +93,38 @@ namespace loligochi_classlib
                 {
                     _Level = value;
                 }
+                else if(value > 18)
+                {
+                    _Level = 18;
+                }
+                else
+                {
+                    throw new WrongChampPropertyException();
+                }
                 
             } 
-        } 
-        public double Age { get; set; }
+        }
+        private double _Age;
+
+        public double Age
+        {
+            get
+            {
+                return _Age;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    _Age = value;
+                }
+                else
+                {
+                    throw new WrongChampPropertyException();
+                }
+
+            }
+        }
 
         private double _HP;
         public double HP 
