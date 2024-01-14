@@ -60,5 +60,28 @@ namespace loligochi_tests
             Envirovment.DeserializeEntity(filePath);
 
         }
+
+        [TestMethod]
+        public void DeserializeEntity_ReturnsEntityWithProperContent()
+        {
+            var entity = new Entity("deadImage", "normalImage", "hungryImage",
+                "thirstyImage", "angryImage", "sickImage",
+                "deadVoice", "normalVoice", "sickVoice",
+                "hungryVoice", "thirstyVoice", "angryVoice",
+                "Normal", "TestEntity", "BasedOnEntity", 1,
+                5, 100, 50, 50, false, 0, 100, 50, DateTime.Now);
+
+            var jsonString = JsonSerializer.Serialize(entity);
+            var filePath = Path.Combine("src/save", "TestEntity.json");
+            Directory.CreateDirectory("src/save");
+            File.WriteAllText(filePath, jsonString);
+
+            var deserializedEntity = Envirovment.DeserializeEntity(filePath);
+
+            Assert.IsNotNull(deserializedEntity);
+            Assert.AreEqual("TestEntity", deserializedEntity.Name);
+
+            File.Delete(filePath);
+        }
     }
 }
