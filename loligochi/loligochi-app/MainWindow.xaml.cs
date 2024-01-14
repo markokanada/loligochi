@@ -505,12 +505,14 @@ namespace loligochi_app
         {
             Task.Delay(60000).ContinueWith((t) =>
             {
+                if(Game_Scene.Visibility == Visibility.Visible) { 
                 if (Champion == null) throw new ChampIsNullException();
                 if (Envirovment == null) throw new EnvirovmentIsNullException();
                 Champion = Envirovment.UpdatePetStatus(Champion);
                 if (Champion == null) throw new ChampIsNullException();
                 LoadTheStatus();
                 ChampionStatisticsUpdater();
+                }
             });
         }
 

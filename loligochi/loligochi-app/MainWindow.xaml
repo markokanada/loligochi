@@ -138,7 +138,7 @@
                 Start a new game
             </TextBlock>
 
-            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_New_Game" Content="Main Menu" HorizontalAlignment="Left" Margin="943,603,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="StartANewGameSceneBackToTheMainMenu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
+            <Button Style="{DynamicResource DefaultButtonStyle}" x:Name="Back_To_The_Main_Menu_From_New_Game" Content="Main Menu" HorizontalAlignment="Left" Margin="929,579,0,0" VerticalAlignment="Top" Height="91" Width="327" Click="StartANewGameSceneBackToTheMainMenu" FontFamily="Copperplate Gothic Bold" FontSize="24" Foreground="White" Cursor="Arrow" BorderBrush="{x:Null}" MouseEnter="ButtonHoverSoundEffect">
                 <Button.Background >
                     <ImageBrush x:Name="Back_To_The_Main_Menu_From_New_Game_Background"  ImageSource="/src/images/assets/button.png" TileMode="None" Stretch="UniformToFill"/>
                 </Button.Background>
@@ -370,7 +370,7 @@ UseLayoutRounding="True">
 
             </Image>
 
-            <MediaElement Source="src/Lillia/sick.mp3" x:Name="Loaded_Champ_Sound" Height="0" Width="0" Volume="1" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
+            <MediaElement x:Name="Loaded_Champ_Sound" Height="0" Width="0" Volume="1" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
 
 
             <Grid x:Name="Status_Wall" Margin="76,16,896,313" RenderTransformOrigin="0.5,0.5">

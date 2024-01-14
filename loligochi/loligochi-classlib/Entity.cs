@@ -200,7 +200,7 @@ namespace loligochi_classlib
 
         public void GotHappy()
         {
-            if (this.CurrentStatus == "ANgry") 
+            if (this.CurrentStatus == "Angry") 
             {
                 CurrentStatus = "Normal";
             }
