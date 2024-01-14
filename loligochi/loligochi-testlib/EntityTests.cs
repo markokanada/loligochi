@@ -229,5 +229,14 @@ namespace loligochi_testlib
 
             Assert.AreEqual(entity.BaseHP, entity.HP);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Age_SettingNegativeValueThrowsException()
+        {
+            Entity entity = CreateTestEntity();
+
+            entity.Age = -1;
+        }
     }
 }
