@@ -131,5 +131,16 @@ namespace loligochi_testlib
 
             entity.CurrentStatus = "Invalid";
         }
+
+        [TestMethod]
+        public void Level_CannotBeLessThanMinimum()
+        {
+            Entity entity = CreateTestEntity();
+            double invalidLevel = 0;
+
+            entity.Level = invalidLevel;
+
+            Assert.AreEqual(1, entity.Level);
+        }
     }
 }
