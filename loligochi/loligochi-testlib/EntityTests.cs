@@ -164,5 +164,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(initialLevel + 1, entity.Level);
         }
+
+        [TestMethod]
+        public void Level_CappedAtEighteen()
+        {
+            Entity entity = CreateTestEntity();
+            double invalidLevel = 20;
+
+            entity.Level = invalidLevel;
+
+            Assert.AreEqual(18, entity.Level);
+        }
     }
 }
