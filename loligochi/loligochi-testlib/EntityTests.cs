@@ -195,5 +195,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(18, entity.Level);
         }
+
+        [TestMethod]
+        public void BaseHP_CanBeSetCorrectly()
+        {
+            Entity entity = CreateTestEntity();
+            int newBaseHP = 60;
+
+            entity.BaseHP = newBaseHP;
+
+            Assert.AreEqual(newBaseHP, entity.BaseHP);
+        }
     }
 }
