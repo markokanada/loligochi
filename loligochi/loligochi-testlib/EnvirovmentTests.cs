@@ -50,5 +50,15 @@ namespace loligochi_tests
 
             File.Delete(filePath);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FileMissingException))]
+        public void DeserializeEntity_ThrowsFileMissingExceptionIfFileNotExist()
+        {
+            var filePath = "non_existing_path.json";
+
+            Envirovment.DeserializeEntity(filePath);
+
+        }
     }
 }
