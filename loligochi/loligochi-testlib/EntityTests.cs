@@ -175,5 +175,14 @@ namespace loligochi_testlib
 
             Assert.AreEqual(18, entity.Level);
         }
+
+        [TestMethod]
+        public void Constructor_SetsLastSawCorrectly()
+        {
+            DateTime now = DateTime.Now;
+            Entity entity = CreateTestEntity(lastSaw: now);
+
+            Assert.AreEqual(now, entity.LastSaw);
+        }
     }
 }
