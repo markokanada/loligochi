@@ -55,5 +55,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(entity.MaximumHP, entity.HP);
         }
+
+        [TestMethod]
+        public void HP_CannotBeNegative()
+        {
+            Entity entity = CreateTestEntity();
+            double negativeValue = -10;
+
+            entity.HP = negativeValue;
+
+            Assert.AreEqual(0, entity.HP);
+        }
     }
 }
