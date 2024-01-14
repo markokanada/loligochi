@@ -89,5 +89,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(100, entity.HungerLevel);
         }
+
+        [TestMethod]
+        public void ThirstLevel_CannotBeNegative()
+        {
+            Entity entity = CreateTestEntity();
+            double negativeValue = -5;
+
+            entity.ThirstLevel = negativeValue;
+
+            Assert.AreEqual(0, entity.ThirstLevel);
+        }
     }
 }
