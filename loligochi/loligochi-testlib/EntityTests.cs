@@ -184,5 +184,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(now, entity.LastSaw);
         }
+
+        [TestMethod]
+        public void GotOlder_DoesNotIncreaseLevelBeyondEighteen()
+        {
+            Entity entity = CreateTestEntity();
+            entity.Level = 18;
+
+            entity.GotOlder();
+
+            Assert.AreEqual(18, entity.Level);
+        }
     }
 }
