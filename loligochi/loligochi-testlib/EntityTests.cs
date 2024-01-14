@@ -66,5 +66,17 @@ namespace loligochi_testlib
 
             Assert.AreEqual(0, entity.HP);
         }
+
+        [TestMethod]
+        public void HP_CanBeSetWithinValidRange()
+        {
+            Entity entity = CreateTestEntity();
+            entity.MaximumHP = 100;
+            double validHP = 75;
+
+            entity.HP = validHP;
+
+            Assert.AreEqual(validHP, entity.HP);
+        }
     }
 }
