@@ -31,5 +31,16 @@ namespace loligochi_testlib
 
             Assert.IsTrue(currentTime >= beforeCall && currentTime <= afterCall);
         }
+
+        [TestMethod]
+        public void TimeManager_GetTheTimeThatElapsedTillWeStartedTheGame_ReturnsNonNegativeElapsedTime()
+        {
+            var timeManager = new TimeManager();
+            Thread.Sleep(5);
+
+            var elapsed = timeManager.GetTheTimeThatElapsedTillWeStartedTheGame();
+
+            Assert.IsTrue(elapsed >= TimeSpan.Zero);
+        }
     }
 }
