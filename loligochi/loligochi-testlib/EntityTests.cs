@@ -290,5 +290,16 @@ namespace loligochi_testlib
             Assert.AreEqual(sickness, entity.IsTheEntitySick);
         }
 
+        [TestMethod]
+        public void NormalImage_CanBeSetAndRetrieved()
+        {
+            Entity entity = CreateTestEntity();
+            string image = "newNormalImage.png";
+
+            entity.NormalImage = image;
+
+            Assert.AreEqual(image, entity.NormalImage);
+        }
+
     }
 }
