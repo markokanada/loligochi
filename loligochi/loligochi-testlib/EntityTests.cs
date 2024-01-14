@@ -249,5 +249,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(newAge, entity.Age);
         }
+
+        [TestMethod]
+        public void LastSaw_CanBeChanged()
+        {
+            Entity entity = CreateTestEntity();
+            DateTime newLastSaw = DateTime.Now;
+
+            entity.LastSaw = newLastSaw;
+
+            Assert.AreEqual(newLastSaw, entity.LastSaw);
+        }
     }
 }
