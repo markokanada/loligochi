@@ -206,5 +206,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(newBaseHP, entity.BaseHP);
         }
+
+        [TestMethod]
+        public void MaximumHP_CanBeSetCorrectly()
+        {
+            Entity entity = CreateTestEntity();
+            int newMaximumHP = 200;
+
+            entity.MaximumHP = newMaximumHP;
+
+            Assert.AreEqual(newMaximumHP, entity.MaximumHP);
+        }
     }
 }
