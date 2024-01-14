@@ -193,7 +193,7 @@
 
             </Button>
 
-            <TextBox Style="{DynamicResource InputFieldStyle}" x:Name="Name_Of_The_Champ" Margin="328,481,328,147" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="20" IsUndoEnabled="False" Text="Lillia" IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="ChampNameStartEditing" LostFocus="ChampNameStopEditing">
+            <TextBox Style="{DynamicResource InputFieldStyle}" x:Name="Name_Of_The_Champ" Margin="328,481,328,147" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="24" MaxLines="1" MaxLength="8" IsUndoEnabled="False" Text="Lillia" IsEnabled="True" TextAlignment="Center" Foreground="White" GotFocus="ChampNameStartEditing" LostFocus="ChampNameStopEditing">
                 <TextBox.SelectionBrush>
                     <ImageBrush x:Name="Name_Of_The_Champ_Background_Hovered"  ImageSource="/src/images/assets/button_hovered.png" TileMode="None" Stretch="UniformToFill"/>
                 </TextBox.SelectionBrush>
