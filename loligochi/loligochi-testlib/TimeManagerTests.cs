@@ -42,5 +42,13 @@ namespace loligochi_testlib
 
             Assert.IsTrue(elapsed >= TimeSpan.Zero);
         }
+
+        [TestMethod]
+        public void TimeManager_LastCheck_InitiallySetToSameAsStartTime()
+        {
+            var timeManager = new TimeManager();
+
+            Assert.AreEqual(timeManager.StartTime, timeManager.LastCheck);
+        }
     }
 }
