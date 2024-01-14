@@ -100,5 +100,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(0, entity.ThirstLevel);
         }
+
+        [TestMethod]
+        public void ThirstLevel_CanBeSetWithinValidRange()
+        {
+            Entity entity = CreateTestEntity();
+            double validThirstLevel = 50;
+
+            entity.ThirstLevel = validThirstLevel;
+
+            Assert.AreEqual(validThirstLevel, entity.ThirstLevel);
+        }
     }
 }
