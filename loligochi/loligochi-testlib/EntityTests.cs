@@ -78,5 +78,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(validHP, entity.HP);
         }
+
+        [TestMethod]
+        public void HungerLevel_CannotBeSetAbove100()
+        {
+            Entity entity = CreateTestEntity();
+            double overMaxHunger = 110;
+
+            entity.HungerLevel = overMaxHunger;
+
+            Assert.AreEqual(100, entity.HungerLevel);
+        }
     }
 }
