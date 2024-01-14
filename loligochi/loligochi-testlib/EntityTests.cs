@@ -324,5 +324,17 @@ namespace loligochi_testlib
             Assert.AreEqual(40, entity.HungerLevel);
         }
 
+        [TestMethod]
+        public void ThirstLevel_IncrementsCorrectly()
+        {
+            Entity entity = CreateTestEntity();
+            entity.ThirstLevel = 20;
+            double increment = 15;
+
+            entity.ThirstLevel += increment;
+
+            Assert.AreEqual(35, entity.ThirstLevel);
+        }
+
     }
 }
