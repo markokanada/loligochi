@@ -359,5 +359,16 @@ namespace loligochi_testlib
             Assert.AreEqual(newName, entity.Name);
         }
 
+        [TestMethod]
+        public void BasedOn_CanBeSet()
+        {
+            Entity entity = CreateTestEntity();
+            string newBasedOn = "BasedOnNewValue";
+
+            entity.BasedOn = newBasedOn;
+
+            Assert.AreEqual(newBasedOn, entity.BasedOn);
+        }
+
     }
 }
