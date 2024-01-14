@@ -336,5 +336,17 @@ namespace loligochi_testlib
             Assert.AreEqual(35, entity.ThirstLevel);
         }
 
+        [TestMethod]
+        public void EntitySicknessLevel_DecrementsCorrectly()
+        {
+            Entity entity = CreateTestEntity();
+            entity.EntitySicknessLevel = 50;
+            double decrement = 10;
+
+            entity.EntitySicknessLevel -= decrement;
+
+            Assert.AreEqual(40, entity.EntitySicknessLevel);
+        }
+
     }
 }
