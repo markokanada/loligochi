@@ -19,5 +19,17 @@ namespace loligochi_testlib
 
             Assert.IsTrue(timeManager.StartTime >= beforeCreation && timeManager.StartTime <= afterCreation);
         }
+
+        [TestMethod]
+        public void TimeManager_GetCurrentTime_ReturnsCurrentTime()
+        {
+            var timeManager = new TimeManager();
+            var beforeCall = DateTime.Now;
+
+            var currentTime = timeManager.GetCurrentTime();
+            var afterCall = DateTime.Now;
+
+            Assert.IsTrue(currentTime >= beforeCall && currentTime <= afterCall);
+        }
     }
 }
