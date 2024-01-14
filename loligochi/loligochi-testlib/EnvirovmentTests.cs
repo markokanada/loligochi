@@ -83,5 +83,19 @@ namespace loligochi_tests
 
             File.Delete(filePath);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(SerializationErrorException))]
+        public void DeserializeEntity_ThrowsSerializationErrorExceptionOnInvalidJson()
+        {
+            var invalidJsonString = "invalid_json";
+            var filePath = Path.Combine("src/save", "TestEntity.json");
+            Directory.CreateDirectory("src/save");
+            File.WriteAllText(filePath, invalidJsonString);
+
+            Envirovment.DeserializeEntity(filePath);
+
+            File.Delete(filePath);
+        }
     }
 }
