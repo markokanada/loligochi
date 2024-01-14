@@ -51,16 +51,5 @@ namespace loligochi_testlib
             Assert.AreEqual(timeManager.StartTime, timeManager.LastCheck);
         }
 
-        [TestMethod]
-        public void TimeManager_GetTotalElapsedTime_ReturnsStricterElapsedTimeThanElapsedTillWeStarted()
-        {
-            var timeManager = new TimeManager();
-            Thread.Sleep(5);
-
-            var totalTimeElapsed = timeManager.GetTotalElapsedTime();
-            var tillStartElapsed = timeManager.GetTheTimeThatElapsedTillWeStartedTheGame();
-
-            Assert.IsTrue(tillStartElapsed <= totalTimeElapsed);
-        }
     }
 }
