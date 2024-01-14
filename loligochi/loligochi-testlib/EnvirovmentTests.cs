@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Text.Json;
 
-namespace loligochi_tests
+namespace loligochi_testlib
 {
     [TestClass]
     public class EnvirovmentTests
