@@ -3,7 +3,7 @@ namespace loligochi_testlib
     [TestClass]
     public class EntityTests
     {
-        private Entity CreateTestEntity(DateTime? lastSaw = null, int hp = 0)
+        private Entity CreateTestEntity(DateTime? lastSaw = null, int hp = 0, int entitySicknessLevel = 0)
         {
             return new Entity(
                 deadImage: "deadImage",
@@ -388,6 +388,16 @@ namespace loligochi_testlib
             entity.HP = -5;
 
             Assert.AreEqual(0, entity.HP);
+        }
+
+        [TestMethod]
+        public void EntitySicknessLevel_IncrementsCorrectly()
+        {
+            Entity entity = CreateTestEntity(entitySicknessLevel: 20);
+
+            entity.EntitySicknessLevel += 20;
+
+            Assert.AreEqual(40, entity.EntitySicknessLevel);
         }
 
     }
