@@ -238,5 +238,16 @@ namespace loligochi_testlib
 
             entity.Age = -1;
         }
+
+        [TestMethod]
+        public void Age_CanBeChanged()
+        {
+            Entity entity = CreateTestEntity();
+            double newAge = 10;
+
+            entity.Age = newAge;
+
+            Assert.AreEqual(newAge, entity.Age);
+        }
     }
 }
