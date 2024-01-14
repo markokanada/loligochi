@@ -370,6 +370,9 @@ UseLayoutRounding="True">
 
             </Image>
 
+            <MediaElement Source="src/Lillia/sick.mp3" x:Name="Loaded_Champ_Sound" Height="0" Width="0" Volume="1" LoadedBehavior="Manual" UnloadedBehavior="Stop" IsHitTestVisible="False" Position="00:00:00"/>
+
+
             <Grid x:Name="Status_Wall" Margin="76,16,896,313" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>

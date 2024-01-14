@@ -15,6 +15,7 @@ using System.Windows.Threading;
 using loligochi_classlib;
 using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
+using System.Configuration;
 namespace loligochi_app
 {
     public partial class MainWindow : Window
@@ -307,6 +308,28 @@ namespace loligochi_app
                 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                 #pragma warning disable CS8604 // Possible null reference argument.
                 Loaded_Champ_Image.Source = (ImageSource)Converter.ConvertFromString(Champion.GetType().GetProperty(Champion.CurrentStatus + "Image")?.GetValue(Champion).ToString()) ?? throw new WrongChampPropertyException() ;
+                var voicePath = (string)Champion.GetType().GetProperty(Champion.CurrentStatus + "Voice")?.GetValue(Champion)?.ToString();
+                if (string.IsNullOrWhiteSpace(voicePath))
+                {
+                    throw new WrongChampPropertyException();
+                }
+
+                Loaded_Champ_Sound.Stop();
+
+                Loaded_Champ_Sound.Source = new Uri(voicePath, UriKind.Relative);
+
+
+                Loaded_Champ_Sound.MediaOpened += (s, e) =>
+                {
+                        Loaded_Champ_Sound.Play();
+                };
+
+                Loaded_Champ_Sound.MediaFailed += (s, e) =>
+                {
+                    Trace.WriteLine($"Media Failed: {e.ErrorException.Message}");
+                };
+
+                Loaded_Champ_Sound.Play();
                 #pragma warning restore CS8604 // Possible null reference argument.
                 #pragma warning restore CS8602 // Dereference of a possibly null reference.
                 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
