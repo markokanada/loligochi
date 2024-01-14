@@ -142,5 +142,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(1, entity.Level);
         }
+
+        [TestMethod]
+        public void GotOlder_IncreasesAge()
+        {
+            Entity entity = CreateTestEntity();
+            double initialAge = entity.Age;
+
+            entity.GotOlder();
+
+            Assert.AreEqual(initialAge + 1, entity.Age);
+        }
     }
 }
