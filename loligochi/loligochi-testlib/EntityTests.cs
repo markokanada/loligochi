@@ -27,7 +27,7 @@ namespace loligochi_testlib
                 hungerLevel: 50,
                 thirstLevel: 50,
                 isTheEntitySick: false,
-                entitySicknessLevel: 0,
+                entitySicknessLevel: entitySicknessLevel,
                 maximumHP: 100,
                 baseHP: 50,
                 lastSaw: lastSaw
@@ -400,5 +400,15 @@ namespace loligochi_testlib
             Assert.AreEqual(40, entity.EntitySicknessLevel);
         }
 
+        [TestMethod]
+        public void Level_SettingWithinRangeRetainsValue()
+        {
+            Entity entity = CreateTestEntity();
+            double validLevel = 5;
+
+            entity.Level = validLevel;
+
+            Assert.AreEqual(validLevel, entity.Level);
+        }
     }
 }
