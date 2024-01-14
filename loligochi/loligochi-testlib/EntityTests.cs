@@ -111,5 +111,16 @@ namespace loligochi_testlib
 
             Assert.AreEqual(validThirstLevel, entity.ThirstLevel);
         }
+
+        [TestMethod]
+        public void ThirstLevel_CappedAtMaximum()
+        {
+            Entity entity = CreateTestEntity();
+            double overMaxThirstLevel = 120;
+
+            entity.ThirstLevel = overMaxThirstLevel;
+
+            Assert.AreEqual(100, entity.ThirstLevel);
+        }
     }
 }
