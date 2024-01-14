@@ -122,5 +122,14 @@ namespace loligochi_testlib
 
             Assert.AreEqual(100, entity.ThirstLevel);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(WrongChampPropertyException))]
+        public void CurrentStatus_ThrowsExceptionWhenSettingInvalidValue()
+        {
+            Entity entity = CreateTestEntity();
+
+            entity.CurrentStatus = "Invalid";
+        }
     }
 }
