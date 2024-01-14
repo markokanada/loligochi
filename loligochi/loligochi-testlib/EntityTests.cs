@@ -217,5 +217,17 @@ namespace loligochi_testlib
 
             Assert.AreEqual(newMaximumHP, entity.MaximumHP);
         }
+
+        [TestMethod]
+        public void HP_IsSetToBaseHPWhenBelow()
+        {
+            Entity entity = CreateTestEntity();
+            entity.BaseHP = 50;
+            entity.HP = 10;
+
+            entity.HP = entity.BaseHP;
+
+            Assert.AreEqual(entity.BaseHP, entity.HP);
+        }
     }
 }
