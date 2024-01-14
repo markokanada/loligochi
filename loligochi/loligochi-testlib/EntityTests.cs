@@ -380,5 +380,15 @@ namespace loligochi_testlib
             Assert.AreEqual(80, hp);
         }
 
+        [TestMethod]
+        public void HP_SetterRestrictsValueToNonNegative()
+        {
+            Entity entity = CreateTestEntity();
+
+            entity.HP = -5;
+
+            Assert.AreEqual(0, entity.HP);
+        }
+
     }
 }
